@@ -1,1 +1,245 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+$colone: #312d3c;
+$coltwo: #1a1b1f;
+$colmenu: #BDC1F6;
+$colmenuhr: #717BF9;
+$colthr: rgb(0, 0, 0);
+$header_bg_color: #262626;
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    font-size: 62.5%;
+    color: $colthr;
+    background-color: $coltwo;
+}
+
+
+
+section {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-flow: column wrap;
+    font-size: 1rem;
+    background-color: $colthr;
+    // background-image: url("/storage/images/bg0.png");
+    background-size: cover;
+
+    // transition: background-image 1s ease-in-out;
+
+    scroll-snap-align: center;
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 2.25rem;
+        font-weight: 900;
+        padding: 0.5em 1em;
+
+        color: $coltwo;
+        background-color: $colthr;
+        mix-blend-mode: screen;
+
+        border-radius: 0.25em;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    #landing_logo {
+        z-index: 2;
+        opacity: 1;
+        top: -40px;
+        left: 50px;
+        display: block;
+        position: fixed;
+        // margin-left: auto;
+        // margin-right: auto;
+        width: 100%;
+        // margin-left: auto;
+        // margin-right: auto;
+    }
+
+    #landing_button {
+        z-index: 4;
+        opacity: 0.7;
+        top: 400px;
+        // left: 250px;
+        display: block;
+        position: relative;
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &:nth-child(2) {
+        // background-image: url("/storage/images/bg1.png");
+    }
+
+    &:nth-child(3) {
+        // background-image: url("/storage/images/bg2.png");
+    }
+
+    &:nth-child(4) {
+        // background-image: url("/storage/images/bg3.png");
+    }
+}
+
+.center {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.panel {
+    color: white;
+    height: 100%;
+    min-width: 100%;
+    text-align: center;
+    display: table;
+    margin: 0;
+    background: #1c1c1c;
+    padding: 0 0;
+}
+
+.panel .inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.backgroundimg {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#back1 {
+    background-image: url("/storage/images/bg3.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#back2 {
+    background-image: url("/storage/images/bg2.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#back3 {
+    background-image: url("/storage/images/bg1.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#back4 {
+    background-image: url("/storage/images/bg0.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+@keyframes backgroundchangeFadeInOut {
+    0% {
+        opacity: 1;
+    }
+
+    17% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    92% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes backgroundchangeFadeInOut {
+    0% {
+        opacity: 1;
+    }
+
+    17% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    92% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#backgroundchange div:nth-of-type(1) {
+    animation-delay: 12s;
+    -webkit-animation-delay: 12s;
+}
+
+#backgroundchange div:nth-of-type(2) {
+    animation-delay: 8s;
+    -webkit-animation-delay: 8s;
+}
+
+#backgroundchange div:nth-of-type(3) {
+    animation-delay: 4s;
+    -webkit-animation-delay: 4s;
+}
+
+#backgroundchange div:nth-of-type(4) {
+    animation-delay: 0;
+    -webkit-animation-delay: 0;
+}
+
+#backgroundchange div {
+    animation-name: backgroundchangeFadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 16s;
+
+    -webkit-animation-name: backgroundchangeFadeInOut;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 16s;
+
+}
