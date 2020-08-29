@@ -32,7 +32,8 @@ body {
     font-family: "Montserrat", sans-serif;
     // font-size: 62.5%;
     color: $bodybg;
-    background-color: $navbarbg;
+    // background-color: $navbarbg;
+    background-color: white;
 }
 
 .container {
@@ -303,20 +304,23 @@ body {
 
 /* END - HEADER PAGE */
 
-.footer {
-
+.footer-wrapper {
     background: $navbarbg;
-    opacity: 1;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 15px;
-    margin-bottom: 20p;
 
-    img {
-        width: 136px;
+    .footer {
+
+        background: $navbarbg;
+        opacity: 1;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+        margin-bottom: 20p;
+
+        img {
+            width: 136px;
+        }
     }
 }
-
 
 /* SECTIONS */
 
@@ -340,25 +344,84 @@ section {
     &:nth-child(2) {
         background: linear-gradient(180deg, #BDC1F6D6 0%, #FFFFFF29 100%) 0% 0% no-repeat padding-box;
         opacity: 1;
+        text-align: center;
+
+        .section-title {
+
+            h1 {
+                text-align: left;
+                font: normal normal normal 74px/90px Lust Display;
+                letter-spacing: 0.74px;
+                color: #717BF9;
+                opacity: 1;
+                text-align: center;
+                // margin-top: 141px;
+            }
+
+            .border {
+                background: none repeat scroll 0 0 #CACACA;
+                display: block;
+                height: 3px;
+                margin: 40px auto;
+                width: 248px;
+            }
+
+            p {
+                color: #717BF9;
+                margin: auto;
+                width: 50%;
+            }
+        }
+
+        .devices {
+            object-fit: cover;
+            width: 700px;
+            height: 450px;
+        }
     }
 
     // SERVICES
     &:nth-child(3) {
         opacity: 1;
-        background: #FFFFFF87 0% 0% no-repeat padding-box;
+        background: #FFFFFF29 0% 0% no-repeat padding-box;
     }
 
     // PORTFOLIO
     &:nth-child(4) {
-        background: transparent linear-gradient(358deg, #BDC1F6E0 0%, #FFFFFF87 100%) 0% 0% no-repeat padding-box;
+        background: linear-gradient(358deg, #BDC1F6E0 0%, #FFFFFF87 100%) 0% 0% no-repeat padding-box;
         opacity: 0.61;
     }
 
     // CONTACT ME
     &:nth-child(5) {
-        background: transparent linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
+        background: linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
         opacity: 1;
     }
 }
 
 /* END - SECTIONS */
+
+
+.devices {
+    visibility: hidden;
+}
+
+.fadeIn {
+    visibility: visible !important;
+    position: relative;
+    animation-name: animat_show;
+    animation-duration: 1.4s;
+    animation-iteration-count: 1;
+}
+
+@keyframes animat_show {
+    100% {
+        opacity: 1;
+        top: 0px;
+    }
+
+    0% {
+        opacity: 0;
+        top: 200px;
+    }
+}

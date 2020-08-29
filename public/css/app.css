@@ -1,26 +1,19 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito");
-*,
+@import url(https://fonts.googleapis.com/css?family=Nunito);*,
 ::before,
 ::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
   position: relative;
   margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 100vh;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
   color: #FFFFFF29;
-  background-color: #191919;
+  background-color: white;
 }
 
 .container {
@@ -62,6 +55,7 @@ body {
 }
 
 /* Navigation */
+
 .nav-bar {
   display: block;
   background: #191919;
@@ -108,18 +102,15 @@ body {
 }
 
 /* END - Navigation */
+
 /* HEADER PAGE */
+
 .header-block {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100vw;
   min-height: 100vh;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+  flex-flow: column wrap;
   font-size: 1rem;
   scroll-snap-align: center;
   vertical-align: middle;
@@ -150,8 +141,6 @@ body {
 }
 
 .center {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-left: auto;
   margin-right: auto;
@@ -215,15 +204,19 @@ body {
   0% {
     opacity: 1;
   }
+
   20% {
     opacity: 1;
   }
+
   28% {
     opacity: 0;
   }
+
   85% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -233,15 +226,19 @@ body {
   0% {
     opacity: 1;
   }
+
   20% {
     opacity: 1;
   }
+
   28% {
     opacity: 0;
   }
+
   85% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -279,35 +276,32 @@ body {
 }
 
 /* END - HEADER PAGE */
-.footer {
+
+.footer-wrapper {
+  background: #191919;
+}
+
+.footer-wrapper .footer {
   background: #191919;
   opacity: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding-top: 15px;
   margin-bottom: 20p;
 }
 
-.footer img {
+.footer-wrapper .footer img {
   width: 136px;
 }
 
 /* SECTIONS */
+
 section {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   min-height: 100vh;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+  flex-flow: column wrap;
   font-size: 1rem;
   scroll-snap-align: center;
 }
@@ -320,26 +314,94 @@ section h2 {
 }
 
 section:nth-child(2) {
-  background: -webkit-gradient(linear, left top, left bottom, from(#BDC1F6D6), to(#FFFFFF29)) 0% 0% no-repeat padding-box;
   background: linear-gradient(180deg, #BDC1F6D6 0%, #FFFFFF29 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
+  text-align: center;
+}
+
+section:nth-child(2) .section-title h1 {
+  text-align: left;
+  font: normal normal normal 74px/90px Lust Display;
+  letter-spacing: 0.74px;
+  color: #717BF9;
+  opacity: 1;
+  text-align: center;
+}
+
+section:nth-child(2) .section-title .border {
+  background: none repeat scroll 0 0 #CACACA;
+  display: block;
+  height: 3px;
+  margin: 40px auto;
+  width: 248px;
+}
+
+section:nth-child(2) .section-title p {
+  color: #717BF9;
+  margin: auto;
+  width: 50%;
+}
+
+section:nth-child(2) .devices {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 700px;
+  height: 450px;
 }
 
 section:nth-child(3) {
   opacity: 1;
-  background: #FFFFFF87 0% 0% no-repeat padding-box;
+  background: #FFFFFF29 0% 0% no-repeat padding-box;
 }
 
 section:nth-child(4) {
-  background: transparent linear-gradient(358deg, #BDC1F6E0 0%, #FFFFFF87 100%) 0% 0% no-repeat padding-box;
+  background: linear-gradient(358deg, #BDC1F6E0 0%, #FFFFFF87 100%) 0% 0% no-repeat padding-box;
   opacity: 0.61;
 }
 
 section:nth-child(5) {
-  background: transparent -webkit-gradient(linear, left top, left bottom, from(#dbdefbe0), color-stop(30%, #B3B7F8CC), to(#00054B)) 0% 0% no-repeat padding-box;
-  background: transparent linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
+  background: linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
 }
 
 /* END - SECTIONS */
-/*# sourceMappingURL=app.css.map */
+
+.devices {
+  visibility: hidden;
+}
+
+.fadeIn {
+  visibility: visible !important;
+  position: relative;
+  -webkit-animation-name: animat_show;
+          animation-name: animat_show;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+@-webkit-keyframes animat_show {
+  100% {
+    opacity: 1;
+    top: 0px;
+  }
+
+  0% {
+    opacity: 0;
+    top: 200px;
+  }
+}
+
+@keyframes animat_show {
+  100% {
+    opacity: 1;
+    top: 0px;
+  }
+
+  0% {
+    opacity: 0;
+    top: 200px;
+  }
+}
+

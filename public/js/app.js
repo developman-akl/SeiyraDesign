@@ -43099,10 +43099,27 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var options = {
   'damping': 0.05
 };
-var mainScrollbar = document.querySelector('#main-scrollbar');
+$(document).ready(function () {
+  var Scroll = smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#main-scrollbar'), options);
+  Scroll.addListener(function (s) {
+    console.log(s.offset.y); // returns “scrollTop” equivalent
 
-if (mainScrollbar !== null && mainScrollbar !== void 0 ? mainScrollbar : null) {
-  smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(mainScrollbar, options);
+    showImages('.devices', s);
+  });
+});
+
+function showImages(el, s) {
+  var windowHeight = jQuery(window).height();
+  $(el).each(function () {
+    var thisPos = s && s.offset !== 'undefine' ? s.offset.y : 0;
+    var topOfWindow = $(window).scrollTop();
+    var pos = windowHeight - topOfWindow;
+
+    if (pos < thisPos && !$(this).hasClass("fadeIn")) {
+      debugger;
+      $(this).addClass("fadeIn");
+    }
+  });
 }
 
 /***/ }),
