@@ -14,7 +14,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.site.title'),
-                'value'        => __('voyager::seeders.settings.site.title'),
+                'value'        => __('Seiyra Design'),
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -26,7 +26,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.site.description'),
-                'value'        => __('voyager::seeders.settings.site.description'),
+                'value'        => __('Seiyra Design'),
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
@@ -38,7 +38,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.site.logo'),
-                'value'        => '',
+                'value'        => 'settings\August2020\tA57gFpp9JnpGlZvmY6P.png',
                 'details'      => '',
                 'type'         => 'image',
                 'order'        => 3,
@@ -54,6 +54,54 @@ class SettingsTableSeeder extends Seeder
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 4,
+                'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('site.email');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('voyager::seeders.settings.site.email'),
+                'value'        => 'seiyra8@gmail.com',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 5,
+                'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('site.linkedin');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('voyager::seeders.settings.site.LinkedIn '),
+                'value'        => 'https://www.linkedin.com/in/noramolnarercsei/',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 6,
+                'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('site.instagram');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('voyager::seeders.settings.site.instagram'),
+                'value'        => '',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 6,
+                'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('site.behance');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('voyager::seeders.settings.site.behance'),
+                'value'        => '',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 7,
                 'group'        => 'Site',
             ])->save();
         }
@@ -74,7 +122,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.admin.title'),
-                'value'        => 'Voyager',
+                'value'        => 'Seiyra Design',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,

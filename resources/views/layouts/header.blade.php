@@ -1,7 +1,7 @@
 <div class="header-block">
     <img class="center" id="header_logo"
         src="{{ asset("storage/images/SeyraDesignHeader.svg") }}"
-        alt="Seiyra Design header" />
+        alt="Seiyra Design Header" />
 
     <div class="panel">
         <div class="inner">
@@ -16,7 +16,7 @@
 
     <div class="header_button_wrapper">
         <a href="#home">
-            <img id="header_button" src="{{ asset("storage/images/MOVE DOWNBUTTON.svg") }}"
+            <img id="header_button" src="{{ asset("storage/images/downbutton.svg") }}"
                 alt="Scroll down to Home" />
         </a>
     </div>
