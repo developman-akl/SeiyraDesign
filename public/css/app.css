@@ -21,7 +21,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 62.5%;
   color: #FFFFFF29;
-  background-color: #FFFFFF29;
+  background-color: #191919;
 }
 
 .container {
@@ -280,6 +280,23 @@ body {
 }
 
 /* END - HEADER PAGE */
+.footer {
+  background: #191919;
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 15px;
+  margin-bottom: 20p;
+}
+
+.footer img {
+  width: 136px;
+}
+
 /* SECTIONS */
 section {
   position: relative;

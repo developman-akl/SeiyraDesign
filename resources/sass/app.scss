@@ -32,7 +32,7 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 62.5%;
     color: $bodybg;
-    background-color: $bodybg;
+    background-color: $navbarbg;
 }
 
 .container {
@@ -302,6 +302,20 @@ body {
 }
 
 /* END - HEADER PAGE */
+
+.footer {
+
+    background: $navbarbg;
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    margin-bottom: 20p;
+
+    img {
+        width: 136px;
+    }
+}
 
 
 /* SECTIONS */
