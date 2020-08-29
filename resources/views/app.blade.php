@@ -12,24 +12,22 @@
 </head>
 
 <body id="main-scrollbar">
-    <section id="header">
-        @include('sections.header')
+    @include('layouts.header')
+
+    <section id="welcome">
+        @include('sections.welcome')
+    </section>
+    <section id="services">
+        @include('sections.services')
+    </section>
+    <section id="portfolio">
+        @include('sections.portfolio')
+    </section>
+    <section id="contact">
+        @include('sections.contact')
     </section>
 
-    <div class="container">
-        <section id="home">
-            @include('sections.home')
-        </section>
-        <section id="services">
-            @include('sections.services')
-        </section>
-        <section id="portfolio">
-            @include('sections.portfolio')
-        </section>
-        <section id="contact">
-            @include('sections.contact')
-        </section>
-    </div>
+    @include('layouts.footer')
     <script src="{{ mix('js/app.js') }}"></script>
 
 </body>

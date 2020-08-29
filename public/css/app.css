@@ -56,57 +56,64 @@ body {
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1366px) {
   .container {
     max-width: 1366px;
   }
 }
 
 /* Navigation */
-.nav-bg-div {
-  background: #262626;
+.nav-bar {
+  display: block;
+  background: #191919;
+  opacity: 1;
+  position: relative;
 }
 
-.nav-bg-div nav {
+.nav-bar .nav-logo-img {
+  float: left;
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.nav-bar nav {
   float: right;
   margin: 0;
-  overflow: hidden;
+  position: relative;
   text-align: center;
 }
 
-.nav-bg-div nav ul {
+.nav-bar nav ul {
   margin: 0;
-  padding: 0;
+  padding-top: 17.5px;
 }
 
-.nav-bg-div nav ul li {
+.nav-bar nav ul li {
   display: inline-block;
   list-style-type: none;
 }
 
-.nav-bg-div nav ul li a {
+.nav-bar nav ul li a {
   color: #aaa;
   display: block;
   line-height: 2em;
   padding: 0.5em 1em;
   text-decoration: none;
-}
-
-.nav-bg-div .nav-logo-img {
-  float: left;
-  position: relative;
-  display: block;
-  margin: 10px 15px 15px 10px;
+  text-transform: uppercase;
 }
 
 /* END - Navigation */
-/* header PAGE */
-section {
+/* HEADER PAGE */
+.header-block {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -114,30 +121,11 @@ section {
           flex-flow: column wrap;
   font-size: 1rem;
   scroll-snap-align: center;
-}
-
-section h2 {
-  text-transform: uppercase;
-  font-size: 2.25rem;
-  font-weight: 900;
-  padding: 0.5em 1em;
-  color: #1a1b1f;
-  background-color: black;
-  mix-blend-mode: screen;
-  border-radius: 0.25em;
-  pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-section .header-block {
   vertical-align: middle;
   text-align: center;
 }
 
-section .header-block #header_logo {
+.header-block #header_logo {
   z-index: 999;
   opacity: 1;
   top: 150px;
@@ -146,46 +134,18 @@ section .header-block #header_logo {
   width: 80%;
 }
 
-section .header-block .header_button_wrapper {
+.header-block .header_button_wrapper {
   position: absolute;
   width: 100%;
   bottom: 50px;
 }
 
-section .header-block .header_button_wrapper #header_button {
+.header-block .header_button_wrapper #header_button {
   z-index: 4;
-  opacity: 0.8;
   width: 65px;
   border-radius: 50%;
-  background-color: #312d3c;
-}
-
-section:nth-child(2) {
-  background: transparent -webkit-gradient(linear, left top, left bottom, from(#BDC1F6D6), to(#FFFFFF29)) 0% 0% padding-box;
-  background: transparent linear-gradient(180deg, #BDC1F6D6 0%, #FFFFFF29 100%) 0% 0% padding-box;
-  opacity: 0.82;
-}
-
-section:nth-child(2)before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  left: 100%;
-  top: 0;
-  width: 10vw;
-  background: inherit;
-  z-index: -1;
-}
-
-section:nth-child(2)after {
-  content: '';
-  position: absolute;
-  height: 100%;
-  right: 100%;
-  top: 0;
-  width: 10vw;
-  background: inherit;
-  z-index: -1;
+  background: #29292996 0% 0% no-repeat padding-box;
+  opacity: 1;
 }
 
 .center {
@@ -317,5 +277,51 @@ section:nth-child(2)after {
   -webkit-animation-duration: 16s;
 }
 
-/* END - header PAGE */
+/* END - HEADER PAGE */
+/* SECTIONS */
+section {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  font-size: 1rem;
+  scroll-snap-align: center;
+}
+
+section h2 {
+  text-transform: uppercase;
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: black;
+}
+
+section:nth-child(2) {
+  background: -webkit-gradient(linear, left top, left bottom, from(#BDC1F6D6), to(#FFFFFF29)) 0% 0% no-repeat padding-box;
+  background: linear-gradient(180deg, #BDC1F6D6 0%, #FFFFFF29 100%) 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+section:nth-child(3) {
+  opacity: 1;
+  background: #FFFFFF87 0% 0% no-repeat padding-box;
+}
+
+section:nth-child(4) {
+  background: transparent linear-gradient(358deg, #BDC1F6E0 0%, #FFFFFF87 100%) 0% 0% no-repeat padding-box;
+  opacity: 0.61;
+}
+
+section:nth-child(5) {
+  background: transparent -webkit-gradient(linear, left top, left bottom, from(#dbdefbe0), color-stop(30%, #B3B7F8CC), to(#00054B)) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+/* END - SECTIONS */
 /*# sourceMappingURL=app.css.map */
