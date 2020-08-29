@@ -1,6 +1,6 @@
 <div class="header-block">
     <img class="center" id="header_logo"
-        src="{{ url("storage/images/SeyraDesignHeader.svg") }}"
+        src="{{ asset("storage/images/SeyraDesignHeader.svg") }}"
         alt="Seiyra Design header" />
 
     <div class="panel">
@@ -16,7 +16,7 @@
 
     <div class="header_button_wrapper">
         <a href="#home">
-            <img id="header_button" src="{{ url("storage/images/MOVE DOWNBUTTON.svg") }}"
+            <img id="header_button" src="{{ asset("storage/images/MOVE DOWNBUTTON.svg") }}"
                 alt="Scroll down to Home" />
         </a>
     </div>
