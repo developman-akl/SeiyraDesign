@@ -43116,7 +43116,6 @@ function showImages(el, s) {
     var pos = windowHeight - topOfWindow;
 
     if (pos < thisPos && !$(this).hasClass("fadeIn")) {
-      debugger;
       $(this).addClass("fadeIn");
     }
   });

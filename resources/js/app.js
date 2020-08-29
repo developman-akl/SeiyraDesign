@@ -8,7 +8,7 @@ var options = {
 
 $(document).ready(function () {
     const Scroll = Scrollbar.init(document.querySelector('#main-scrollbar'), options);
-    
+
     Scroll.addListener((s) => {
         console.log(s.offset.y) // returns “scrollTop” equivalent
         showImages('.devices', s);
@@ -16,17 +16,15 @@ $(document).ready(function () {
 });
 
 function showImages(el, s) {
-    var windowHeight = jQuery( window ).height();
+    var windowHeight = jQuery(window).height();
     $(el).each(function () {
         var thisPos = s && s.offset !== 'undefine' ? s.offset.y : 0;
 
         var topOfWindow = $(window).scrollTop();
         var pos = windowHeight - topOfWindow;
-    
-        if (pos < thisPos && !$(this).hasClass("fadeIn")) {
-                debugger;
-                $(this).addClass("fadeIn");
 
+        if (pos < thisPos && !$(this).hasClass("fadeIn")) {
+            $(this).addClass("fadeIn");
         }
     });
 }
