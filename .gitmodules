@@ -1,0 +1,3 @@
+[submodule "SeiyraDesign"] 		
+  path = SeiyraDesign		
+  url = git@github.com:molnarjg/SeiyraDesign.git
