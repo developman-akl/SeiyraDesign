@@ -1,7 +1,7 @@
 @section('content')
 <div class="container">
-    <section id="landing">
-        @include('sections.landing')
+    <section id="header">
+        @include('sections.header')
     </section>
     <section id="home">
         @include('sections.home')

@@ -43099,7 +43099,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var options = {
   'damping': 0.05
 };
-smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#main-scrollbar'), options);
+var mainScrollbar = document.querySelector('#main-scrollbar');
+
+if (mainScrollbar !== null && mainScrollbar !== void 0 ? mainScrollbar : null) {
+  smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(mainScrollbar, options);
+}
 
 /***/ }),
 

@@ -6,5 +6,8 @@ var options = {
     'damping' : 0.05,
 }
 
-
-Scrollbar.init(document.querySelector('#main-scrollbar'), options);
+var mainScrollbar = document.querySelector('#main-scrollbar');
+if (mainScrollbar ?? null)
+{
+    Scrollbar.init(mainScrollbar, options);
+}

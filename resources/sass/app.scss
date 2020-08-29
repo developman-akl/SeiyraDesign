@@ -5,7 +5,7 @@
 @import 'variables';
 
 // Bootstrap
-@import '../../node_modules/bootstrap/scss/bootstrap';
+// @import '../../node_modules/bootstrap/scss/bootstrap';
 
 $colone: #312d3c;
 $coltwo: #1a1b1f;
@@ -13,6 +13,7 @@ $colmenu: #BDC1F6;
 $colmenuhr: #717BF9;
 $colthr: rgb(0, 0, 0);
 $header_bg_color: #262626;
+$bodybg: #FFFFFF29;
 
 *,
 ::before,
@@ -29,9 +30,118 @@ body {
     line-height: 1.5;
     font-family: "Montserrat", sans-serif;
     font-size: 62.5%;
-    color: $colthr;
-    background-color: $coltwo;
+    color: $bodybg;
+    background-color: $bodybg;
 }
+
+.container {
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1366px;
+    }
+}
+
+/* Navigation */
+.nav-bg-div {
+    background: #262626;
+    // overflow: hidden;
+
+    nav {
+        float: right;
+        margin: 0;
+        overflow: hidden;
+        text-align: center;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: inline-block;
+                list-style-type: none;
+
+                a {
+                    color: #aaa;
+                    display: block;
+                    line-height: 2em;
+                    padding: 0.5em 1em;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .nav-logo-img {
+        float: left;
+        position: relative;
+        display: block;
+        margin: 10px 15px 15px 10px;
+    }
+}
+
+/* END - Navigation */
+
+
+/* header PAGE */
+// .header-block {
+//     float: center;
+//     background: transparent linear-gradient(180deg, #BDC1F6D6 0%, #FFFFFF29 100%) 0% 0% padding-box;
+//     opacity: 0.82;
+//     // position: relative;
+
+//     &before {
+//         content: '';
+//         position: absolute;
+//         height: 100%;
+//         left: 100%;
+//         top: 0;
+//         width: 10vw;
+//         background: inherit;
+//         z-index: -1
+//     }
+
+//     &after {
+//         content: '';
+//         position: absolute;
+//         height: 100%;
+//         right: 100%;
+//         top: 0;
+//         width: 10vw;
+//         background: inherit;
+//         z-index: -1
+//     }
+// }
 
 
 
@@ -42,9 +152,9 @@ section {
     min-height: 100vh;
     flex-flow: column wrap;
     font-size: 1rem;
-    background-color: $colthr;
+    // background-color: $colthr;
     // background-image: url("/storage/images/bg0.png");
-    background-size: cover;
+    // background-size: cover;
 
     // transition: background-image 1s ease-in-out;
 
@@ -65,50 +175,86 @@ section {
         user-select: none;
     }
 
-    #landing_logo {
-        z-index: 2;
-        opacity: 1;
-        top: -40px;
-        left: 50px;
-        display: block;
-        position: fixed;
-        // margin-left: auto;
-        // margin-right: auto;
-        width: 100%;
-        // margin-left: auto;
-        // margin-right: auto;
-    }
 
-    #landing_button {
-        z-index: 4;
-        opacity: 0.7;
-        top: 400px;
-        // left: 250px;
-        display: block;
-        position: relative;
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
+    .header-block {
+        vertical-align: middle;
+        text-align: center;
+        
+        #header_logo {
+            z-index: 999;
+            opacity: 1;
+            top: 150px;
+            display: block;
+            position: relative;
+            width: 80%;
+        }
+
+
+        .header_button_wrapper {
+            position: absolute;
+            width: 100%;
+            bottom: 50px;
+
+
+            #header_button {
+                z-index: 4;
+                opacity: 0.8;
+                // top: 650px;
+                // display: block;
+                // position: relative;
+                // justify-content: space-between;
+                // position: absolute;
+                width: 65px;
+                border-radius: 50%;
+                // margin-left: auto;
+                // margin-right: auto;
+                // position: absolute;
+                // top: 50%;
+                background-color: $colone;
+                // -ms-transform: translateY(50%);
+
+            }
+        }
     }
 
     &:nth-child(2) {
-        // background-image: url("/storage/images/bg1.png");
+        background: transparent linear-gradient(180deg, #BDC1F6D6 0%, #FFFFFF29 100%) 0% 0% padding-box;
+        opacity: 0.82;
+
+        &before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            left: 100%;
+            top: 0;
+            width: 10vw;
+            background: inherit;
+            z-index: -1
+        }
+
+        &after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            right: 100%;
+            top: 0;
+            width: 10vw;
+            background: inherit;
+            z-index: -1
+        }
+
     }
 
-    &:nth-child(3) {
-        // background-image: url("/storage/images/bg2.png");
-    }
-
-    &:nth-child(4) {
-        // background-image: url("/storage/images/bg3.png");
-    }
+    // &:nth-child(4) {
+    // background-image: url("/storage/images/bg3.png");
+    // }
 }
 
 .center {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .panel {
@@ -172,15 +318,15 @@ section {
         opacity: 1;
     }
 
-    17% {
+    20% {
         opacity: 1;
     }
 
-    25% {
+    28% {
         opacity: 0;
     }
 
-    92% {
+    85% {
         opacity: 0;
     }
 
@@ -194,15 +340,15 @@ section {
         opacity: 1;
     }
 
-    17% {
+    20% {
         opacity: 1;
     }
 
-    25% {
+    28% {
         opacity: 0;
     }
 
-    92% {
+    85% {
         opacity: 0;
     }
 
@@ -243,3 +389,5 @@ section {
     -webkit-animation-duration: 16s;
 
 }
+
+/* END - header PAGE */

@@ -12,10 +12,11 @@
 </head>
 
 <body id="main-scrollbar">
+    <section id="header">
+        @include('sections.header')
+    </section>
+
     <div class="container">
-        <section id="landing">
-            @include('sections.landing')
-        </section>
         <section id="home">
             @include('sections.home')
         </section>
@@ -30,6 +31,7 @@
         </section>
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
+
 </body>
 
 </html>
