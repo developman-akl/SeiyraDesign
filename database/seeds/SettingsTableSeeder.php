@@ -124,7 +124,7 @@ class SettingsTableSeeder extends Seeder
                 'display_name' => __('Welcome Page Description'),
                 'value'        => '',
                 'details'      => '',
-                'type'         => 'text',
+                'type'         => 'textarea',
                 'order'        => 11,
                 'group'        => 'Welcome',
             ])->save();
