@@ -20,12 +20,17 @@
 
         @include('sections.footer')
     </div>
-
-    <input type="button" id="btnPrev" value="Previous">
-    <input type="button" id="btnNext" value="Next">
+    
+    <a href="#" id="btnPrev">
+        <img class="img-fluid" src="{{ asset('storage/images/jumprefup.svg') }}"
+            alt="Previous page" title="Previous page"loading="lazy" ALIGN=RIGHT>
+    </a>
+    <a href="#" id="btnNext">
+        <img class="img-fluid" src="{{ asset('storage/images/jumprefdown.svg') }}"
+            alt="Next page" title="Next page" loading="lazy" ALIGN=RIGHT>
+    </a>
 
     <script src="{{ mix('js/app.js') }}"></script>
 
 </body>
-
 </html>
