@@ -65,7 +65,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'seiyra8@gmail.com',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 5,
+                'order'        => 6,
                 'group'        => 'Site',
             ])->save();
         }
@@ -77,7 +77,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'https://www.linkedin.com/in/noramolnarercsei/',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 6,
+                'order'        => 7,
                 'group'        => 'Site',
             ])->save();
         }
@@ -89,7 +89,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => '',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 6,
+                'order'        => 8,
                 'group'        => 'Site',
             ])->save();
         }
@@ -101,8 +101,32 @@ class SettingsTableSeeder extends Seeder
                 'value'        => '',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 7,
+                'order'        => 9,
                 'group'        => 'Site',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('welcome.welcome_title');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Welcome Page Title '),
+                'value'        => 'Welcome to Seiyra Design',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 10,
+                'group'        => 'Welcome',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('welcome.welcome_description');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Welcome Page Description'),
+                'value'        => '',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 11,
+                'group'        => 'Welcome',
             ])->save();
         }
 

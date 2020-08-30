@@ -353,10 +353,9 @@ section:nth-child(2) .section-title p {
 }
 
 section:nth-child(2) .devices {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 750px;
-  height: 450px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 90%;
   visibility: hidden;
   margin-top: 0;
   margin-bottom: 0;

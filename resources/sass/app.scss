@@ -386,9 +386,8 @@ section {
         }
 
         .devices {
-            object-fit: cover;
-            width: 750px;
-            height: 450px;
+            object-fit: contain;
+            width: 90%;
             visibility: hidden;
             margin-top: 0;
             margin-bottom: 0;
