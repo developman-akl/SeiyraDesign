@@ -3,10 +3,10 @@
 <div class="container full-width">
 
     <div class="section-title">
-        <h1>{{ setting('welcome.welcome_title') }}</h1>
+        <h1>{{ setting('welcome.title') }}</h1>
         <span class="border"></span>
         
-        <p>{{ setting('welcome.welcome_description') }}</p>
+        <p>{{ setting('welcome.description') }}</p>
     </div>
 
     <img src="{{ asset('storage/images/devices.png') }}" class="devices" />

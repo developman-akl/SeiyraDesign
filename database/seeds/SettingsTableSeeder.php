@@ -28,7 +28,7 @@ class SettingsTableSeeder extends Seeder
                 'display_name' => __('voyager::seeders.settings.site.description'),
                 'value'        => __('Seiyra Design'),
                 'details'      => '',
-                'type'         => 'text',
+                'type'         => 'text_area',
                 'order'        => 2,
                 'group'        => 'Site',
             ])->save();
@@ -106,10 +106,10 @@ class SettingsTableSeeder extends Seeder
             ])->save();
         }
 
-        $setting = $this->findSetting('welcome.welcome_title');
+        $setting = $this->findSetting('welcome.title');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('Welcome Page Title '),
+                'display_name' => __('Welcome Title '),
                 'value'        => 'Welcome to Seiyra Design',
                 'details'      => '',
                 'type'         => 'text',
@@ -118,15 +118,39 @@ class SettingsTableSeeder extends Seeder
             ])->save();
         }
 
-        $setting = $this->findSetting('welcome.welcome_description');
+        $setting = $this->findSetting('welcome.description');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('Welcome Page Description'),
-                'value'        => 'Welcome Page Description Welcome Welcome Page Description Welcome Page Description Page Description Welcome Page Description Welcome Page Description Welcome Page Description Welcome Page Description ',
+                'display_name' => __('Welcome Description'),
+                'value'        => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebumundefined',
                 'details'      => '',
-                'type'         => 'textarea',
+                'type'         => 'text_area',
                 'order'        => 11,
                 'group'        => 'Welcome',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('services.title');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Services Title'),
+                'value'        => 'Services',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 12,
+                'group'        => 'Services',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('services.description');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Services Description'),
+                'value'        => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+                'details'      => '',
+                'type'         => 'text_area',
+                'order'        => 13,
+                'group'        => 'Services',
             ])->save();
         }
 
@@ -160,7 +184,7 @@ class SettingsTableSeeder extends Seeder
                 'display_name' => __('voyager::seeders.settings.admin.description'),
                 'value'        => __('Welcome to Seiyra Design'),
                 'details'      => '',
-                'type'         => 'text',
+                'type'         => 'text_area',
                 'order'        => 2,
                 'group'        => 'Admin',
             ])->save();

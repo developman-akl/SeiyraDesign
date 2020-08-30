@@ -1,6 +1,8 @@
-<div id="welcome" class="nav-bar sticky">
+<div id="welcome" class="nav-bar sticky" data-id="1">
     <div class="container">
-        <img class="nav-logo-img" src="{{ asset('/storage/images/SeyraDesignLogo.svg') }}" width=163 alt="Seiyra Design Logo" loading="lazy" ALIGN=CENTER>
+        <a class="js-anchor-link" href="#welcome">
+            <img class="nav-logo-img" src="{{ asset('/storage/images/SeyraDesignLogo.svg') }}" width=163 alt="Seiyra Design Logo" loading="lazy" ALIGN=CENTER>
+        </a>
         <nav>
             <ul>
                 <li><a class="js-anchor-link" href="#welcome">Home</a></li>
