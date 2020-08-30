@@ -16,8 +16,8 @@
 
     <div class="header_button_wrapper">
         <a href="#welcome" class="js-anchor-link" >
-            <img id="header_button" src="{{ asset("storage/images/downbutton.svg") }}"
-                alt="Scroll down to welcome" />
+            <img class="img-responsive animated fadeIn" id="header_button" src="{{ asset("storage/images/downbutton.svg") }}"
+                alt="Scroll down to welcome" title="Jump to the welcome page"/>
         </a>
     </div>
 </div>

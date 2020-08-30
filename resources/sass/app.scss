@@ -22,21 +22,38 @@ $navbarfontcolour: #BDC1F6;
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
     height: 100%;
-    overflow: auto;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: "lust-display", "sofia-pro", sans-serif;
 }
 
 body {
-    position: relative;
+    // position: fixed;
     margin: 0;
-    display: flex;
-    height: 100%;
+    // display: flex;
+    // height: 100%;
+    // width: 100%;
     flex-direction: column;
-    font-family: "lust-display", "sofia-pro", sans-serif;
     background-color: white;
+}
+
+#main-scrollbar {
+    // display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // max-width: 100%;
+    // overflow-x: hidden;
+
     scroll-snap-align: center;
 }
+
+
 
 .container {
     width: 100%;
@@ -45,6 +62,13 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
+
+@media (min-width: 320px) {
+    .container {
+        width: 100%;
+    }
+}
+
 
 @media (min-width: 576px) {
     .container {
@@ -117,6 +141,10 @@ body {
                     text-decoration: none;
                     text-transform: uppercase;
                 }
+
+                a:hover {
+                    color: #d7d9f7;
+                }
             }
         }
     }
@@ -153,9 +181,9 @@ body {
 
         #header_button {
             z-index: 4;
-            width: 65px;
+            width: 95px;
             border-radius: 50%;
-            background: #29292996 0% 0% no-repeat padding-box;
+            background: #292929bb 5% 30% no-repeat padding-box;
             opacity: 1;
         }
     }
@@ -305,18 +333,27 @@ body {
 
 .footer-wrapper {
     background: $navbarbg;
+    opacity: 1;
+    padding: 10px;
 
     .footer {
-
         background: $navbarbg;
-        opacity: 1;
         display: flex;
         justify-content: space-between;
-        padding-top: 15px;
-        margin-bottom: 20p;
 
-        img {
-            width: 136px;
+
+        @media only screen {
+            img {
+                width: 120px;
+                padding: 5px;
+            }
+        }
+
+        @media (max-width: 414px) {
+            img {
+                width: 60px;
+                padding: 5px;
+            }
         }
     }
 }
@@ -334,7 +371,7 @@ section {
 
     .section-title {
         h1 {
-            text-align: left;
+            text-align: center;
             font: normal normal normal 70px/84px Lust;
             letter-spacing: 0.74px;
             color: $sectionFontCol;
@@ -344,6 +381,13 @@ section {
             margin-bottom: 30px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        @media (max-width: 414px) {
+            h1 {
+                font: normal normal normal 36px Lust;
+
+            }
         }
 
         h2 {
@@ -391,6 +435,19 @@ section {
             margin-left: auto;
             margin-right: auto;
             padding: 0;
+        }
+
+        @media (max-width: 414px) {
+            .devices {
+                object-fit: contain;
+                width: 100%;
+                visibility: hidden;
+                margin-top: 0;
+                margin-bottom: 0;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0;
+            }
         }
 
         .fadeIn {
@@ -448,8 +505,6 @@ section {
 }
 
 
-
-
 /* 11. TO TOP - TO BOTTOM */
 
 
@@ -464,7 +519,7 @@ section {
     cursor: pointer;
     margin: 0;
 
-    img{
+    img {
         width: 80px;
     }
 }
@@ -481,9 +536,123 @@ section {
     padding: 0;
     margin: 0;
 
-    img{
+    img {
         width: 80px;
     }
 }
 
 /* END TO TOP - TO BOTTOM */
+
+
+
+.header_button_wrapper {
+    @mixin transition2 {
+        -webkit-transition: .3s ease;
+        -moz-transition: .3s ease;
+        -ms-transition: .3s ease;
+        -o-transition: .3s ease;
+        transition: .3s ease;
+    }
+
+    a:hover {
+        color: #FFF;
+        border-color: #FFF;
+        @include transition;
+
+    }
+}
+
+@-webkit-keyframes fadeIn {
+
+    0% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite
+}
+
+.animated.delay-1s {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s
+}
+
+.animated.delay-2s {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s
+}
+
+.animated.delay-3s {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s
+}
+
+.animated.delay-4s {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s
+}
+
+.animated.delay-5s {
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s
+}
+
+.animated.fast {
+    -webkit-animation-duration: .8s;
+    animation-duration: .8s
+}
+
+.animated.faster {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s
+}
+
+.animated.slow {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s
+}
+
+.animated.slower {
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s
+}
+
+@media (prefers-reduced-motion:reduce),
+(print) {
+    .animated {
+        -webkit-animation-duration: 1ms !important;
+        animation-duration: 1ms !important;
+        -webkit-transition-duration: 1ms !important;
+        transition-duration: 1ms !important;
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important
+    }
+}
