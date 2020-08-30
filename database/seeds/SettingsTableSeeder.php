@@ -122,7 +122,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('Welcome Page Description'),
-                'value'        => '',
+                'value'        => 'Welcome Page Description Welcome Welcome Page Description Welcome Page Description Page Description Welcome Page Description Welcome Page Description Welcome Page Description Welcome Page Description ',
                 'details'      => '',
                 'type'         => 'textarea',
                 'order'        => 11,
