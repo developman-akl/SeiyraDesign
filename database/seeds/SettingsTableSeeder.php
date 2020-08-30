@@ -154,6 +154,30 @@ class SettingsTableSeeder extends Seeder
             ])->save();
         }
 
+        $setting = $this->findSetting('portfolio.title');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Portfolio Title'),
+                'value'        => 'Portfolio',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 14,
+                'group'        => 'Portfolio',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('portfolio.description');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Portfolio Description'),
+                'value'        => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+                'details'      => '',
+                'type'         => 'text_area',
+                'order'        => 15,
+                'group'        => 'Portfolio',
+            ])->save();
+        }
+
         $setting = $this->findSetting('admin.bg_image');
         if (!$setting->exists) {
             $setting->fill([
