@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "easing-js": "^1.1.2",
         "smooth-scrollbar": "^8.5.2"
     }
 }

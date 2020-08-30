@@ -8922,6 +8922,242 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 
 /***/ }),
 
+/***/ "./node_modules/easing-js/easing.js":
+/*!******************************************!*\
+  !*** ./node_modules/easing-js/easing.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+var Easing = {
+  linear: function linear(t, b, c, d) {
+    return c * t / d + b;
+  },
+  easeInQuad: function easeInQuad(t, b, c, d) {
+    return c * (t /= d) * t + b;
+  },
+  easeOutQuad: function easeOutQuad(t, b, c, d) {
+    return -c * (t /= d) * (t - 2) + b;
+  },
+  easeInOutQuad: function easeInOutQuad(t, b, c, d) {
+    if ((t /= d / 2) < 1) {
+      return c / 2 * t * t + b;
+    } else {
+      return -c / 2 * (--t * (t - 2) - 1) + b;
+    }
+  },
+  easeInCubic: function easeInCubic(t, b, c, d) {
+    return c * (t /= d) * t * t + b;
+  },
+  easeOutCubic: function easeOutCubic(t, b, c, d) {
+    return c * ((t = t / d - 1) * t * t + 1) + b;
+  },
+  easeInOutCubic: function easeInOutCubic(t, b, c, d) {
+    if ((t /= d / 2) < 1) {
+      return c / 2 * t * t * t + b;
+    } else {
+      return c / 2 * ((t -= 2) * t * t + 2) + b;
+    }
+  },
+  easeInQuart: function easeInQuart(t, b, c, d) {
+    return c * (t /= d) * t * t * t + b;
+  },
+  easeOutQuart: function easeOutQuart(t, b, c, d) {
+    return -c * ((t = t / d - 1) * t * t * t - 1) + b;
+  },
+  easeInOutQuart: function easeInOutQuart(t, b, c, d) {
+    if ((t /= d / 2) < 1) {
+      return c / 2 * t * t * t * t + b;
+    } else {
+      return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+    }
+  },
+  easeInQuint: function easeInQuint(t, b, c, d) {
+    return c * (t /= d) * t * t * t * t + b;
+  },
+  easeOutQuint: function easeOutQuint(t, b, c, d) {
+    return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
+  },
+  easeInOutQuint: function easeInOutQuint(t, b, c, d) {
+    if ((t /= d / 2) < 1) {
+      return c / 2 * t * t * t * t * t + b;
+    } else {
+      return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
+    }
+  },
+  easeInSine: function easeInSine(t, b, c, d) {
+    return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
+  },
+  easeOutSine: function easeOutSine(t, b, c, d) {
+    return c * Math.sin(t / d * (Math.PI / 2)) + b;
+  },
+  easeInOutSine: function easeInOutSine(t, b, c, d) {
+    return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+  },
+  easeInExpo: function easeInExpo(t, b, c, d) {
+    var _ref;
+    return (_ref = t === 0) !== null ? _ref : {
+      b: c * Math.pow(2, 10 * (t / d - 1)) + b
+    };
+  },
+  easeOutExpo: function easeOutExpo(t, b, c, d) {
+    var _ref;
+    return (_ref = t === d) !== null ? _ref : b + {
+      c: c * (-Math.pow(2, -10 * t / d) + 1) + b
+    };
+  },
+  easeInOutExpo: function easeInOutExpo(t, b, c, d) {
+    if (t === 0) {
+      b;
+    }
+    if (t === d) {
+      b + c;
+    }
+    if ((t /= d / 2) < 1) {
+      return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+    } else {
+      return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+    }
+  },
+  easeInCirc: function easeInCirc(t, b, c, d) {
+    return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
+  },
+  easeOutCirc: function easeOutCirc(t, b, c, d) {
+    return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+  },
+  easeInOutCirc: function easeInOutCirc(t, b, c, d) {
+    if ((t /= d / 2) < 1) {
+      return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
+    } else {
+      return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
+    }
+  },
+  easeInElastic: function easeInElastic(t, b, c, d) {
+    var a, p, s;
+    s = 1.70158;
+    p = 0;
+    a = c;
+    if (t === 0) {
+      b;
+    } else if ((t /= d) === 1) {
+      b + c;
+    }
+    if (!p) {
+      p = d * 0.3;
+    }
+    if (a < Math.abs(c)) {
+      a = c;
+      s = p / 4;
+    } else {
+      s = p / (2 * Math.PI) * Math.asin(c / a);
+    }
+    return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+  },
+  easeOutElastic: function easeOutElastic(t, b, c, d) {
+    var a, p, s;
+    s = 1.70158;
+    p = 0;
+    a = c;
+    if (t === 0) {
+      b;
+    } else if ((t /= d) === 1) {
+      b + c;
+    }
+    if (!p) {
+      p = d * 0.3;
+    }
+    if (a < Math.abs(c)) {
+      a = c;
+      s = p / 4;
+    } else {
+      s = p / (2 * Math.PI) * Math.asin(c / a);
+    }
+    return a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
+  },
+  easeInOutElastic: function easeInOutElastic(t, b, c, d) {
+    var a, p, s;
+    s = 1.70158;
+    p = 0;
+    a = c;
+    if (t === 0) {
+      b;
+    } else if ((t /= d / 2) === 2) {
+      b + c;
+    }
+    if (!p) {
+      p = d * (0.3 * 1.5);
+    }
+    if (a < Math.abs(c)) {
+      a = c;
+      s = p / 4;
+    } else {
+      s = p / (2 * Math.PI) * Math.asin(c / a);
+    }
+    if (t < 1) {
+      return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+    } else {
+      return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * 0.5 + c + b;
+    }
+  },
+  easeInBack: function easeInBack(t, b, c, d, s) {
+    if (s === void 0) {
+      s = 1.70158;
+    }
+    return c * (t /= d) * t * ((s + 1) * t - s) + b;
+  },
+  easeOutBack: function easeOutBack(t, b, c, d, s) {
+    if (s === void 0) {
+      s = 1.70158;
+    }
+    return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
+  },
+  easeInOutBack: function easeInOutBack(t, b, c, d, s) {
+    if (s === void 0) {
+      s = 1.70158;
+    }
+    if ((t /= d / 2) < 1) {
+      return c / 2 * (t * t * (((s *= 1.525) + 1) * t - s)) + b;
+    } else {
+      return c / 2 * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2) + b;
+    }
+  },
+  easeInBounce: function easeInBounce(t, b, c, d) {
+    var v;
+    v = Easing.easeOutBounce(d - t, 0, c, d);
+    return c - v + b;
+  },
+  easeOutBounce: function easeOutBounce(t, b, c, d) {
+    if ((t /= d) < 1 / 2.75) {
+      return c * (7.5625 * t * t) + b;
+    } else if (t < 2 / 2.75) {
+      return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b;
+    } else if (t < 2.5 / 2.75) {
+      return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b;
+    } else {
+      return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b;
+    }
+  },
+  easeInOutBounce: function easeInOutBounce(t, b, c, d) {
+    var v;
+    if (t < d / 2) {
+      v = Easing.easeInBounce(t * 2, 0, c, d);
+      return v * 0.5 + b;
+    } else {
+      v = Easing.easeOutBounce(t * 2 - d, 0, c, d);
+      return v * 0.5 + c * 0.5 + b;
+    }
+  }
+};
+
+exports.default = Easing;
+module.exports = exports["default"];
+
+/***/ }),
+
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -43093,30 +43329,67 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! smooth-scrollbar */ "./node_modules/smooth-scrollbar/index.js");
+/* harmony import */ var easing_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! easing-js */ "./node_modules/easing-js/easing.js");
+/* harmony import */ var easing_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(easing_js__WEBPACK_IMPORTED_MODULE_1__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-var options = {
-  'damping': 0.05
-};
-$(document).ready(function () {
-  var Scroll = smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#main-scrollbar'), options);
-  Scroll.addListener(function (s) {
-    console.log(s.offset.y); // returns “scrollTop” equivalent
 
-    showImages('.devices', s);
+var options = {
+  'damping': 0.05 // 'syncCallbacks' : true,
+  // 'alwaysShowTracks' : true,
+  // 'wheelEventTarget' : initScrollbar,
+
+};
+var scrollbar = smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#main-scrollbar'), options);
+$(document).ready(function () {
+  scrollbar.addListener(function (s) {
+    if (!$('.devices').hasClass("fadeIn")) {
+      showImages('.devices', s);
+    }
+  });
+  /*
+      Smooth scrollbar functionality for anchor links (animates the scrollbar
+      rather than a sudden jump in the page)
+  */
+
+  $('.js-anchor-link').click(function (e) {
+    e.preventDefault();
+    var elem = $(this).attr('href'); // var target = document.getElementById(elem);
+
+    var ScrollIntoViewOptionsDefault = {
+      alignToTop: false,
+      offsetBottom: 0
+    };
+    var ScrollIntoViewOptionsWelcome = {
+      alignToTop: true // offsetTop: -83,
+
+    }; // debugger;
+
+    if (elem) {
+      scrollbar.scrollIntoView(document.querySelector(elem), elem == '#welcome' ? ScrollIntoViewOptionsWelcome : ScrollIntoViewOptionsDefault);
+    }
   });
 });
 
 function showImages(el, s) {
   var windowHeight = jQuery(window).height();
   $(el).each(function () {
-    var thisPos = s && s.offset !== 'undefine' ? s.offset.y : 0;
-    var topOfWindow = $(window).scrollTop();
-    var pos = windowHeight - topOfWindow;
+    if (!$(this).hasClass("fadeIn")) {
+      var thisPos;
 
-    if (pos < thisPos && !$(this).hasClass("fadeIn")) {
-      $(this).addClass("fadeIn");
+      if (s && s.offset !== 'undefine') {
+        thisPos = s.offset.y;
+      } else if (s && s > 0) {
+        var thisPos = s;
+      }
+
+      var topOfWindow = $(window).scrollTop();
+      var pos = windowHeight - topOfWindow - 75;
+
+      if (pos < thisPos) {
+        $(this).addClass("fadeIn");
+      }
     }
   });
 }

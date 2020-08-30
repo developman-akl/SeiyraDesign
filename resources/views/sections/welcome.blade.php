@@ -1,4 +1,4 @@
-@include('layouts.nav')
+@include('sections.nav')
 
 <div class="container full-width">
 

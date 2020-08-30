@@ -15,9 +15,9 @@
     </div>
 
     <div class="header_button_wrapper">
-        <a href="#home">
+        <a href="#welcome" class="js-anchor-link" >
             <img id="header_button" src="{{ asset("storage/images/downbutton.svg") }}"
-                alt="Scroll down to Home" />
+                alt="Scroll down to welcome" />
         </a>
     </div>
 </div>
