@@ -546,12 +546,12 @@ section {
 
 
 .header_button_wrapper {
-    @mixin transition2 {
-        -webkit-transition: .3s ease;
-        -moz-transition: .3s ease;
-        -ms-transition: .3s ease;
-        -o-transition: .3s ease;
-        transition: .3s ease;
+    @mixin transition {
+        -webkit-transition: .8s ease;
+        -moz-transition: .8s ease;
+        -ms-transition: .8s ease;
+        -o-transition: .8s ease;
+        transition: .8s ease;
     }
 
     a:hover {

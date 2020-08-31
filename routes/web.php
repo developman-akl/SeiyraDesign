@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('app');
 });
 
+Route::get('contact-us', 'ContactUSController@contactUS');
+Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
