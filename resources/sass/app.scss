@@ -69,7 +69,6 @@ body {
     }
 }
 
-
 @media (min-width: 576px) {
     .container {
         max-width: 540px;
@@ -98,6 +97,19 @@ body {
     .container {
         max-width: 1366px;
     }
+}
+
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-thumbnail {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Navigation */
@@ -331,29 +343,41 @@ body {
 
 /* END - HEADER PAGE */
 
-.footer-wrapper {
-    background: $navbarbg;
-    opacity: 1;
-    padding: 10px;
+.service-images {
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    padding-left: 0;
+    padding-right: 0;
 
-    .footer {
-        background: $navbarbg;
-        display: flex;
-        justify-content: space-between;
+    h3, p{
+        font: normal normal bold 24px/37px Sofia Pro;
+    }
 
+    .image-wrapper {
+        text-align: center;
+    }
 
-        @media only screen {
-            img {
-                width: 120px;
-                padding: 5px;
-            }
+    img {
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 3px 3px 6px #00000029;
+        background: transparent 0% 0% no-repeat padding-box;
+    }
+
+    @media only screen {
+        img {
+            height: 200px;
+            width: 200px;
         }
+    }
 
-        @media (max-width: 414px) {
-            img {
-                width: 60px;
-                padding: 5px;
-            }
+    @media (max-width: 414px) {
+        img {
+            width: 60px;
+            padding: 5px;
         }
     }
 }
@@ -370,12 +394,12 @@ section {
     scroll-snap-align: center;
 
     .section-title {
+        
         h1 {
             text-align: center;
             font: normal normal normal 70px/84px Lust;
             letter-spacing: 0.74px;
             color: $sectionFontCol;
-            opacity: 1;
             text-align: center;
             margin-top: 30px;
             margin-bottom: 30px;
@@ -386,7 +410,6 @@ section {
         @media (max-width: 414px) {
             h1 {
                 font: normal normal normal 36px Lust;
-
             }
         }
 
@@ -422,8 +445,7 @@ section {
 
     // HOME
     &:nth-child(2) {
-        background: linear-gradient(180deg, #BDC1F6D6 0%, #FFFFFF29 100%) 0% 0% no-repeat padding-box;
-        opacity: 1;
+        background: transparent linear-gradient(180deg, rgba(189, 193, 246, 0.84) 0%, rgba(255, 255, 255, 0.16) 100%) 0% 0% no-repeat padding-box;
         text-align: center;
 
         .devices {
@@ -478,20 +500,20 @@ section {
 
     // SERVICES
     &:nth-child(3) {
-        opacity: 1;
+        // opacity: 1;
         background: #FFFFFF29 0% 0% no-repeat padding-box;
     }
 
     // PORTFOLIO
     &:nth-child(4) {
-        background: linear-gradient(358deg, #BDC1F6E0 0%, #FFFFFF87 100%) 0% 0% no-repeat padding-box;
-        opacity: 0.61;
+        background: transparent linear-gradient(358deg, rgba(189, 193, 246, 0.88) 0%, rgba(255, 255, 255, 0.53) 100%) 0% 0% no-repeat padding-box;
+        // opacity: 0.61;
     }
 
     // CONTACT ME
     &:nth-child(5) {
         background: linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
-        opacity: 1;
+        // opacity: 1;
     }
 }
 
@@ -656,3 +678,37 @@ section {
         animation-iteration-count: 1 !important
     }
 }
+
+/* FOOTER */
+
+.footer-wrapper {
+    background: $navbarbg;
+    opacity: 1;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+    .footer-icons {
+        background: $navbarbg;
+        display: flex;
+        justify-content: space-between;
+
+
+        @media only screen {
+            img {
+                width: 120px;
+                padding: 5px;
+            }
+        }
+
+        @media (max-width: 414px) {
+            img {
+                width: 60px;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+/* END - FOOTER */

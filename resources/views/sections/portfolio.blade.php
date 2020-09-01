@@ -7,5 +7,4 @@
         <p>{{ setting('portfolio.description') }}</p>
     </div>
 
-    {{-- <img src="{{ asset('storage/images/devices.png') }}" class="devices" /> --}}
 </div>

@@ -178,6 +178,18 @@ class SettingsTableSeeder extends Seeder
             ])->save();
         }
 
+        $setting = $this->findSetting('contact.title');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Contact Title'),
+                'value'        => 'Contact',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 16,
+                'group'        => 'Contact',
+            ])->save();
+        }
+
         $setting = $this->findSetting('admin.bg_image');
         if (!$setting->exists) {
             $setting->fill([

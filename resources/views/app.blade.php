@@ -17,8 +17,6 @@
         <section id="contact" data-id="4">
             @include('sections.contact')
         </section>
-
-        @include('sections.footer')
     </div>
     
     <a href="javascript:void(0)" id="btnPrev">

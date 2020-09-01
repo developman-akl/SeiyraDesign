@@ -1,7 +1,7 @@
 <div class="container full-width">
 
     <div class="section-title">
-        <h1>{{ setting('portfolio.title') }}</h1>
+        <h1>{{ setting('contact.title') }}</h1>
         <span class="border"></span>
     </div>
 
@@ -45,3 +45,4 @@
     {!! Form::close() !!}
 </div>
 
+@include('sections.footer')
