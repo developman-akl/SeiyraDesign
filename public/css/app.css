@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito");
-*,
+@import url(https://fonts.googleapis.com/css?family=Nunito);*,
 ::before,
 ::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
@@ -16,10 +14,7 @@ body {
 
 body {
   margin: 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   background-color: white;
 }
 
@@ -89,6 +84,7 @@ body {
 }
 
 /* Navigation */
+
 .nav-bar {
   display: block;
   background: #191919;
@@ -138,18 +134,15 @@ body {
 }
 
 /* END - Navigation */
+
 /* HEADER PAGE */
+
 .header-block {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100vw;
   min-height: 100vh;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+  flex-flow: column wrap;
   font-size: 1rem;
   vertical-align: middle;
   text-align: center;
@@ -179,8 +172,6 @@ body {
 }
 
 .center {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-left: auto;
   margin-right: auto;
@@ -243,15 +234,19 @@ body {
   0% {
     opacity: 1;
   }
+
   20% {
     opacity: 1;
   }
+
   28% {
     opacity: 0;
   }
+
   85% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -261,15 +256,19 @@ body {
   0% {
     opacity: 1;
   }
+
   20% {
     opacity: 1;
   }
+
   28% {
     opacity: 0;
   }
+
   85% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -307,21 +306,19 @@ body {
 }
 
 /* END - HEADER PAGE */
+
 .service-images {
   background: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding-top: 70px;
   padding-bottom: 50px;
   padding-left: 0;
   padding-right: 0;
 }
 
-.service-images h3, .service-images p {
+.service-images h3,
+.service-images p {
   font: normal normal bold 24px/37px Sofia Pro;
 }
 
@@ -333,8 +330,7 @@ body {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-box-shadow: 3px 3px 6px #00000029;
-          box-shadow: 3px 3px 6px #00000029;
+  box-shadow: 3px 3px 6px #00000029;
   background: transparent 0% 0% no-repeat padding-box;
 }
 
@@ -353,17 +349,13 @@ body {
 }
 
 /* SECTIONS */
+
 section {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   min-height: 100vh;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+  flex-flow: column wrap;
   font-size: 1rem;
   scroll-snap-align: center;
 }
@@ -415,7 +407,6 @@ section .section-title p {
 }
 
 section:nth-child(2) {
-  background: transparent -webkit-gradient(linear, left top, left bottom, from(rgba(189, 193, 246, 0.84)), to(rgba(255, 255, 255, 0.16))) 0% 0% no-repeat padding-box;
   background: transparent linear-gradient(180deg, rgba(189, 193, 246, 0.84) 0%, rgba(255, 255, 255, 0.16) 100%) 0% 0% no-repeat padding-box;
   text-align: center;
 }
@@ -467,6 +458,7 @@ section:nth-child(2) .fadeIn {
     opacity: 1;
     top: 0px;
   }
+
   0% {
     opacity: 0;
     top: 200px;
@@ -478,6 +470,7 @@ section:nth-child(2) .fadeIn {
     opacity: 1;
     top: 0px;
   }
+
   0% {
     opacity: 0;
     top: 200px;
@@ -493,11 +486,11 @@ section:nth-child(4) {
 }
 
 section:nth-child(5) {
-  background: -webkit-gradient(linear, left top, left bottom, from(#dbdefbe0), color-stop(30%, #B3B7F8CC), to(#00054B)) 0% 0% no-repeat padding-box;
   background: linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
 }
 
 /* END - SECTIONS */
+
 .sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -505,6 +498,7 @@ section:nth-child(5) {
 }
 
 /* 11. TO TOP - TO BOTTOM */
+
 #btnPrev {
   display: none;
   position: fixed;
@@ -539,17 +533,18 @@ section:nth-child(5) {
 }
 
 /* END TO TOP - TO BOTTOM */
+
 .header_button_wrapper a:hover {
   color: #FFF;
   border-color: #FFF;
-  -webkit-transition: .8s ease;
-  transition: .8s ease;
+  transition: 0.8s ease;
 }
 
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -559,6 +554,7 @@ section:nth-child(5) {
   0% {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -607,13 +603,13 @@ section:nth-child(5) {
 }
 
 .animated.fast {
-  -webkit-animation-duration: .8s;
-  animation-duration: .8s;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
 }
 
 .animated.faster {
-  -webkit-animation-duration: .5s;
-  animation-duration: .5s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
 }
 
 .animated.slow {
@@ -630,7 +626,6 @@ section:nth-child(5) {
   .animated {
     -webkit-animation-duration: 1ms !important;
     animation-duration: 1ms !important;
-    -webkit-transition-duration: 1ms !important;
     transition-duration: 1ms !important;
     -webkit-animation-iteration-count: 1 !important;
     animation-iteration-count: 1 !important;
@@ -638,6 +633,7 @@ section:nth-child(5) {
 }
 
 /* FOOTER */
+
 .footer-wrapper {
   background: #191919;
   opacity: 1;
@@ -649,12 +645,8 @@ section:nth-child(5) {
 
 .footer-wrapper .footer-icons {
   background: #191919;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 @media only screen {
@@ -672,4 +664,4 @@ section:nth-child(5) {
 }
 
 /* END - FOOTER */
-/*# sourceMappingURL=app.css.map */
+
