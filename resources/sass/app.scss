@@ -352,7 +352,8 @@ body {
     padding-left: 0;
     padding-right: 0;
 
-    h3, p{
+    h3,
+    p {
         font: normal normal bold 24px/37px "sofia-pro";
     }
 
@@ -383,7 +384,7 @@ body {
 }
 
 .contact-container {
-    width: 50vw;
+    width: 55vw;
     height: 25vw;
     display: table;
 
@@ -394,10 +395,9 @@ body {
         margin: 7px;
         padding: 5px;
         font-family: "sofia-pro";
-        // width: 100%;
     }
 
-    .form-control{
+    .form-control {
         background: #FFFFFF 0% 0% no-repeat padding-box;
         box-shadow: 3px 3px 6px #00000029;
         border: 1px solid #615DED;
@@ -411,11 +411,11 @@ body {
         height: 60px;
     }
 
-    #contact-message{
+    #contact-message {
         height: 240px;
     }
 
-    #btn-contact-send{
+    #btn-contact-send {
         background: #BFEDD7 0% 0% no-repeat padding-box;
         box-shadow: 3px 3px 6px #00000029;
         border: 1px solid #615DED;
@@ -425,40 +425,72 @@ body {
         letter-spacing: 1.2px;
         color: #615DED;
         height: 62px;
-        text-align: center; 
+        text-align: center;
         line-height: 46px;
     }
 
+    select,
+    select::content,
+    select::selection,
     textarea,
+    textarea::content,
+    textarea::selection,
     textarea::placeholder,
     input[type="text"],
+    input[type="text"]::content,
+    input[type="text"]::selection,
     input[type="text"]::placeholder,
     input[type="email"],
-    input[type="email"]::placeholder{  
-        text-align: center; 
+    input[type="email"]::content,
+    input[type="email"]::selection,
+    input[type="email"]::placeholder {
+        text-align: center;
         letter-spacing: 0.32px;
         color: #717BF9;
-        opacity: 0.59;
+        opacity: 1;
         font-family: "sofia-pro";
-        font-size: 24px;
-    } 
-    textarea{
-        resize: none; 
-        overflow: auto;
-        font-size: 18px;
+        font-size: 28px;
     }
+
+    textarea {
+        resize: none;
+        overflow: auto;
+        font-size: 16px;
+    }
+
     textarea::-webkit-scrollbar {
         width: 0;
     }
-    
+
     textarea::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     }
-    
+
     textarea::-webkit-scrollbar-thumb {
-      background-color: darkgrey;
-      outline: 1px solid slategrey;
-      height: 150px;
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+        height: 150px;
+    }
+
+    select {
+        text-align: center;
+        text-align-last: center;
+        color: #717BF9;
+    }
+
+    option {
+        text-align: center;
+        color: #717BF9;
+    }
+
+    .select-items div,
+    .select-selected {
+        text-align: center;
+        color: #ffffff;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
     }
 }
 
@@ -474,7 +506,7 @@ section {
     scroll-snap-align: center;
 
     .section-title {
-        
+
         h1 {
             text-align: center;
             font: normal normal normal 70px/84px Lust;
@@ -791,7 +823,7 @@ section {
         }
     }
 
-    .footer-info{
+    .footer-info {
         font: normal normal 300 20px "sofia-pro";
         letter-spacing: 0.3px;
         opacity: 1;

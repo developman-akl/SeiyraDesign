@@ -37,7 +37,7 @@ class ContactMe extends Mailable
     public function build()
     {
         return $this->markdown('contact.contactme')
-                    ->subject('New message: ' . $this->subject)
+                    ->subject($this->subject)
                     ->with([$this->name, $this->email, $this->subject, $this->user_message]);
     }
 }

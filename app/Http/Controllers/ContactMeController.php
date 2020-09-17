@@ -5,10 +5,16 @@ use App\Mail\ContactMe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
-class ContactUSController extends Controller
+class ContactMeController extends Controller
 {
+	const SUBJECT_SELECT = [
+        '1' => "UX/UI Design",
+        '2' => "Logo Design",
+        '3' => "Photo Editing",
+        '4' => "Social Media Creative Design",
+    ];
 
-	public function contactUSPost(Request $request) 
+	public function contactMePost(Request $request) 
 	{
 		$validator = Validator::make($request->all(), [
 			'name' => 'required|string', 

@@ -11255,7 +11255,7 @@ body {
 }
 
 .contact-container {
-  width: 50vw;
+  width: 55vw;
   height: 25vw;
   display: table;
 }
@@ -11301,51 +11301,69 @@ body {
   line-height: 46px;
 }
 
+.contact-container select::-moz-selection, .contact-container textarea::-moz-selection, .contact-container input[type=text]::-moz-selection, .contact-container input[type=email]::-moz-selection {
+  text-align: center;
+  letter-spacing: 0.32px;
+  color: #717BF9;
+  opacity: 1;
+  font-family: "sofia-pro";
+  font-size: 28px;
+}
+
 .contact-container textarea::-moz-placeholder, .contact-container input[type=text]::-moz-placeholder, .contact-container input[type=email]::-moz-placeholder {
   text-align: center;
   letter-spacing: 0.32px;
   color: #717BF9;
-  opacity: 0.59;
+  opacity: 1;
   font-family: "sofia-pro";
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .contact-container textarea:-ms-input-placeholder, .contact-container input[type=text]:-ms-input-placeholder, .contact-container input[type=email]:-ms-input-placeholder {
   text-align: center;
   letter-spacing: 0.32px;
   color: #717BF9;
-  opacity: 0.59;
+  opacity: 1;
   font-family: "sofia-pro";
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
   text-align: center;
   letter-spacing: 0.32px;
   color: #717BF9;
-  opacity: 0.59;
+  opacity: 1;
   font-family: "sofia-pro";
-  font-size: 24px;
+  font-size: 28px;
 }
 
+.contact-container select,
+.contact-container select::content,
+.contact-container select::selection,
 .contact-container textarea,
+.contact-container textarea::content,
+.contact-container textarea::selection,
 .contact-container textarea::placeholder,
 .contact-container input[type=text],
+.contact-container input[type=text]::content,
+.contact-container input[type=text]::selection,
 .contact-container input[type=text]::placeholder,
 .contact-container input[type=email],
+.contact-container input[type=email]::content,
+.contact-container input[type=email]::selection,
 .contact-container input[type=email]::placeholder {
   text-align: center;
   letter-spacing: 0.32px;
   color: #717BF9;
-  opacity: 0.59;
+  opacity: 1;
   font-family: "sofia-pro";
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .contact-container textarea {
   resize: none;
   overflow: auto;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .contact-container textarea::-webkit-scrollbar {
@@ -11360,6 +11378,28 @@ body {
   background-color: darkgrey;
   outline: 1px solid slategrey;
   height: 150px;
+}
+
+.contact-container select {
+  text-align: center;
+  -moz-text-align-last: center;
+       text-align-last: center;
+  color: #717BF9;
+}
+
+.contact-container option {
+  text-align: center;
+  color: #717BF9;
+}
+
+.contact-container .select-items div,
+.contact-container .select-selected {
+  text-align: center;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
 }
 
 /* SECTIONS */

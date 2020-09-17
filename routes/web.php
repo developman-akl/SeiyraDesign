@@ -19,8 +19,8 @@ Route::get('/', ['as' => 'home_path', 'uses' => function () {
     return view('app');
 }]);
 
-Route::get('contact-us', 'ContactUSController@contactUS');
-Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
+Route::get('contact-us', 'ContactMeController@contactMe');
+Route::post('contact-us', ['as'=>'contactme.store','uses'=>'ContactMeController@contactMePost']);
 
 
 Route::group(['prefix' => 'admin'], function () {

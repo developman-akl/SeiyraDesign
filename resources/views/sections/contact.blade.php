@@ -20,13 +20,20 @@
                     <span class="text-danger">{{ $errors->first('email') }}</span>
                 </div>
                 <div class="form-group required {{ $errors->has('subject') ? 'has-error' : '' }}">
-                    <input type="text" class="form-control" name="contact-subject" id="contact-subject" placeholder="Message Subject">
+                    <select
+                        class="form-control {{ $errors->has('order_type') ? 'is-invalid' : '' }}"
+                        name="contact-subject" id="contact-subject">
+                        <option value disabled selected>Message Subject</option>
+                        @foreach(App\Http\Controllers\ContactMeController::SUBJECT_SELECT as $key => $label)
+                            <option value="{{ $key }}">{{ $label }}</option>
+                        @endforeach
+                    </select>
                     <span class="text-danger">{{ $errors->first('subject') }}</span>
                 </div>
             </div>
             <div class="col d-flex flex-column justify-content-between">
                 <div class="form-group required {{ $errors->has('message') ? 'has-error' : '' }}">
-                    <textarea class="form-control" name="contact-message" id="contact-message" placeholder="Your Message" maxlength="250"></textarea>
+                    <textarea class="form-control" name="contact-message" id="contact-message" placeholder="Your Message" maxlength="450"></textarea>
                     <span class="text-danger">{{ $errors->first('message') }}</span>
                 </div>
                 <div class="form-group">
