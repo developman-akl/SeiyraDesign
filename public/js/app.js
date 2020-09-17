@@ -43243,6 +43243,69 @@ $(document).ready(function () {
 });
 /* END TO TOP */
 
+$("#contact-message").click(function (e) {
+  // e.preventDefault();
+  $("#contact-message").blur();
+  $("#contact-message").focus();
+  $.event.trigger({
+    type: 'keypress'
+  }); // works cross-browser
+});
+$("#btn-contact-send").click(function (e) {
+  e.preventDefault();
+  var button = $(this);
+  var htmlOrig = button.html();
+  button.prop("disabled", true); // add spinner to button
+
+  button.html('<span class="spinner-border spinner-border-sm mb-2 mr-1" role="status" aria-hidden="true"></span> Sending...');
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    type: "POST",
+    url: "/contact-us",
+    dataType: 'json',
+    data: {
+      name: $("#contact-name").val(),
+      email: $("#contact-email").val(),
+      subject: $("#contact-subject").val(),
+      message: $("#contact-message").val()
+    },
+    success: function success(response) {
+      jumpRef('#contact');
+      var messages = response.messages;
+      var resultClass = response.success ? "alert-success" : "alert-danger";
+      var messagesHtml = '<div id="responseTextParent" class="row mb-1 mt-1">' + '<div class="col-lg-12"><div id="responseText" class="alert ' + resultClass + '" role="alert">' + '<ul style="list-style-type:none;margin:0;padding:0;>';
+      $.each(messages, function (key, value) {
+        messagesHtml += '<li class="mb-1">' + value[0] + '</li>';
+      });
+      messagesHtml += '</ul></div></div></div>';
+      $('.response_message').html(messagesHtml).fadeIn();
+
+      if (response.success) {
+        $("#contact-name").val(null);
+        $("#contact-email").val(null);
+        $("#contact-subject").val(null);
+        $("#contact-message").val(null);
+      }
+
+      $('.response_message').delay(4000).hide(1500); // restore button
+
+      button.html(htmlOrig).fadeIn();
+      button.prop("disabled", false);
+    },
+    error: function error(response, x, y) {
+      var messagesHtml = '<div id="responseTextParent" class="row mb-1 mt-1">' + '<div class="col-lg-12"><div id="responseText" class="alert alert-danger rounded" role="alert">' + '<ul style="list-style-type:none;margin:0;padding:0;"><li class="mb-1">' + y + '</li></ul></div></div></div>';
+      $('.response_message').html(messagesHtml); // restore button
+
+      button.html(htmlOrig).fadeIn();
+      button.prop("disabled", false);
+    }
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -43252,6 +43315,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support

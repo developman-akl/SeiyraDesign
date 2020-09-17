@@ -3,46 +3,39 @@
     <div class="section-title">
         <h1>{{ setting('contact.title') }}</h1>
         <span class="border"></span>
+        
+        <p>{{ setting('contact.description') }}</p>
     </div>
-
-</div>
-
-<div class="container">
-    <h1>Contact US Form</h1>
-    @if(Session::has('success'))
-        <div class="alert alert-success">
-            {{ Session::get('success') }}
+    
+    <div class="contact-container mx-auto mt-4">
+        <div class="response_message"></div>
+        <div class="row">
+            <div class="col d-flex flex-column justify-content-between">
+                <div class="form-group required {{ $errors->has('name') ? 'has-error' : '' }}">
+                    <input type="text" class="form-control" name="contact-name" id="contact-name" placeholder="Your Name">
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                </div>
+                <div class="form-group required {{ $errors->has('email') ? 'has-error' : '' }}">
+                    <input type="email" class="form-control" name="contact-email" id="contact-email" placeholder="Your Email Address">
+                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                </div>
+                <div class="form-group required {{ $errors->has('subject') ? 'has-error' : '' }}">
+                    <input type="text" class="form-control" name="contact-subject" id="contact-subject" placeholder="Message Subject">
+                    <span class="text-danger">{{ $errors->first('subject') }}</span>
+                </div>
+            </div>
+            <div class="col d-flex flex-column justify-content-between">
+                <div class="form-group required {{ $errors->has('message') ? 'has-error' : '' }}">
+                    <textarea class="form-control" name="contact-message" id="contact-message" placeholder="Your Message" maxlength="250"></textarea>
+                    <span class="text-danger">{{ $errors->first('message') }}</span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" form="contact-form" id="btn-contact-send" class="btn btn-success btn-block">SEND</button>
+                </div>
+            </div>
         </div>
-    @endif
-    {!! Form::open(['route'=>'contactus.store']) !!}
-    <div
-        class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-        {!! Form::label('Name:') !!}
-        {!! Form::text('name', old('name'), ['class'=>'form-control', 'placeholder'=>'Enter Name']) !!}
-        <span class="text-danger">{{ $errors->first('name') }}</span>
     </div>
-    <div
-        class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-        {!! Form::label('Email:') !!}
-        {!! Form::text('email', old('email'), ['class'=>'form-control', 'placeholder'=>'Enter Email']) !!}
-        <span class="text-danger">{{ $errors->first('email') }}</span>
-    </div>
-    <div
-        class="form-group {{ $errors->has('subject') ? 'has-error' : '' }}">
-        {!! Form::label('Subject:') !!}
-        {!! Form::text('subject', old('subject'), ['class'=>'form-control', 'placeholder'=>'Enter Subject']) !!}
-        <span class="text-danger">{{ $errors->first('subject') }}</span>
-    </div>
-    <div
-        class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
-        {!! Form::label('Message:') !!}
-        {!! Form::textarea('message', old('message'), ['class'=>'form-control', 'placeholder'=>'Enter Message']) !!}
-        <span class="text-danger">{{ $errors->first('message') }}</span>
-    </div>
-    <div class="form-group">
-        <button class="btn btn-success">Contact US!</button>
-    </div>
-    {!! Form::close() !!}
 </div>
+
 
 @include('sections.footer')

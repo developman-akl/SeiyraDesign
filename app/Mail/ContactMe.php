@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactFormSent extends Mailable
+class ContactMe extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -36,6 +36,8 @@ class ContactFormSent extends Mailable
      */
     public function build()
     {
-        return $this->view('contact.email');
+        return $this->markdown('contact.contactme')
+                    ->subject('New message: ' . $this->subject)
+                    ->with([$this->name, $this->email, $this->subject, $this->user_message]);
     }
 }

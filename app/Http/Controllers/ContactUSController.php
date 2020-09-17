@@ -1,39 +1,35 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Mail\ContactMe;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\ContactUS;
-use Mail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 class ContactUSController extends Controller
 {
-   	public function contactUS()
-	{
-		return view('contactUS');
-	} 
 
 	public function contactUSPost(Request $request) 
 	{
-		$this->validate($request, [ 
-			'name' => 'required', 
+		$validator = Validator::make($request->all(), [
+			'name' => 'required|string', 
 			'email' => 'required|email', 
-			'subject' => 'required', 
-			'message' => 'required' 
+			'subject' => 'required|string', 
+			'message' => 'required|string' 
 		]);
 
-		ContactUS::create($request->all()); 
-
-		Mail::send('contact.email',
-			array(
-				'name' => $request->get('name'),
-				'email' => $request->get('email'),
-				'subject' => $request->get('subject'),
-				'user_message' => $request->get('message')
-			), function($message) {
-				$message->from('testfrom@seiyra.com');
-				$message->to('testto@seiyra.com', 'Admin')->subject('TEST CONTACT FORM');
-			}
-		);
-
-		return back()->with('success', 'Thanks for contacting us!'); 
+		if ($validator->fails()) {
+			return response()->json(['success' => false, 'messages' => [['Please fill in all fields.']]]);
+		}
+		
+		Mail::to($request->get('email'))
+			->send(new ContactMe(
+					$request->get('name'), 
+					$request->get('email'), 
+					$request->get('subject'), 
+					$request->get('message')
+				)
+			);
+      
+        return response()->json(['success' => true, 'messages' => [['Thank you for contacting me! I will be in touch as soon as possible.']]]);
 	}
 }

@@ -182,10 +182,22 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('Contact Title'),
-                'value'        => 'Contact',
+                'value'        => 'Contact Me',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 16,
+                'group'        => 'Contact',
+            ])->save();
+        }
+
+        $setting = $this->findSetting('contact.description');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Contact Description'),
+                'value'        => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+                'details'      => '',
+                'type'         => 'text_area',
+                'order'        => 17,
                 'group'        => 'Contact',
             ])->save();
         }

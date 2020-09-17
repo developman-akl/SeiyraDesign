@@ -15,9 +15,9 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'home_path', 'uses' => function () {
     return view('app');
-});
+}]);
 
 Route::get('contact-us', 'ContactUSController@contactUS');
 Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
