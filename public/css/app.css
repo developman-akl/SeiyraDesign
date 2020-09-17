@@ -11255,7 +11255,7 @@ body {
 }
 
 .contact-container {
-  width: 55vw;
+  width: 65vw;
   height: 25vw;
   display: table;
 }
@@ -11385,6 +11385,7 @@ body {
   -moz-text-align-last: center;
        text-align-last: center;
   color: #717BF9;
+  z-index: 50;
 }
 
 .contact-container option {

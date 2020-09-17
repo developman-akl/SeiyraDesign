@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Mail;
 class ContactMeController extends Controller
 {
 	const SUBJECT_SELECT = [
-        '1' => "UX/UI Design",
-        '2' => "Logo Design",
-        '3' => "Photo Editing",
-        '4' => "Social Media Creative Design",
+        'UX/UI Design' => "UX/UI Design",
+        'Logo Design' => "Logo Design",
+        'Photo Editing' => "Photo Editing",
+        'Social Media Creative Design' => "Social Media Creative Design",
     ];
 
 	public function contactMePost(Request $request) 
