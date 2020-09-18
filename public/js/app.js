@@ -43257,7 +43257,7 @@ $("#btn-contact-send").click(function (e) {
   var htmlOrig = button.html();
   button.prop("disabled", true); // add spinner to button
 
-  button.html('<span class="spinner-border spinner-border-sm mb-2 mr-1" role="status" aria-hidden="true"></span> Sending...');
+  button.html('<span class="spinner-border spinner-border-sm mb-2 mr-1" role="status" aria-hidden="true"></span> SENDING...');
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

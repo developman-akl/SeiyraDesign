@@ -18,11 +18,11 @@
                     alt="Behance" loading="lazy" ALIGN=CENTER>
             </a>
         </div>
-        <div class="footer-info mt-2 mb-0 row d-flex flex-row justify-content-between">
-            <div class="d-flex flex-row mt-2 ">
+        <div class="footer-info mb-0 row d-flex flex-row justify-content-between">
+            <div class="d-flex flex-row mt-1">
                 <p>Website design by</p><a href="#">SeiyraDesign</a>
             </div>
-            <div class="d-flex flex-row mt-2 ">
+            <div class="d-flex flex-row mt-1">
                 <p>Website developed by</p><a href="#">Miller Web Solutions</a>
             </div>
         </div>
