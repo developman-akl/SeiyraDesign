@@ -11013,21 +11013,21 @@ body {
 }
 
 #back1 {
-  background-image: url("/storage/images/bg3.png");
+  background-image: url("/storage/images/bg3.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 }
 
 #back2 {
-  background-image: url("/storage/images/bg2.png");
+  background-image: url("/storage/images/bg2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 }
 
 #back3 {
-  background-image: url("/storage/images/bg1.png");
+  background-image: url("/storage/images/bg1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
