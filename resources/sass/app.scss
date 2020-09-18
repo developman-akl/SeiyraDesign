@@ -662,7 +662,7 @@ section {
 #btnNext {
     display: none;
     position: fixed;
-    bottom: 20px;
+    bottom: 28px;
     right: 15px;
     z-index: 9999999;
     border: none;
@@ -842,3 +842,7 @@ section {
 }
 
 /* END - FOOTER */
+
+.border{
+    border: 0px solid #000 !important;
+}

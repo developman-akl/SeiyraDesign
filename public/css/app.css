@@ -11518,7 +11518,7 @@ section:nth-child(5) {
 #btnNext {
   display: none;
   position: fixed;
-  bottom: 20px;
+  bottom: 28px;
   right: 15px;
   z-index: 9999999;
   border: none;
@@ -11683,4 +11683,7 @@ section:nth-child(5) {
 }
 
 /* END - FOOTER */
+.border {
+  border: 0px solid #000 !important;
+}
 /*# sourceMappingURL=app.css.map */
