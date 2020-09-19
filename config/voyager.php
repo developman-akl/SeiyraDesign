@@ -145,8 +145,8 @@ return [
 
         'widgets' => [
             'TCG\\Voyager\\Widgets\\UserDimmer',
-            'TCG\\Voyager\\Widgets\\PostDimmer',
-            'TCG\\Voyager\\Widgets\\PageDimmer',
+            // 'TCG\\Voyager\\Widgets\\PostDimmer',
+            // 'TCG\\Voyager\\Widgets\\PageDimmer',
         ],
 
     ],
@@ -189,11 +189,11 @@ return [
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
-        'css/app.css',
+        //'css/custom.css',
     ],
 
     'additional_js' => [
-        // 'js/app.js',
+        //'js/custom.js',
     ],
 
     'googlemaps' => [

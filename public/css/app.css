@@ -11776,25 +11776,39 @@ section:nth-child(5) {
   /* Add padding BETWEEN each column */
   /* Create three equal columns that floats next to each other */
   /* Clear floats after rows */
-  /* Content */
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
   /* The "show" class is added to the filtered elements */
   /* Style the buttons */
 }
 
 .portfolio .row {
-  margin: 10px -16px;
+  /* IE10 */
+  display: flex;
+  /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
 }
 
 .portfolio .row,
 .portfolio .row > .column {
-  padding: 8px;
+  padding: 4px;
 }
 
 .portfolio .column {
-  float: left;
-  width: 33.33%;
+  /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
   display: none;
   /* Hide all elements by default */
+}
+
+.portfolio .column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .portfolio .row:after {
@@ -11803,10 +11817,18 @@ section:nth-child(5) {
   clear: both;
 }
 
-.portfolio .content {
-  background-color: white;
-  padding: 10px;
-  font-family: "sofia-pro";
+@media screen and (max-width: 800px) {
+  .portfolio .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .portfolio .column {
+    flex: 100%;
+    max-width: 100%;
+  }
 }
 
 .portfolio .show {

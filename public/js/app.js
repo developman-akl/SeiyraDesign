@@ -43372,7 +43372,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+// window.$ = require('jquery');
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
