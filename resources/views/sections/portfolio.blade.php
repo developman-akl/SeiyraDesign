@@ -9,7 +9,7 @@
 
     <div class="portfolio">
         <div class="row">
-            <div class="col text-center" id="myBtnContainer">
+            <div class="col text-center" id="portfolioBtnContainer">
                 <button class="btn active" data-selection="all"> Show all</button>
                 <button class="btn" data-selection="ux"> UX/UI Design</button>
                 <button class="btn" data-selection="photo"> Photo Editing</button>

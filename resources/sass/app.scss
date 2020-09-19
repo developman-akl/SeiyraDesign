@@ -427,7 +427,38 @@ body {
         height: 60px;
         text-align: center;
         line-height: 46px;
+        cursor: pointer;
     }
+
+    #btn-contact-send span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.4s;
+    }
+
+    #btn-contact-send span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: -2px;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    #btn-contact-send span:before {
+        content: '';
+    }
+
+    #btn-contact-send:hover span {
+        padding-right: 25px;
+    }
+
+    #btn-contact-send:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
 
     select,
     select::content,
@@ -850,15 +881,6 @@ section {
 .portfolio {
     position: relative;
 
-    // #myBtnContainer{
-    //     float: none;
-    //     position: absolute;
-    //     top: 50%;
-    //     left: 50%;
-    //     transform: translate(-50%, -50%);
-    //     width: 50vw;
-    // }
-
     .row {
         margin: 10px -16px;
     }
@@ -898,21 +920,24 @@ section {
 
     /* Style the buttons */
     .btn {
-        border: none;
+        border: 1px solid #262626;
+        border-radius: 18px;
         outline: none;
-        padding: 12px 16px;
         background-color: white;
+        margin-right: 14px;
         cursor: pointer;
-        
-        font: normal normal 300 16px "sofia-pro";
+
+        font-family: "sofia-pro";
     }
 
     .btn:hover {
-        background-color: #ddd;
+        background-color: white;
+        box-shadow: 4px 4px 4px #c4c4c4;
+        border: 1px solid #d8d8d8;
     }
 
     .btn.active {
-        background-color: #666;
+        background-color: rgb(69, 69, 69);
         color: white;
     }
 }

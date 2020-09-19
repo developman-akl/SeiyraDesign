@@ -37,7 +37,7 @@
                     <span class="text-danger">{{ $errors->first('message') }}</span>
                 </div>
                 <div class="form-group">
-                    <button type="submit" form="contact-form" id="btn-contact-send" class="btn btn-success btn-block">SEND</button>
+                    <button type="submit" form="contact-form" id="btn-contact-send" class="btn btn-success btn-block"><span>SEND</button>
                 </div>
             </div>
         </div>

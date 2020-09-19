@@ -168,7 +168,7 @@ $("#btn-contact-send").click(function(e) {
 
       // add spinner to button
     button.html(
-        '<span class="spinner-border spinner-border-sm mb-2 mr-1" role="status" aria-hidden="true"></span> SENDING...'
+        '<p class="spinner-border spinner-border-sm mb-2 mr-1" role="status" aria-hidden="true"></p> SENDING...'
     );
 
     $.ajaxSetup({
@@ -278,7 +278,7 @@ $(document).ready(function () {
 
 
     // Add active class to the current button (highlight it)
-    var btnContainer = document.getElementById("myBtnContainer");
+    var btnContainer = document.getElementById("portfolioBtnContainer");
     var btns = btnContainer.getElementsByClassName("btn");
     for (var i = 0; i < btns.length; i++) {
         
