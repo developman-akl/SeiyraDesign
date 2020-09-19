@@ -21,37 +21,32 @@
         <!-- Photo Grid -->
         <div class="row"> 
             <div class="column ux">
-                <img src={{ url("/storage/images/bg1.jpg") }} alt="UX/UI Design" style="width:100%">
-                {{-- @php
-                $files = glob("images/*.*");
-                for ($i=0; $i<count($files); $i++)
-                {
-                    $image = $files[$i];
-                    $supported_file = array(
-                            'gif',
-                            'jpg',
-                            'jpeg',
-                            'png'
-                        );
-        
-                    $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-                    if (in_array($ext, $supported_file)) {
-                        echo basename($image)."<br />"; // show only image name if you want to show full path then use this code // echo $image."<br />";
-                        echo '<img src="'.$image .'" alt="Random image" />'."<br /><br />";
-                    } else {
-                        continue;
+                @php
+                    foreach ($uxImages as $file) {
+                        echo '<img src="'.$file->getPathname().'" alt="UX/UI Design" style="width:100%">';
                     }
-                }
-                @endphp --}}
+                @endphp
             </div>
             <div class="column photo">
-                <img src={{ url("/storage/images/bg2.jpg") }} alt="Photo Editing" style="width:100%">
+                @php
+                    foreach ($photoImages as $file) {
+                        echo '<img src="'.$file->getPathname().'" alt="Photo Editing" style="width:100%">';
+                    }
+                @endphp
             </div>
             <div class="column social">
-                <img src={{ url("/storage/images/bg0.png") }} alt="Social Media Creative Design" style="width:100%">
+                @php
+                    foreach ($socialImages as $file) {
+                        echo '<img src="'.$file->getPathname().'" alt="Social Media Creative Design" style="width:100%">';
+                    }
+                @endphp
             </div>
             <div class="column logo">
-                <img src={{ url("/storage/images/bg3.jpg") }} alt="Logo Design" style="width:100%">
+                @php
+                    foreach ($logoImages as $file) {
+                        echo '<img src="'.$file->getPathname().'" alt="Logo Design" style="width:100%">';
+                    }
+                @endphp
             </div>
         </div>
     </div>

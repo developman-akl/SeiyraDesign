@@ -15,13 +15,10 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 
-Route::get('/', ['as' => 'home_path', 'uses' => function () {
-    return view('app');
-}]);
+Route::any('/', [ 'as' => 'home', 'uses' => 'Controller@index' ]);
 
 Route::get('contact-us', 'ContactMeController@contactMe');
 Route::post('contact-us', ['as'=>'contactme.store','uses'=>'ContactMeController@contactMePost']);
-
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
