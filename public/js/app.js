@@ -43097,7 +43097,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 var options = {
-  'damping': 0.05
+  'damping': 0.04,
+  'continuousScrolling': false,
+  'alwaysShowTracks': false
 };
 var scrollbar = smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#main-scrollbar'), options);
 var page = 1;
@@ -43257,7 +43259,7 @@ $("#btn-contact-send").click(function (e) {
   var htmlOrig = button.html();
   button.prop("disabled", true); // add spinner to button
 
-  button.html('<p class="spinner-border spinner-border-sm mb-2 mr-1" role="status" aria-hidden="true"></p> SENDING...');
+  button.html('<p class="spinner-border spinner-border-lg mb-1 mr-1" role="status" aria-hidden="true"></p> SENDING...');
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -43309,13 +43311,15 @@ $(document).ready(function () {
   "use strict";
 
   $(".portfolio .btn").click(function (e) {
+    debugger;
     filterSelection(e.target.dataset.selection);
   });
   filterSelection("all");
 
   function filterSelection(c) {
     var x, i;
-    x = document.getElementsByClassName("column");
+    var iframe = document.getElementById("gallery-iframe");
+    x = iframe.contentWindow.document.getElementsByClassName("column");
     if (c == "all") c = "";
 
     for (i = 0; i < x.length; i++) {

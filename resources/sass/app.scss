@@ -31,26 +31,19 @@ body {
 }
 
 body {
-    // position: fixed;
     margin: 0;
-    // display: flex;
-    // height: 100%;
-    // width: 100%;
     flex-direction: column;
     background-color: white;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
 }
 
 #main-scrollbar {
-    // display: inline-block;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    // max-width: 100%;
-    // overflow-x: hidden;
-
-    scroll-snap-align: center;
 }
 
 
@@ -347,7 +340,7 @@ body {
     background: transparent;
     display: flex;
     justify-content: space-between;
-    padding-top: 70px;
+    padding-top: 140px;
     padding-bottom: 50px;
     padding-left: 0;
     padding-right: 0;
@@ -391,10 +384,13 @@ body {
     .alert-success,
     .alert-danger {
         text-align: center;
+        font-size: 24px;
         border-radius: 18px;
-        margin: 7px;
-        padding: 5px;
+        margin-top: 0px;
+        margin-bottom: 12px;
+        padding: 8px;
         font-family: "sofia-pro";
+        box-shadow: 3px 3px 6px #00000029;
     }
 
     .form-control {
@@ -407,12 +403,13 @@ body {
 
     #contact-name,
     #contact-email,
-    #contact-subject {
-        height: 60px;
+    #contact-subject,
+    #btn-contact-send {
+        height: 80px;
     }
 
     #contact-message {
-        height: 180px;
+        height: 280px;
     }
 
     #btn-contact-send {
@@ -421,10 +418,9 @@ body {
         border: 1px solid #615DED;
         border-radius: 18px;
         opacity: 1;
-        font: normal normal bold 24px/77px "sofia-pro";
+        font: normal normal bold 30px/77px "sofia-pro";
         letter-spacing: 1.2px;
         color: #615DED;
-        height: 60px;
         text-align: center;
         line-height: 46px;
         cursor: pointer;
@@ -441,7 +437,7 @@ body {
         content: '\00bb';
         position: absolute;
         opacity: 0;
-        top: -2px;
+        top: -3px;
         right: -20px;
         transition: 0.5s;
     }
@@ -480,7 +476,7 @@ body {
         color: #717BF9;
         opacity: 1;
         font-family: "sofia-pro";
-        font-size: 28px;
+        font-size: 30px;
     }
 
     textarea {
@@ -507,7 +503,10 @@ body {
         text-align: center;
         text-align-last: center;
         color: #717BF9;
-        z-index: 50;
+
+        option {
+            z-index: 9999;
+        }
     }
 
     option {
@@ -532,10 +531,10 @@ section {
     position: relative;
     display: flex;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     flex-flow: column wrap;
     font-size: 1rem;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
 
     .section-title {
 
@@ -545,8 +544,8 @@ section {
             letter-spacing: 0.74px;
             color: $sectionFontCol;
             text-align: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin-top: 15px;
+            margin-bottom: 5px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -569,7 +568,7 @@ section {
             display: block;
             height: 3px;
             margin-top: 0;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             margin-left: auto;
             margin-right: auto;
             width: 248px;
@@ -592,9 +591,13 @@ section {
         background: transparent linear-gradient(180deg, rgba(189, 193, 246, 0.84) 0%, rgba(255, 255, 255, 0.16) 100%) 0% 0% no-repeat padding-box;
         text-align: center;
 
+        h1 {
+            margin-top: 34px;
+        }
+
         .devices {
             object-fit: contain;
-            width: 90%;
+            width: 100%;
             visibility: hidden;
             margin-top: 0;
             margin-bottom: 0;
@@ -944,10 +947,28 @@ section {
     .show {
         display: block;
     }
+}
 
-    #portfolioBtnContainer{
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 73.25%
+        /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
 
-    }
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 60.5%;
+}
+
+#portfolioBtnContainer {
 
     /* Style the buttons */
     .btn {

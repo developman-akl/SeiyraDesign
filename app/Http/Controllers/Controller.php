@@ -14,13 +14,7 @@ class Controller extends BaseController
 
     public function index()
     {
-        $allImages = $this->getImages('');
-        $uxImages = $this->getImages('ux-ui-design');
-        $photoImages = $this->getImages('photo-editing');
-        $socialImages = $this->getImages('social-media-creative-design');
-        $logoImages = $this->getImages('logo-design');
-
-        return view('app', compact('allImages','uxImages','photoImages','socialImages','logoImages'));
+        return view('app');
     }
 
     public function getImages($folder) {
@@ -35,5 +29,16 @@ class Controller extends BaseController
         });
 
         return $fitlered_files;
+    }
+
+    public function gallery()
+    {
+        $allImages = $this->getImages('');
+        $uxImages = $this->getImages('ux-ui-design');
+        $photoImages = $this->getImages('photo-editing');
+        $socialImages = $this->getImages('social-media-creative-design');
+        $logoImages = $this->getImages('logo-design');
+
+        return view('sections/_gallery', compact('allImages','uxImages','photoImages','socialImages','logoImages'));
     }
 }

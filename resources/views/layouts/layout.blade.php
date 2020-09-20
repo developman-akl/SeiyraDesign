@@ -11,5 +11,4 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     <link href="https://use.typekit.net/fwy1qqq.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-
 </head>

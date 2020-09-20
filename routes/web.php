@@ -17,6 +17,8 @@ use TCG\Voyager\Facades\Voyager;
 
 Route::any('/', [ 'as' => 'home', 'uses' => 'Controller@index' ]);
 
+Route::get('/gallery', 'Controller@gallery')->name('gallery');
+
 Route::get('contact-us', 'ContactMeController@contactMe');
 Route::post('contact-us', ['as'=>'contactme.store','uses'=>'ContactMeController@contactMePost']);
 

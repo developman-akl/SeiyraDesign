@@ -3,7 +3,9 @@ require('./bootstrap');
 import Scrollbar from 'smooth-scrollbar';
 
 var options = {
-    'damping': 0.05,
+    'damping': 0.04,
+    'continuousScrolling': false,
+    'alwaysShowTracks': false,
 }
 
 const scrollbar = Scrollbar.init(document.querySelector('#main-scrollbar'), options);
@@ -168,7 +170,7 @@ $("#btn-contact-send").click(function(e) {
 
       // add spinner to button
     button.html(
-        '<p class="spinner-border spinner-border-sm mb-2 mr-1" role="status" aria-hidden="true"></p> SENDING...'
+        '<p class="spinner-border spinner-border-lg mb-1 mr-1" role="status" aria-hidden="true"></p> SENDING...'
     );
 
     $.ajaxSetup({
@@ -238,14 +240,16 @@ $(document).ready(function () {
     "use strict";
 
     $(".portfolio .btn").click(function(e) {
+        debugger;
         filterSelection(e.target.dataset.selection);
     });
 
     filterSelection("all")
     function filterSelection(c) {
         
-        var x, i;
-        x = document.getElementsByClassName("column");
+        let x, i;
+        let iframe = document.getElementById("gallery-iframe");
+        x = iframe.contentWindow.document.getElementsByClassName("column");
         if (c == "all") c = "";
         for (i = 0; i < x.length; i++) {
             w3RemoveClass(x[i], "show");
@@ -255,7 +259,7 @@ $(document).ready(function () {
 
     function w3AddClass(element, name) {
         
-        var i, arr1, arr2;
+        let i, arr1, arr2;
         arr1 = element.className.split(" ");
         arr2 = name.split(" ");
         for (i = 0; i < arr2.length; i++) {
@@ -265,7 +269,7 @@ $(document).ready(function () {
 
     function w3RemoveClass(element, name) {
         
-        var i, arr1, arr2;
+        let i, arr1, arr2;
         arr1 = element.className.split(" ");
         arr2 = name.split(" ");
         for (i = 0; i < arr2.length; i++) {
