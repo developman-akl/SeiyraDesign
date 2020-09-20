@@ -1,7 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMe;
+use App\ContactMe as ContactMeModel;
+use App\Mail\ContactMe as ContactMeMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
@@ -26,9 +27,11 @@ class ContactMeController extends Controller
 		if ($validator->fails()) {
 			return response()->json(['success' => false, 'messages' => [['Please fill in all fields.']]]);
 		}
+
+		ContactMeModel::create($request->all());
 		
 		Mail::to($request->get('email'))
-			->send(new ContactMe(
+			->send(new ContactMeMail(
 					$request->get('name'), 
 					$request->get('email'), 
 					$request->get('subject'), 
