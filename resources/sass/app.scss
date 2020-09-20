@@ -111,7 +111,6 @@ body {
     background: $navbarbg;
     opacity: 1;
     position: relative;
-    margin-bottom: 35px;
 
 
     .nav-logo-img {
@@ -537,7 +536,7 @@ body {
 
 section {
     position: relative;
-    display: grid;
+    display: flex;
     /* width: 100%; */
     min-height: 100vh;
     flex-flow: column wrap;
@@ -553,7 +552,7 @@ section {
             color: $sectionFontCol;
             text-align: center;
             margin-top: 15px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -579,7 +578,7 @@ section {
             margin-bottom: 20px;
             margin-left: auto;
             margin-right: auto;
-            width: 248px;
+            width: 25vw;
             opacity: 1;
             border-radius: 5px;
         }
