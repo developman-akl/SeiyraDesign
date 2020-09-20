@@ -43310,15 +43310,24 @@ $("#btn-contact-send").click(function (e) {
 $(document).ready(function () {
   "use strict";
 
-  $(".portfolio .btn").click(function (e) {
-    debugger;
+  var iframe = document.getElementById("gallery-iframe");
+  $("#portfolioBtnContainer .btn").click(function (e) {
     filterSelection(e.target.dataset.selection);
-  });
-  filterSelection("all");
+  }); // Append app.css link to the iframe header after it was initialized
+
+  iframe.onload = function () {
+    var frm = iframe.contentWindow.document;
+    var otherhead = frm.getElementsByTagName("head")[0];
+    var link = frm.createElement("link");
+    link.setAttribute("rel", "stylesheet");
+    link.setAttribute("type", "text/css");
+    link.setAttribute("href", "css/app.css");
+    otherhead.appendChild(link);
+    filterSelection("all");
+  };
 
   function filterSelection(c) {
     var x, i;
-    var iframe = document.getElementById("gallery-iframe");
     x = iframe.contentWindow.document.getElementsByClassName("column");
     if (c == "all") c = "";
 

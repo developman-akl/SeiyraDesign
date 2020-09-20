@@ -11783,8 +11783,9 @@ section:nth-child(5) {
   border: 0px solid #000 !important;
 }
 
-.portfolio {
+.portfolio-gallery {
   position: relative;
+  padding: 0 15px 15px 15px;
   /* Add padding BETWEEN each column */
   /* Create three equal columns that floats next to each other */
   /* Clear floats after rows */
@@ -11793,7 +11794,7 @@ section:nth-child(5) {
   /* The "show" class is added to the filtered elements */
 }
 
-.portfolio .row {
+.portfolio-gallery .row {
   /* IE10 */
   display: flex;
   /* IE10 */
@@ -11801,53 +11802,52 @@ section:nth-child(5) {
   padding: 0 4px;
 }
 
-.portfolio .row,
-.portfolio .row > .column {
+.portfolio-gallery .row,
+.portfolio-gallery .row > .column {
   padding: 4px;
 }
 
-.portfolio .column {
+.portfolio-gallery .column {
   /* IE10 */
   flex: 25%;
-  max-width: 25%;
+  max-width: 20%;
   padding: 0 4px;
   display: none;
   /* Hide all elements by default */
 }
 
-.portfolio .column img {
+.portfolio-gallery .column img {
   margin-top: 8px;
   vertical-align: middle;
   width: 100%;
   border-radius: 5px;
 }
 
-.portfolio .row:after {
+.portfolio-gallery .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
 @media screen and (max-width: 800px) {
-  .portfolio .column {
+  .portfolio-gallery .column {
     flex: 50%;
     max-width: 50%;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .portfolio .column {
+  .portfolio-gallery .column {
     flex: 100%;
     max-width: 100%;
   }
 }
 
-.portfolio .show {
+.portfolio-gallery .show {
   display: block;
 }
 
 .iframe-container {
-  position: relative;
   overflow: hidden;
   width: 100%;
   padding-top: 73.25%;
@@ -11857,12 +11857,12 @@ section:nth-child(5) {
 
 .responsive-iframe {
   position: absolute;
-  top: 0;
+  top: 255px;
   left: 0;
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 60.5%;
+  height: 68.5%;
 }
 
 #portfolioBtnContainer {
