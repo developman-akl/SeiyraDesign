@@ -480,6 +480,13 @@ body {
         font-size: 30px;
     }
 
+    
+    textarea::placeholder,
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder {
+        opacity: 0.5;
+    }
+
     textarea {
         resize: none;
         overflow: auto;
@@ -532,7 +539,7 @@ section {
     position: relative;
     display: grid;
     /* width: 100%; */
-    height: 100vh;
+    min-height: 100vh;
     flex-flow: column wrap;
     font-size: 1rem;
     scroll-snap-align: start;
@@ -565,7 +572,7 @@ section {
         }
 
         .border {
-            background: #b5b5b5;
+            background: #454545;
             display: block;
             height: 3px;
             margin-top: 0;
@@ -962,6 +969,7 @@ section {
     // bottom: 0;
     // right: 0;
     width: 100vw;
+    height: 60vh;
     // height: 68.5%;
 }
 

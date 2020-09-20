@@ -11396,6 +11396,24 @@ body {
   font-size: 30px;
 }
 
+.contact-container textarea::-moz-placeholder, .contact-container input[type=text]::-moz-placeholder, .contact-container input[type=email]::-moz-placeholder {
+  opacity: 0.5;
+}
+
+.contact-container textarea:-ms-input-placeholder, .contact-container input[type=text]:-ms-input-placeholder, .contact-container input[type=email]:-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+.contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+.contact-container textarea::placeholder,
+.contact-container input[type=text]::placeholder,
+.contact-container input[type=email]::placeholder {
+  opacity: 0.5;
+}
+
 .contact-container textarea {
   resize: none;
   overflow: auto;
@@ -11448,7 +11466,7 @@ section {
   position: relative;
   display: grid;
   /* width: 100%; */
-  height: 100vh;
+  min-height: 100vh;
   flex-flow: column wrap;
   font-size: 1rem;
   scroll-snap-align: start;
@@ -11480,7 +11498,7 @@ section .section-title h2 {
 }
 
 section .section-title .border {
-  background: #b5b5b5;
+  background: #454545;
   display: block;
   height: 3px;
   margin-top: 0;
@@ -11854,6 +11872,7 @@ section:nth-child(5) {
 .responsive-iframe {
   position: relative;
   width: 100vw;
+  height: 60vh;
 }
 
 #portfolioBtnContainer {
