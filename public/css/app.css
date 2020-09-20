@@ -10994,10 +10994,11 @@ body {
 /* Navigation */
 
 .nav-bar {
-  display: block;
+  display: table;
   background: #191919;
   opacity: 1;
   position: relative;
+  margin-bottom: 35px;
 }
 
 .nav-bar .nav-logo-img {
@@ -11445,8 +11446,8 @@ body {
 
 section {
   position: relative;
-  display: flex;
-  width: 100%;
+  display: grid;
+  /* width: 100%; */
   height: 100vh;
   flex-flow: column wrap;
   font-size: 1rem;
@@ -11504,14 +11505,10 @@ section:nth-child(2) {
   text-align: center;
 }
 
-section:nth-child(2) h1 {
-  margin-top: 34px;
-}
-
 section:nth-child(2) .devices {
   -o-object-fit: contain;
      object-fit: contain;
-  width: 100%;
+  width: 90%;
   visibility: hidden;
   margin-top: 0;
   margin-bottom: 0;
@@ -11849,20 +11846,14 @@ section:nth-child(5) {
 
 .iframe-container {
   overflow: hidden;
-  width: 100%;
-  padding-top: 73.25%;
+  /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
 /* Then style the iframe to fit in the container div with full height and width */
 
 .responsive-iframe {
-  position: absolute;
-  top: 255px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 68.5%;
+  position: relative;
+  width: 100vw;
 }
 
 #portfolioBtnContainer {
