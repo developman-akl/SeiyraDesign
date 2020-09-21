@@ -331,14 +331,23 @@ body {
 
 .service-images {
     background: transparent;
-    display: flex;
-    justify-content: space-between;
     padding-top: 140px;
-    padding-bottom: 50px;
-    padding-left: 0;
-    padding-right: 0;
+    text-align: center;
 
-    h3,
+    .column {
+        float: left;
+        width: 25%;
+        padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    h2,
     p {
         font: normal normal bold 24px/37px "sofia-pro";
     }
@@ -356,15 +365,89 @@ body {
 
     @media only screen {
         img {
-            height: 200px;
-            width: 200px;
+            height: 250px;
+            width: 250px;
         }
     }
 
-    @media (max-width: 414px) {
-        img {
-            width: 60px;
+    
+
+    @media (max-width: 1400px) {
+        margin: 0 15px;
+        padding-top: 40px;
+
+        .column {
+            float: left;
+            width: 50%;
             padding: 5px;
+        }
+
+        img {
+            width: 175px;
+            height: 175px;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        margin: 0 15px;
+        padding-top: 15px;
+
+        h2,
+        p {
+            font: normal normal bold 18px/30px "sofia-pro";
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        margin: 0 15px;
+        padding-top: 15px;
+
+        h2,
+        p {
+            font: normal normal bold 16px/27px "sofia-pro";
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        img {
+            width: 125px;
+            height: 125px;
+        }
+    }
+
+    @media (max-width: 378px) {
+        margin: 0 15px;
+        padding-top: 25px;
+
+        h2,
+        p {
+            font: normal normal bold 14px/22px "sofia-pro";
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
         }
     }
 }
@@ -470,7 +553,6 @@ body {
         opacity: 1;
         font-family: "sofia-pro";
         font-size: 30px;
-        resize: vertical;
         width: 100%;
     }
 
@@ -526,7 +608,7 @@ body {
         cursor: pointer;
     }
 
-    @media (max-width: 414px) {
+    @media (max-width: 1366px) {
 
         width: 80vw;
 
