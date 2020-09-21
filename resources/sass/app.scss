@@ -106,11 +106,9 @@ body {
 }
 
 /* Navigation */
-.nav-bar {
-    display: table;
+.sd-navbar {
     background: $navbarbg;
     opacity: 1;
-    position: relative;
 
 
     .nav-logo-img {
@@ -123,15 +121,10 @@ body {
         margin-right: 0;
     }
 
-    nav {
-        float: right;
-        margin: 0;
-        position: relative;
-        text-align: center;
+    .sd-nav {
 
         ul {
             margin: 0;
-            padding-top: 30px;
 
             li {
                 display: inline-block;
