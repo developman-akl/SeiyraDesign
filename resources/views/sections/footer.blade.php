@@ -3,19 +3,19 @@
         <div class="footer-icons">
             <a href="{{ setting('site.instagram') }}" target="_blank">
                 <img class="img-fluid " src="{{ asset('storage/images/icon_Insta.svg') }}" 
-                    alt="Instagram" loading="lazy" ALIGN=CENTER>
+                    alt="Instagram" loading="lazy" title="Instagram">
             </a>
             <a href="{{ setting('site.linkedin') }}" target="_blank">
                 <img class="img-fluid " src="{{ asset('storage/images/icon_Linkedin_.svg') }}" 
-                    alt="LinkedIn" loading="lazy" ALIGN=CENTER>
+                    alt="LinkedIn" loading="lazy" title="LinkedIn">
             </a>
             <a href="mailto:{{ setting('site.email') }}">
                 <img class="img-fluid " src="{{ asset('storage/images/icon_envelope.svg') }}" 
-                    alt="Email" loading="lazy" ALIGN=CENTER>
+                    alt="Email" loading="lazy" title="Email">
             </a>
             <a href="{{ setting('site.behance') }}" target="_blank">
                 <img class="img-fluid " src="{{ asset('storage/images/icon_behance_.svg') }}" 
-                    alt="Behance" loading="lazy" ALIGN=CENTER>
+                    alt="Behance" loading="lazy" title="Béhance">
             </a>
         </div>
         <div class="footer-info mb-0 row d-flex flex-row justify-content-between">

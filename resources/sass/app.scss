@@ -35,7 +35,7 @@ body {
     flex-direction: column;
     background-color: white;
     scroll-snap-type: y mandatory;
-    overflow-y: scroll;
+    // overflow-y: scroll;
 }
 
 #main-scrollbar {
@@ -45,8 +45,6 @@ body {
     bottom: 0;
     left: 0;
 }
-
-
 
 .container {
     width: 100%;
@@ -220,6 +218,11 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
+
+    .lazy {
+        background-image: none;
+        background-color: #000;
+    }
 }
 
 #back1 {
@@ -371,7 +374,7 @@ body {
     }
 
 
-    
+
     @media (max-width: 1400px) {
         margin: 0 15px;
         padding-top: 40px;
@@ -481,11 +484,11 @@ body {
     #contact-email,
     #contact-subject,
     #btn-contact-send {
-        height: 70px;
+        height: 65px;
     }
 
     #contact-message {
-        height: 280px;
+        height: 250px;
     }
 
     #btn-contact-send {
@@ -494,7 +497,7 @@ body {
         border: 1px solid #615DED;
         border-radius: 18px;
         opacity: 1;
-        font: normal normal bold 30px/77px "sofia-pro";
+        font: normal normal bold 30px/74px "sofia-pro";
         letter-spacing: 1.2px;
         color: #615DED;
         text-align: center;
@@ -803,7 +806,7 @@ section {
     &:nth-child(5) {
         background: linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
         height: auto;
-        // opacity: 1;
+        opacity: 1;
     }
 }
 
@@ -978,9 +981,11 @@ section {
     padding-bottom: 10px;
     padding-left: 0;
     padding-right: 0;
+    margin: 0;
     width: 100%;
     bottom: 0;
     z-index: 1;
+    // position: fixed;
 
     .footer-icons {
         background: $navbarbg;

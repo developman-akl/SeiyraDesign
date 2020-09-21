@@ -33,7 +33,7 @@
                 </div>
                 <div class="col d-flex flex-column justify-content-between">
                     <div class="form-group required {{ $errors->has('message') ? 'has-error' : '' }}">
-                        <textarea class="form-control" name="contact-message" id="contact-message" placeholder="Your Message" maxlength="500"></textarea>
+                        <textarea class="form-control" name="contact-message" id="contact-message" placeholder="Your Message" maxlength="450"></textarea>
                         <span class="text-danger">{{ $errors->first('message') }}</span>
                     </div>
                     <div class="form-group">
