@@ -337,7 +337,7 @@ body {
     .column {
         float: left;
         width: 25%;
-        padding: 5px;
+        padding: 25px;
     }
 
     /* Clearfix (clear floats) */
@@ -370,8 +370,8 @@ body {
         }
     }
 
-    
 
+    
     @media (max-width: 1400px) {
         margin: 0 15px;
         padding-top: 40px;
@@ -379,7 +379,7 @@ body {
         .column {
             float: left;
             width: 50%;
-            padding: 5px;
+            padding: 10px;
         }
 
         img {
@@ -390,7 +390,7 @@ body {
 
     @media (max-width: 1000px) {
         margin: 0 15px;
-        padding-top: 15px;
+        padding-top: 30px;
 
         h2,
         p {
@@ -400,7 +400,7 @@ body {
         .column {
             float: left;
             width: 50%;
-            padding: 5px;
+            padding: 25px;
         }
 
         img {
@@ -411,7 +411,7 @@ body {
 
     @media (max-width: 576px) {
         margin: 0 15px;
-        padding-top: 15px;
+        padding-top: 30px;
 
         h2,
         p {
@@ -432,7 +432,7 @@ body {
 
     @media (max-width: 378px) {
         margin: 0 15px;
-        padding-top: 25px;
+        padding-top: 45px;
 
         h2,
         p {
@@ -682,9 +682,31 @@ section {
             margin-right: auto;
         }
 
+        p {
+            text-align: center;
+            font: normal normal 300 19px/23px Sofia;
+            color: $sectionFontCol;
+            margin: auto;
+            width: 50%;
+        }
+
+        @media (max-width: 800px) {
+            h1 {
+                font: normal normal normal 36px Lust;
+            }
+
+            p {
+                font: normal normal 300 16px/22px Sofia;
+            }
+        }
+
         @media (max-width: 414px) {
             h1 {
                 font: normal normal normal 36px Lust;
+            }
+
+            p {
+                font: normal normal 300 14px/20px Sofia;
             }
         }
 
@@ -706,14 +728,6 @@ section {
             width: 25vw;
             opacity: 1;
             border-radius: 5px;
-        }
-
-        p {
-            text-align: center;
-            font: normal normal 300 19px/23px Sofia;
-            color: $sectionFontCol;
-            margin: auto;
-            width: 50%;
         }
     }
 
