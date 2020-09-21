@@ -405,7 +405,7 @@ body {
     #contact-email,
     #contact-subject,
     #btn-contact-send {
-        height: 80px;
+        height: 70px;
     }
 
     #contact-message {
@@ -477,9 +477,11 @@ body {
         opacity: 1;
         font-family: "sofia-pro";
         font-size: 30px;
+        resize: vertical;
+        width: 100%;
     }
 
-    
+
     textarea::placeholder,
     input[type="text"]::placeholder,
     input[type="email"]::placeholder {
@@ -529,6 +531,54 @@ body {
         border: 1px solid transparent;
         border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
         cursor: pointer;
+    }
+
+    @media (max-width: 414px) {
+
+        width: 80vw;
+
+        #contact-name,
+        #contact-email,
+        #contact-subject,
+        #btn-contact-send {
+            height: 50px;
+        }
+
+
+        #btn-contact-send {
+            line-height: 36px;
+        }
+
+        .alert-success,
+        .alert-danger,
+        #btn-contact-send,
+        select,
+        select::content,
+        select::selection,
+        textarea,
+        textarea::content,
+        textarea::selection,
+        textarea::placeholder,
+        input[type="text"],
+        input[type="text"]::content,
+        input[type="text"]::selection,
+        input[type="text"]::placeholder,
+        input[type="email"],
+        input[type="email"]::content,
+        input[type="email"]::selection,
+        input[type="email"]::placeholder {
+            font-size: 20px;
+        }
+
+        textarea {
+            font-size: 15px;
+        }
+
+        .col {
+            flex: 1 1 auto
+        }
+
+
     }
 }
 
@@ -663,6 +713,7 @@ section {
     // CONTACT ME
     &:nth-child(5) {
         background: linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
+        height: auto;
         // opacity: 1;
     }
 }
@@ -834,8 +885,10 @@ section {
 .footer-wrapper {
     background: $navbarbg;
     opacity: 1;
-    padding: 10px;
-    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
     width: 100%;
     bottom: 0;
     z-index: 1;
@@ -957,7 +1010,7 @@ section {
     overflow: hidden;
     // width: 100%;
     // padding-top: 73.25%
-        /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
 /* Then style the iframe to fit in the container div with full height and width */

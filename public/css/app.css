@@ -11188,7 +11188,7 @@ body {
 .contact-container #contact-email,
 .contact-container #contact-subject,
 .contact-container #btn-contact-send {
-  height: 80px;
+  height: 70px;
 }
 
 .contact-container #contact-message {
@@ -11262,6 +11262,8 @@ body {
   opacity: 1;
   font-family: "sofia-pro";
   font-size: 30px;
+  resize: vertical;
+  width: 100%;
 }
 
 .contact-container select,
@@ -11285,6 +11287,8 @@ body {
   opacity: 1;
   font-family: "sofia-pro";
   font-size: 30px;
+  resize: vertical;
+  width: 100%;
 }
 
 undefined {
@@ -11294,6 +11298,8 @@ undefined {
   opacity: 1;
   font-family: "sofia-pro";
   font-size: 30px;
+  resize: vertical;
+  width: 100%;
 }
 
 .contact-container select,
@@ -11317,6 +11323,8 @@ undefined {
   opacity: 1;
   font-family: "sofia-pro";
   font-size: 30px;
+  resize: vertical;
+  width: 100%;
 }
 
 .contact-container select,
@@ -11340,6 +11348,8 @@ undefined {
   opacity: 1;
   font-family: "sofia-pro";
   font-size: 30px;
+  resize: vertical;
+  width: 100%;
 }
 
 .contact-container textarea::-webkit-input-placeholder,
@@ -11409,6 +11419,112 @@ undefined {
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
+}
+
+@media (max-width: 414px) {
+  .contact-container {
+    width: 80vw;
+  }
+  .contact-container #contact-name,
+  .contact-container #contact-email,
+  .contact-container #contact-subject,
+  .contact-container #btn-contact-send {
+    height: 50px;
+  }
+  .contact-container #btn-contact-send {
+    line-height: 36px;
+  }
+  .contact-container .alert-success,
+  .contact-container .alert-danger,
+  .contact-container #btn-contact-send,
+  .contact-container select,
+  .contact-container select::content,
+  .contact-container select::-moz-selection,
+  .contact-container textarea,
+  .contact-container textarea::content,
+  .contact-container textarea::-moz-selection,
+  .contact-container textarea::placeholder,
+  .contact-container input[type="text"],
+  .contact-container input[type="text"]::content,
+  .contact-container input[type="text"]::-moz-selection,
+  .contact-container input[type="text"]::placeholder,
+  .contact-container input[type="email"],
+  .contact-container input[type="email"]::content,
+  .contact-container input[type="email"]::-moz-selection,
+  .contact-container input[type="email"]::placeholder {
+    font-size: 20px;
+  }
+  .contact-container .alert-success,
+  .contact-container .alert-danger,
+  .contact-container #btn-contact-send,
+  .contact-container select,
+  .contact-container select::content,
+  .contact-container select::-webkit-selection,
+  .contact-container textarea,
+  .contact-container textarea::content,
+  .contact-container textarea::-webkit-selection,
+  .contact-container textarea::placeholder,
+  .contact-container input[type="text"],
+  .contact-container input[type="text"]::content,
+  .contact-container input[type="text"]::-webkit-selection,
+  .contact-container input[type="text"]::placeholder,
+  .contact-container input[type="email"],
+  .contact-container input[type="email"]::content,
+  .contact-container input[type="email"]::-webkit-selection,
+  .contact-container input[type="email"]::placeholder {
+    font-size: 20px;
+  }
+  undefined {
+    font-size: 20px;
+  }
+  .contact-container .alert-success,
+  .contact-container .alert-danger,
+  .contact-container #btn-contact-send,
+  .contact-container select,
+  .contact-container select::content,
+  .contact-container select::-ms-selection,
+  .contact-container textarea,
+  .contact-container textarea::content,
+  .contact-container textarea::-ms-selection,
+  .contact-container textarea::placeholder,
+  .contact-container input[type="text"],
+  .contact-container input[type="text"]::content,
+  .contact-container input[type="text"]::-ms-selection,
+  .contact-container input[type="text"]::placeholder,
+  .contact-container input[type="email"],
+  .contact-container input[type="email"]::content,
+  .contact-container input[type="email"]::-ms-selection,
+  .contact-container input[type="email"]::placeholder {
+    font-size: 20px;
+  }
+  .contact-container .alert-success,
+  .contact-container .alert-danger,
+  .contact-container #btn-contact-send,
+  .contact-container select,
+  .contact-container select::content,
+  .contact-container select::selection,
+  .contact-container textarea,
+  .contact-container textarea::content,
+  .contact-container textarea::selection,
+  .contact-container textarea::placeholder,
+  .contact-container input[type="text"],
+  .contact-container input[type="text"]::content,
+  .contact-container input[type="text"]::selection,
+  .contact-container input[type="text"]::placeholder,
+  .contact-container input[type="email"],
+  .contact-container input[type="email"]::content,
+  .contact-container input[type="email"]::selection,
+  .contact-container input[type="email"]::placeholder {
+    font-size: 20px;
+  }
+  .contact-container textarea {
+    font-size: 15px;
+  }
+  .contact-container .col {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+  }
 }
 
 /* SECTIONS */
@@ -11554,6 +11670,7 @@ section:nth-child(4) {
 section:nth-child(5) {
   background: -webkit-gradient(linear, left top, left bottom, from(#dbdefbe0), color-stop(30%, #B3B7F8CC), to(#00054B)) 0% 0% no-repeat padding-box;
   background: linear-gradient(180deg, #dbdefbe0 0%, #B3B7F8CC 30%, #00054B 100%) 0% 0% no-repeat padding-box;
+  height: auto;
 }
 
 /* END - SECTIONS */
@@ -11700,8 +11817,10 @@ section:nth-child(5) {
 .footer-wrapper {
   background: #191919;
   opacity: 1;
-  padding: 10px;
-  position: absolute;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
   width: 100%;
   bottom: 0;
   z-index: 1;
