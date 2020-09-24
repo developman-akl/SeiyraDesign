@@ -259,7 +259,7 @@ $(document).ready(function () {
     function filterSelection(c) {
 
         let x, i;
-        x = iframe.contentWindow.document.getElementsByClassName("column");
+        x = iframe.contentWindow.document.getElementsByClassName("grid");
         if (c == "all") c = "";
         for (i = 0; i < x.length; i++) {
             w3RemoveClass(x[i], "show");

@@ -11942,8 +11942,7 @@ section:nth-child(5) {
 
 .portfolio-gallery {
   position: relative;
-  padding: 0 15px 15px 15px;
-  /* Add padding BETWEEN each column */
+  padding: 10px 10px 10px 10px;
   /* Create three equal columns that floats next to each other */
   /* Clear floats after rows */
   /* Responsive layout - makes a two column-layout instead of four columns */
@@ -11951,31 +11950,13 @@ section:nth-child(5) {
   /* The "show" class is added to the filtered elements */
 }
 
-.portfolio-gallery .row {
-  display: -ms-flexbox;
-  /* IE10 */
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  /* IE10 */
-  flex-wrap: wrap;
-  padding: 0 4px;
-}
-
-.portfolio-gallery .row,
-.portfolio-gallery .row > .column {
-  padding: 4px;
-}
-
 .portfolio-gallery .column {
   -ms-flex: 25%;
-  /* IE10 */
   -webkit-box-flex: 25%;
           flex: 25%;
   max-width: 20%;
   padding: 0 4px;
   display: none;
-  /* Hide all elements by default */
 }
 
 .portfolio-gallery .column img {
@@ -12015,14 +11996,13 @@ section:nth-child(5) {
 
 .iframe-container {
   overflow: hidden;
-  /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
 /* Then style the iframe to fit in the container div with full height and width */
 .responsive-iframe {
   position: relative;
   width: 100vw;
-  height: 60vh;
+  height: 73vh;
 }
 
 #portfolioBtnContainer {
@@ -12048,5 +12028,106 @@ section:nth-child(5) {
 #portfolioBtnContainer .btn.active {
   background-color: #454545;
   color: white;
+}
+
+.masonry {
+  -webkit-columns: 4;
+          columns: 4;
+  -webkit-column-gap: 25px;
+          column-gap: 25px;
+}
+
+@media (max-width: 1200px) {
+  .masonry {
+    -webkit-columns: 3;
+            columns: 3;
+  }
+}
+
+@media (max-width: 992px) {
+  .masonry {
+    -webkit-columns: 2;
+            columns: 2;
+  }
+}
+
+.masonry .grid {
+  display: inline-block;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.masonry .grid:before {
+  border-radius: 5px;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.masonry .grid img {
+  width: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 5px #666669;
+          box-shadow: 5px 5px 5px #666669;
+}
+
+.masonry .grid__title {
+  font: normal normal bold 28px/37px "sofia-pro";
+  margin: 0px 0px 10px 0px;
+  width: auto;
+  border-radius: 5px;
+}
+
+.masonry .grid__author {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.masonry .grid__link {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.masonry .grid__body {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 50px 30px;
+  color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.masonry .grid__body:hover {
+  color: white;
+  text-transform: uppercase;
+  background: rgba(65, 65, 65, 0.747);
+}
+
+.masonry .grid__tag {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-bottom: 5px;
+}
+
+.mt-auto {
+  margin-top: auto;
 }
 /*# sourceMappingURL=app.css.map */
