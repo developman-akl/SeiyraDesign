@@ -107,7 +107,6 @@ body {
     background: $navbarbg;
     opacity: 1;
 
-
     .nav-logo-img {
         float: left;
         position: relative;
@@ -217,6 +216,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
+    background-color: #000;
 
     .lazy {
         background-image: none;
