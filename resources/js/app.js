@@ -47,7 +47,7 @@ function showImages(el, s) {
 
 
 function showJumpRefButtons(s) {
-   
+
     var windowHeight = jQuery(window).height();
     var thisPos;
 
@@ -59,7 +59,7 @@ function showJumpRefButtons(s) {
 
     var topOfWindow = $(window).scrollTop();
     var pos = windowHeight - topOfWindow - 115;
-    
+
     if (pos < thisPos) {
         $('#btnPrev').fadeIn();
         $('#btnNext').fadeIn();
@@ -152,21 +152,23 @@ $(document).ready(function () {
 });
 
 /* END TO TOP */
-$("#contact-message").click(function(e) {
+$("#contact-message").click(function (e) {
     // e.preventDefault();
     $("#contact-message").blur();
     $("#contact-message").focus();
-    $.event.trigger({ type : 'keypress' }); // works cross-browser
+    $.event.trigger({
+        type: 'keypress'
+    }); // works cross-browser
 });
 
-$("#btn-contact-send").click(function(e) {
+$("#btn-contact-send").click(function (e) {
     e.preventDefault();
     var button = $(this);
     var htmlOrig = button.html();
 
     button.prop("disabled", true);
 
-      // add spinner to button
+    // add spinner to button
     button.html(
         '<p class="spinner-border spinner-border-lg mb-1 mr-1" role="status" aria-hidden="true"></p> SENDING...'
     );
@@ -178,34 +180,33 @@ $("#btn-contact-send").click(function(e) {
     });
     $.ajax({
         type: "POST",
-        url:  "/contact-us",
+        url: "/contact-us",
         dataType: 'json',
-        data: { 
+        data: {
             name: $("#contact-name").val(),
             email: $("#contact-email").val(),
             subject: $("#contact-subject").val(),
             message: $("#contact-message").val(),
         },
-        success: function(response) {
+        success: function (response) {
             jumpRef('#contact');
 
             var messages = response.messages;
             var resultClass = response.success ? "alert-success" : "alert-danger";
-            
+
             var messagesHtml = '<div id="responseTextParent" class="row mb-1 mt-1">' +
-            '<div class="col-lg-12"><div id="responseText" class="alert ' + resultClass + '" role="alert">' +
-            '<ul style="list-style-type:none;margin:0;padding:0;>';
-    
-            $.each( messages, function( key, value ) {
-                messagesHtml += '<li class="mb-1">'+ value[0] + '</li>';
+                '<div class="col-lg-12"><div id="responseText" class="alert ' + resultClass + '" role="alert">' +
+                '<ul style="list-style-type:none;margin:0;padding:0;>';
+
+            $.each(messages, function (key, value) {
+                messagesHtml += '<li class="mb-1">' + value[0] + '</li>';
             });
-            
+
             messagesHtml += '</ul></div></div></div>';
 
             $('.response_message').html(messagesHtml).fadeIn();
-            
-            if (response.success)
-            {
+
+            if (response.success) {
                 $("#contact-name").val(null);
                 $("#contact-email").val(null);
                 $("#contact-subject").val(null);
@@ -219,10 +220,10 @@ $("#btn-contact-send").click(function(e) {
 
             button.prop("disabled", false);
         },
-        error: function(response ,x, y) {
+        error: function (response, x, y) {
             var messagesHtml = '<div id="responseTextParent" class="row mb-1 mt-1">' +
-            '<div class="col-lg-12"><div id="responseText" class="alert alert-danger rounded" role="alert">' +
-            '<ul style="list-style-type:none;margin:0;padding:0;"><li class="mb-1">'+ y + '</li></ul></div></div></div>';
+                '<div class="col-lg-12"><div id="responseText" class="alert alert-danger rounded" role="alert">' +
+                '<ul style="list-style-type:none;margin:0;padding:0;"><li class="mb-1">' + y + '</li></ul></div></div></div>';
 
             $('.response_message').html(messagesHtml);
 
@@ -233,18 +234,18 @@ $("#btn-contact-send").click(function(e) {
         }
     });
 });
-    
+
 $(document).ready(function () {
     "use strict";
 
     var iframe = document.getElementById("gallery-iframe");
 
-    $("#portfolioBtnContainer .btn").click(function(e) {
+    $("#portfolioBtnContainer .btn").click(function (e) {
         filterSelection(e.target.dataset.selection);
     });
 
     // Append app.css link to the iframe header after it was initialized
-    iframe.onload = function (){
+    iframe.onload = function () {
         var frm = iframe.contentWindow.document;
         var otherhead = frm.getElementsByTagName("head")[0];
         var link = frm.createElement("link");
@@ -268,23 +269,25 @@ $(document).ready(function () {
     }
 
     function w3AddClass(element, name) {
-        
+
         let i, arr1, arr2;
         arr1 = element.className.split(" ");
         arr2 = name.split(" ");
         for (i = 0; i < arr2.length; i++) {
-            if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+            }
         }
     }
 
     function w3RemoveClass(element, name) {
-        
+
         let i, arr1, arr2;
         arr1 = element.className.split(" ");
         arr2 = name.split(" ");
         for (i = 0; i < arr2.length; i++) {
             while (arr1.indexOf(arr2[i]) > -1) {
-            arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
             }
         }
         element.className = arr1.join(" ");
@@ -295,8 +298,8 @@ $(document).ready(function () {
     var btnContainer = document.getElementById("portfolioBtnContainer");
     var btns = btnContainer.getElementsByClassName("btn");
     for (var i = 0; i < btns.length; i++) {
-        
-        btns[i].addEventListener("click", function(){
+
+        btns[i].addEventListener("click", function () {
             var current = document.getElementsByClassName("active");
             current[0].className = current[0].className.replace(" active", "");
             this.className += " active";
@@ -304,52 +307,51 @@ $(document).ready(function () {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    var lazyloadImages;    
-  
+document.addEventListener("DOMContentLoaded", function () {
+    var lazyloadImages;
+
     if ("IntersectionObserver" in window) {
-      lazyloadImages = document.querySelectorAll(".lazy");
-      var imageObserver = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            var image = entry.target;
-            image.classList.remove("lazy");
-            imageObserver.unobserve(image);
-          }
+        lazyloadImages = document.querySelectorAll(".lazy");
+        var imageObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var image = entry.target;
+                    image.classList.remove("lazy");
+                    imageObserver.unobserve(image);
+                }
+            });
         });
-      });
-  
-      lazyloadImages.forEach(function(image) {
-        imageObserver.observe(image);
-      });
-    } else {  
-      var lazyloadThrottleTimeout;
-      lazyloadImages = document.querySelectorAll(".lazy");
-      
-      function lazyload () {
-        if(lazyloadThrottleTimeout) {
-          clearTimeout(lazyloadThrottleTimeout);
-        }    
-  
-        lazyloadThrottleTimeout = setTimeout(function() {
-          var scrollTop = window.pageYOffset;
-          lazyloadImages.forEach(function(img) {
-              if(img.offsetTop < (window.innerHeight + scrollTop)) {
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-              }
-          });
-          if(lazyloadImages.length == 0) { 
-            document.removeEventListener("scroll", lazyload);
-            window.removeEventListener("resize", lazyload);
-            window.removeEventListener("orientationChange", lazyload);
-          }
-        }, 20);
-      }
-  
-      document.addEventListener("scroll", lazyload);
-      window.addEventListener("resize", lazyload);
-      window.addEventListener("orientationChange", lazyload);
+
+        lazyloadImages.forEach(function (image) {
+            imageObserver.observe(image);
+        });
+    } else {
+        var lazyloadThrottleTimeout;
+        lazyloadImages = document.querySelectorAll(".lazy");
+
+        function lazyload() {
+            if (lazyloadThrottleTimeout) {
+                clearTimeout(lazyloadThrottleTimeout);
+            }
+
+            lazyloadThrottleTimeout = setTimeout(function () {
+                var scrollTop = window.pageYOffset;
+                lazyloadImages.forEach(function (img) {
+                    if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                    }
+                });
+                if (lazyloadImages.length == 0) {
+                    document.removeEventListener("scroll", lazyload);
+                    window.removeEventListener("resize", lazyload);
+                    window.removeEventListener("orientationChange", lazyload);
+                }
+            }, 20);
+        }
+
+        document.addEventListener("scroll", lazyload);
+        window.addEventListener("resize", lazyload);
+        window.addEventListener("orientationChange", lazyload);
     }
-  })
-  
+})

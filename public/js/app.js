@@ -43326,7 +43326,7 @@ $(document).ready(function () {
 
   function filterSelection(c) {
     var x, i;
-    x = iframe.contentWindow.document.getElementsByClassName("column");
+    x = iframe.contentWindow.document.getElementsByClassName("grid");
     if (c == "all") c = "";
 
     for (i = 0; i < x.length; i++) {

@@ -1037,23 +1037,6 @@ section {
     position: relative;
     padding: 10px 10px 10px 10px;
 
-
-    /* Create three equal columns that floats next to each other */
-    .column {
-        -ms-flex: 25%;
-        flex: 25%;
-        max-width: 20%;
-        padding: 0 4px;
-        display: none;
-    }
-
-    .column img {
-        margin-top: 8px;
-        vertical-align: middle;
-        width: 100%;
-        border-radius: 5px;
-    }
-
     /* Clear floats after rows */
     .row:after {
         content: "";
@@ -1079,10 +1062,6 @@ section {
         }
     }
 
-    /* The "show" class is added to the filtered elements */
-    .show {
-        display: block;
-    }
 }
 
 .iframe-container {
@@ -1127,7 +1106,6 @@ section {
     columns: 4;
     column-gap: 25px;
 
-
     @media (max-width: 1200px) {
         columns: 3;
     }
@@ -1136,11 +1114,19 @@ section {
         columns: 2;
     }
 
-    //@media (max-width: 768px) {columns: 1;}
+    @media (max-width: 768px) {
+        columns: 1;
+    }
+
     .grid {
-        display: inline-block;
+        display: none;
         margin-bottom: 16px;
         position: relative;
+
+        /* The "show" class is added to the filtered elements */
+        &.show {
+            display: inline-block;
+        }
 
         &:before {
             border-radius: 5px;
