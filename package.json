@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "easing-js": "^1.1.2",
+        "rfs": "^9.0.3",
         "smooth-scrollbar": "^8.5.2"
     }
 }

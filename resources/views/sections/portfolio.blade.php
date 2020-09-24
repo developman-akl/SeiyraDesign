@@ -5,7 +5,7 @@
             <h1>{{ setting('portfolio.title') }}</h1>
             <span class="border"></span>
             
-            <p>{{ setting('portfolio.description') }}</p>
+            <p>{!! nl2br(setting('portfolio.description')) !!}</p>
         </div>
 
         <div class="row">

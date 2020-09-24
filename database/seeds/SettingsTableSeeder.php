@@ -122,7 +122,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('Welcome Description'),
-                'value'        => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebumundefined',
+                'value'        => 'My passion is to create beautiful designs. Unique, eye-pleasing, and effective.',
                 'details'      => '',
                 'type'         => 'text_area',
                 'order'        => 11,
@@ -146,7 +146,8 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('Services Description'),
-                'value'        => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+                'value'        => 'As a graphic designer who has digital marketing experience, I can help you with several different design and marketing projects.<br>From creating user-friendly web or app designs, through helping your brand recognition with a unique logo design and social media marketing designs to do quality photo editing for you. Other individual requests can be considered, so please contact me and we can discuss the details. 
+                ',
                 'details'      => '',
                 'type'         => 'text_area',
                 'order'        => 13,
@@ -194,7 +195,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('Contact Description'),
-                'value'        => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+                'value'        => 'I\'d love to help you reach your goals, contact me today.',
                 'details'      => '',
                 'type'         => 'text_area',
                 'order'        => 17,

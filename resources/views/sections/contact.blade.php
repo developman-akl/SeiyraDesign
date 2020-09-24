@@ -4,7 +4,7 @@
             <h1>{{ setting('contact.title') }}</h1>
             <span class="border"></span>
             
-            <p>{{ setting('contact.description') }}</p>
+            <p>{!! nl2br(setting('contact.description')) !!}</p>
         </div>
         
         <div class="contact-container mx-auto mt-4">
