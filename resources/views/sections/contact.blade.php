@@ -42,7 +42,8 @@
                 </div>
             </div>
         </div>
-    </div>
-
+        
     
     @include('sections.footer')
+    </div>
+

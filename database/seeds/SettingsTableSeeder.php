@@ -170,7 +170,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('Portfolio Description'),
-                'value'        => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+                'value'        => '',
                 'details'      => '',
                 'type'         => 'text_area',
                 'order'        => 15,
