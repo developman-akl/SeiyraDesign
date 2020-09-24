@@ -13,6 +13,7 @@ $primaryCol: #717BF9;
 $colthr: rgb(0, 0, 0);
 $navbarbg: #000;
 $secondaryCol: #E9ECFF;
+$boxShadowPrimary: 5px 5px 6px #615DED;
 
 *,
 ::before,
@@ -362,8 +363,7 @@ body {
     img {
         border-radius: 50%;
         object-fit: cover;
-        box-shadow: 5px 5px 6px #615DED;
-        // background: transparent 0% 0% no-repeat padding-box;
+        box-shadow: $boxShadowPrimary;
     }
 
     @media only screen {
@@ -485,15 +485,17 @@ body {
     #contact-subject,
     #btn-contact-send {
         height: 65px;
+        box-shadow: $boxShadowPrimary;
     }
 
     #contact-message {
         height: 250px;
+        box-shadow: $boxShadowPrimary;
     }
 
     #btn-contact-send {
         background: #9affcf 0% 0% no-repeat padding-box;
-        box-shadow: 3px 3px 6px #00000029;
+        box-shadow: $boxShadowPrimary;
         border: 1px solid #615DED;
         border-radius: 18px;
         opacity: 1;
