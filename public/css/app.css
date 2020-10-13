@@ -10985,7 +10985,7 @@ body {
 
 .img-thumbnail {
   padding: 0.25rem;
-  border-radius: 0.25rem;
+  border-radius: 10px;
   max-width: 100%;
   height: auto;
 }
@@ -11351,7 +11351,7 @@ body {
 .contact-container .alert-danger {
   text-align: center;
   font-size: 24px;
-  border-radius: 18px;
+  border-radius: 10px;
   margin-top: 0px;
   margin-bottom: 12px;
   padding: 8px;
@@ -11363,7 +11363,7 @@ body {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 3px 3px 6px #00000029;
   border: 1px solid #615DED;
-  border-radius: 18px;
+  border-radius: 10px;
   opacity: 1;
 }
 
@@ -11391,7 +11391,7 @@ body {
   background: #9affcf 0% 0% no-repeat padding-box;
   box-shadow: 5px 5px 6px #615DED;
   border: 1px solid #615DED;
-  border-radius: 18px;
+  border-radius: 10px;
   opacity: 1;
   font: normal normal bold 30px/74px "sofia-pro";
   letter-spacing: 1.2px;
@@ -11652,7 +11652,7 @@ section .section-title h1 {
 
 section .section-title p {
   text-align: center;
-  font: normal normal 300 20px/28px Sofia;
+  font: normal normal 300 20px/28px "sofia-pro";
   font-size: 1.25rem !important;
   letter-spacing: 3px;
   color: #E9ECFF;
@@ -11666,7 +11666,7 @@ section .section-title p {
   }
 
   section .section-title p {
-    font: normal normal 300 16px/23px Sofia;
+    font: normal normal 300 16px/23px "sofia-pro";
     font-size: 1rem !important;
     width: 90%;
   }
@@ -11678,7 +11678,7 @@ section .section-title p {
   }
 
   section .section-title p {
-    font: normal normal 300 14px/21px Sofia;
+    font: normal normal 300 14px/21px "sofia-pro";
     font-size: 0.875rem !important;
     width: 90%;
   }
@@ -11701,7 +11701,7 @@ section .section-title .border {
   margin-right: auto;
   width: 25vw;
   opacity: 1;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 section:nth-child(2) {
@@ -11969,8 +11969,8 @@ section:nth-child(5) {
 }
 
 .footer-wrapper .footer-icons img:hover {
-  transform: scale(1.2);
-  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  -webkit-transition: transform 2s ease-in-out;
+  /* (120% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 @-webkit-keyframes pulse {
@@ -12088,7 +12088,7 @@ section:nth-child(5) {
 
 #portfolioBtnContainer .btn {
   border: 1px solid #262626;
-  border-radius: 18px;
+  border-radius: 10px;
   outline: none;
   background-color: white;
   margin: 5px 7px;
@@ -12099,6 +12099,7 @@ section:nth-child(5) {
 #portfolioBtnContainer .btn:hover {
   background-color: white;
   box-shadow: 4px 4px 4px #c4c4c4;
+  border-radius: 10px;
 }
 
 #portfolioBtnContainer .btn.active {
@@ -12146,7 +12147,7 @@ section:nth-child(5) {
 }
 
 .masonry .grid:before {
-  border-radius: 5px;
+  border-radius: 10px;
   content: "";
   position: absolute;
   top: 0;
@@ -12166,7 +12167,7 @@ section:nth-child(5) {
   font: normal normal bold 28px/37px "sofia-pro";
   margin: 0px 0px 10px 0px;
   width: auto;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .masonry .grid__author {
@@ -12199,12 +12200,13 @@ section:nth-child(5) {
   color: white;
   text-transform: uppercase;
   background: rgba(65, 65, 65, 0.747);
+  border-radius: 10px;
 }
 
 .masonry .grid__tag {
   background-color: rgba(255, 255, 255, 0.8);
   color: #333;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px 15px;
   margin-bottom: 5px;
 }

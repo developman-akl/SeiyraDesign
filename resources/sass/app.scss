@@ -23,6 +23,7 @@ $colthr: rgb(0, 0, 0);
 $navbarbg: #000;
 $secondaryCol: #E9ECFF;
 $boxShadowPrimary: 5px 5px 6px #615DED;
+$borderRadius: 10px;
 
 *,
 ::before,
@@ -105,7 +106,7 @@ body {
 
 .img-thumbnail {
     padding: 0.25rem;
-    border-radius: 0.25rem;
+    border-radius: $borderRadius;
     max-width: 100%;
     height: auto;
 }
@@ -472,7 +473,7 @@ body {
     .alert-danger {
         text-align: center;
         font-size: 24px;
-        border-radius: 18px;
+        border-radius: $borderRadius;
         margin-top: 0px;
         margin-bottom: 12px;
         padding: 8px;
@@ -484,7 +485,7 @@ body {
         background: #FFFFFF 0% 0% no-repeat padding-box;
         box-shadow: 3px 3px 6px #00000029;
         border: 1px solid #615DED;
-        border-radius: 18px;
+        border-radius: $borderRadius;
         opacity: 1;
     }
 
@@ -513,7 +514,7 @@ body {
         background: #9affcf 0% 0% no-repeat padding-box;
         box-shadow: $boxShadowPrimary;
         border: 1px solid #615DED;
-        border-radius: 18px;
+        border-radius: $borderRadius;
         opacity: 1;
         font: normal normal bold 30px/74px "sofia-pro";
         letter-spacing: 1.2px;
@@ -707,7 +708,7 @@ section {
 
         p {
             text-align: center;
-            font: normal normal 300 20px/28px Sofia;
+            font: normal normal 300 20px/28px "sofia-pro";
             @include font-size(20px !important);
             letter-spacing: 3px;
             color: $secondaryCol;
@@ -721,7 +722,7 @@ section {
             }
 
             p {
-                font: normal normal 300 16px/23px Sofia;
+                font: normal normal 300 16px/23px "sofia-pro";
                 @include font-size(16px !important);
                 width: 90%;
             }
@@ -733,7 +734,7 @@ section {
             }
 
             p {
-                font: normal normal 300 14px/21px Sofia;
+                font: normal normal 300 14px/21px "sofia-pro";
                 @include font-size(14px !important);
                 width: 90%;
             }
@@ -756,7 +757,7 @@ section {
             margin-right: auto;
             width: 25vw;
             opacity: 1;
-            border-radius: 5px;
+            border-radius: $borderRadius;
         }
     }
 
@@ -1045,8 +1046,9 @@ section {
             }
 
             &:hover {
-                transform: scale(1.2);
-                /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+                // transform: scale(1.2);
+                -webkit-transition: transform 2s ease-in-out;
+                /* (120% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
             }
         }
 
@@ -1165,7 +1167,7 @@ section {
     /* Style the buttons */
     .btn {
         border: 1px solid #262626;
-        border-radius: 18px;
+        border-radius: $borderRadius;
         outline: none;
         background-color: white;
         margin: 5px 7px;
@@ -1178,6 +1180,8 @@ section {
         background-color: white;
         box-shadow: 4px 4px 4px #c4c4c4;
         // border: 1px solid #d8d8d8;
+        border-radius: $borderRadius;
+
     }
 
     .btn.active {
@@ -1214,7 +1218,7 @@ section {
         }
 
         &:before {
-            border-radius: 5px;
+            border-radius: $borderRadius;
             content: '';
             position: absolute;
             top: 0;
@@ -1226,7 +1230,7 @@ section {
 
         img {
             width: 100%;
-            border-radius: 10px;
+            border-radius: $borderRadius;
             box-shadow: 5px 5px 5px #666669;
         }
 
@@ -1234,7 +1238,7 @@ section {
             font: normal normal bold 28px/37px "sofia-pro";
             margin: 0px 0px 10px 0px;
             width: auto;
-            border-radius: 5px;
+            border-radius: $borderRadius;
         }
 
         &__author {
@@ -1266,13 +1270,14 @@ section {
                 color: white;
                 text-transform: uppercase;
                 background: rgba(65, 65, 65, 0.747);
+                border-radius: $borderRadius;
             }
         }
 
         &__tag {
             background-color: rgba(255, 255, 255, .8);
             color: #333;
-            border-radius: 5px;
+            border-radius: $borderRadius;
             padding: 5px 15px;
             margin-bottom: 5px;
         }
