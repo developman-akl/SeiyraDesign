@@ -353,7 +353,7 @@ body {
 
 .service-images {
     background: transparent;
-    padding-top: 60px;
+    padding-top: 40px;
     text-align: center;
 
     .column {
@@ -388,8 +388,8 @@ body {
 
     @media only screen {
         img {
-            height: 250px;
-            width: 250px;
+            height: 225px;
+            width: 225px;
         }
     }
 
@@ -1166,7 +1166,7 @@ section {
 .responsive-iframe {
     position: relative;
     width: 100vw;
-    height: 73vh;
+    min-height: 68vh;
 }
 
 #portfolioBtnContainer {

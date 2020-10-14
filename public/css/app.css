@@ -11220,7 +11220,7 @@ body {
 
 .service-images {
   background: transparent;
-  padding-top: 60px;
+  padding-top: 40px;
   text-align: center;
   /* Clearfix (clear floats) */
 }
@@ -11257,8 +11257,8 @@ body {
 
 @media only screen {
   .service-images img {
-    height: 250px;
-    width: 250px;
+    height: 225px;
+    width: 225px;
   }
 }
 
@@ -12087,7 +12087,7 @@ section:nth-child(5) {
 .responsive-iframe {
   position: relative;
   width: 100vw;
-  height: 73vh;
+  min-height: 68vh;
 }
 
 #portfolioBtnContainer {
