@@ -52,6 +52,16 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
+
+    .scrollbar-thumb {
+        background-color: rgb(143, 143, 143);
+    }
+
+    .scrollbar-track {
+        background-color: #000;
+    }
+
+
 }
 
 .container {
@@ -337,6 +347,7 @@ body {
     -webkit-animation-duration: 16s;
 
 }
+
 
 /* END - HEADER PAGE */
 
@@ -999,6 +1010,48 @@ section {
     }
 }
 
+.pulse:not(:hover) {
+    animation: pulse 3s infinite;
+    margin: 0 auto;
+    display: table;
+    animation-direction: alternate;
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+}
+
+.pulse:hover {
+    transform: scale(1.2);
+    /* (120% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 /* FOOTER */
 
 .footer-wrapper {
@@ -1031,51 +1084,6 @@ section {
             img {
                 width: 60px;
                 padding: 5px;
-            }
-        }
-
-
-        img {
-            &.pulse:not(:hover) {
-                animation: pulse 3s infinite;
-                margin: 0 auto;
-                display: table;
-                animation-direction: alternate;
-                -webkit-animation-name: pulse;
-                animation-name: pulse;
-            }
-
-            &:hover {
-                transform: scale(1.2);
-                /* (120% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-            }
-        }
-
-        @-webkit-keyframes pulse {
-            0% {
-                -webkit-transform: scale(1);
-            }
-
-            50% {
-                -webkit-transform: scale(1.1);
-            }
-
-            100% {
-                -webkit-transform: scale(1);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
             }
         }
 
