@@ -146,7 +146,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('Services Description'),
-                'value'        => 'As a graphic designer who has digital marketing experience, I can help you with several different design and marketing projects.<br>From creating user-friendly web or app designs, through helping your brand recognition with a unique logo design and social media marketing designs to do quality photo editing for you. Other individual requests can be considered, so please contact me and we can discuss the details. 
+                'value'        => 'As a digital designer who has marketing experience, I can help you with several different design and marketing projects. <br>How? I can create user-friendly web or app designs, help your brand recognition with unique logo design/social media marketing designs, or do creative photo editing for you and the list goes on. Individual requests are considered, so please contact me and we can discuss the details. 
                 ',
                 'details'      => '',
                 'type'         => 'text_area',
