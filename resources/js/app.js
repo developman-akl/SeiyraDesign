@@ -255,10 +255,36 @@ $(document).ready(function () {
         otherhead.appendChild(link);
 
         filterSelection("all")
+
+        // Get the modal
+        var modal = frm.getElementById("modal-simple");
+        var modalImg = frm.getElementById("modalImg");
+        var captionText = frm.getElementById("caption");
+        
+        // Get the <span> element that closes the modal
+        var span = frm.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+        
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var grid = frm.getElementsByClassName("grid");
+        for (var i=0; i < grid.length; i++) {
+            grid[i].onclick = function(){
+                modal.style.display = "block";
+                let images = $(this).find('.img-modal-simple');
+                for (const image of images)
+                {
+                    modalImg.src = image.src;
+                    captionText.innerHTML = image.alt;
+                }
+            }
+        };
     };
 
     function filterSelection(c) {
-
         let x, i;
         x = iframe.contentWindow.document.getElementsByClassName("grid");
         if (c == "all") c = "";
@@ -305,6 +331,7 @@ $(document).ready(function () {
             this.className += " active";
         });
     }
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -355,3 +382,5 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("orientationChange", lazyload);
     }
 })
+
+

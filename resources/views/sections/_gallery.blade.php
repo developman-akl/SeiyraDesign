@@ -1,58 +1,63 @@
 <div class="portfolio-gallery">
     <div class="masonry">
-        @php
-            foreach ($uxImages as $file) {
-                echo '<div class="grid ux">';
-                    echo '<img src="'.$file->getPathname().'" alt="UX/UI Design">';
-                    echo '<div class="grid__body">';
-                        echo '<div class="relative">';
-                            echo '<h1 class="grid__title">' . substr($file->getBasename(), 0, -4) . '</h1>';
-                            echo '</div>';
-                        // echo '<div class="mt-auto">';
-                        //     echo '<span class="grid__tag">UX/UI Design</span>';
-                        // echo '</div>';
-                    echo '</div>';
-                echo '</div>';
-            }
-            foreach ($photoImages as $file) {
-                echo '<div class="grid photo">';
-                    echo '<img src="'.$file->getPathname().'" alt="Photo Editing">';
-                    echo '<div class="grid__body">';
-                        echo '<div class="relative">';
-                            echo '<h1 class="grid__title">' . substr($file->getBasename(), 0, -4) . '</h1>';
-                            echo '</div>';
-                        // echo '<div class="mt-auto">';
-                        //     echo '<span class="grid__tag">Photo Editing</span>';
-                        // echo '</div>';
-                    echo '</div>';
-                echo '</div>';
-            }
-            foreach ($socialImages as $file) {
-                echo '<div class="grid social">';
-                    echo '<img src="'.$file->getPathname().'" alt="Social Media Creative Design">';
-                    echo '<div class="grid__body">';
-                        echo '<div class="relative">';
-                            echo '<h1 class="grid__title">' . substr($file->getBasename(), 0, -4) . '</h1>';
-                            echo '</div>';
-                        // echo '<div class="mt-auto">';
-                        //     echo '<span class="grid__tag">Social Media Creative Design</span>';
-                        // echo '</div>';
-                    echo '</div>';
-                echo '</div>';
-            }
-            foreach ($logoImages as $file) {
-                echo '<div class="grid logo">';
-                    echo '<img src="'.$file->getPathname().'" alt="Logo Design">';
-                    echo '<div class="grid__body">';
-                        echo '<div class="relative">';
-                            echo '<h1 class="grid__title">' . substr($file->getBasename(), 0, -4) . '</h1>';
-                            echo '</div>';
-                        // echo '<div class="mt-auto">';
-                        //     echo '<span class="grid__tag">Logo Design</span>';
-                        // echo '</div>';
-                    echo '</div>';
-                echo '</div>';
-            }
-        @endphp
+        @foreach ($uxImages as $file)
+            <div class="grid ux">
+                <img class="img-modal-simple" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
+                <div class="grid__body">
+                    <div class="relative">
+                        <h1 class="grid__title">{{ substr($file->getBasename(), 0, -4) }} </h1>
+                    </div>
+                    {{-- <div class="mt-auto">
+                        <span class="grid__tag">UX/UI Design</span>
+                    </div> --}}
+                </div>
+            </div>
+        @endforeach
+        @foreach ($photoImages as $file)
+            <div class="grid photo">
+                <img class="img-modal-simple" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
+                <div class="grid__body">
+                    <div class="relative">
+                        <h1 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }}</h1>
+                    </div>
+                    {{-- <div class="mt-auto">
+                        <span class="grid__tag">Photo Editing</span>
+                    </div> --}}
+                </div>
+            </div>
+        @endforeach
+        @foreach ($socialImages as $file)
+            <div class="grid social">
+                <img class="img-modal-simple" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
+                <div class="grid__body">
+                    <div class="relative">
+                        <h1 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }}</h1>
+                    </div>
+                    {{-- <div class="mt-auto">
+                        <span class="grid__tag">Social Media Creative Design</span>
+                    </div> --}}
+                </div>
+            </div>
+        @endforeach
+        @foreach ($logoImages as $file)
+            <div class="grid logo">
+                <img class="img-modal-simple" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
+                <div class="grid__body">
+                    <div class="relative">
+                        <h1 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }} </h1>
+                    </div>
+                    {{-- <div class="mt-auto">
+                        <span class="grid__tag">Logo Design</span>
+                    </div> --}}
+                </div>
+            </div>
+        @endforeach
     </div>
+</div>
+
+<!-- The Modal -->
+<div id="modal-simple" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+    <div id="caption"></div>
 </div>
