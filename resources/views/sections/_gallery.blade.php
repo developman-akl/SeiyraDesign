@@ -54,10 +54,3 @@
         @endforeach
     </div>
 </div>
-
-<!-- The Modal -->
-<div id="modal-simple" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImg">
-    <div id="caption"></div>
-</div>

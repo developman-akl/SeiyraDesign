@@ -23,4 +23,11 @@
     <div class="iframe-container">
         <iframe class="responsive-iframe" name="gallery-iframe" id="gallery-iframe" src="{{url('gallery')}}" title="SeiyraDesign Portfolio Gallery" style="border:none;"></iframe>
     </div>
+
+    <!-- The Modal -->
+    <div id="modal-simple" class="modal" role="dialog" data-backdrop="static" data-keyboard="false">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+    </div>
 </div>

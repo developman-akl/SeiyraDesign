@@ -43311,13 +43311,26 @@ $("#btn-contact-send").click(function (e) {
     }
   });
 });
+var iframe = document.getElementById("gallery-iframe");
 $(document).ready(function () {
   "use strict";
 
-  var iframe = document.getElementById("gallery-iframe");
   $("#portfolioBtnContainer .btn").click(function (e) {
     filterSelection(e.target.dataset.selection);
-  }); // Append app.css link to the iframe header after it was initialized
+  }); // Get the modal
+
+  var modal = document.getElementById("modal-simple");
+  var modalImg = document.getElementById("modalImg");
+  var captionText = document.getElementById("caption"); // Get the <span> element that closes the modal
+
+  var span = document.getElementsByClassName("close")[0]; // When the user clicks on <span> (x), close the modal
+
+  span.onclick = function () {
+    $('#btnPrev').fadeIn();
+    $('#btnNext').fadeIn();
+    modal.style.display = "none";
+  }; // Append app.css link to the iframe header after it was initialized
+
 
   iframe.onload = function () {
     var frm = iframe.contentWindow.document;
@@ -43327,23 +43340,14 @@ $(document).ready(function () {
     link.setAttribute("type", "text/css");
     link.setAttribute("href", "css/app.css");
     otherhead.appendChild(link);
-    filterSelection("all"); // Get the modal
-
-    var modal = frm.getElementById("modal-simple");
-    var modalImg = frm.getElementById("modalImg");
-    var captionText = frm.getElementById("caption"); // Get the <span> element that closes the modal
-
-    var span = frm.getElementsByClassName("close")[0]; // When the user clicks on <span> (x), close the modal
-
-    span.onclick = function () {
-      modal.style.display = "none";
-    }; // Get the image and insert it inside the modal - use its "alt" text as a caption
-
+    filterSelection("all"); // Get the image and insert it inside the modal - use its "alt" text as a caption
 
     var grid = frm.getElementsByClassName("grid");
 
     for (var i = 0; i < grid.length; i++) {
       grid[i].onclick = function () {
+        $('#btnPrev').fadeOut();
+        $('#btnNext').fadeOut();
         modal.style.display = "block";
         var images = $(this).find('.img-modal-simple');
 
@@ -43416,11 +43420,11 @@ $(document).ready(function () {
     });
   }
 });
-document.addEventListener("DOMContentLoaded", function () {
+iframe.addEventListener("DOMContentLoaded", function () {
   var lazyloadImages;
 
   if ("IntersectionObserver" in window) {
-    lazyloadImages = document.querySelectorAll(".lazy");
+    lazyloadImages = iframe.querySelectorAll(".lazy");
     var imageObserver = new IntersectionObserver(function (entries, observer) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -43449,7 +43453,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (lazyloadImages.length == 0) {
-          document.removeEventListener("scroll", lazyload);
+          iframe.removeEventListener("scroll", lazyload);
           window.removeEventListener("resize", lazyload);
           window.removeEventListener("orientationChange", lazyload);
         }
@@ -43457,8 +43461,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     var lazyloadThrottleTimeout;
-    lazyloadImages = document.querySelectorAll(".lazy");
-    document.addEventListener("scroll", lazyload);
+    lazyloadImages = iframe.querySelectorAll(".lazy");
+    iframe.addEventListener("scroll", lazyload);
     window.addEventListener("resize", lazyload);
     window.addEventListener("orientationChange", lazyload);
   }
