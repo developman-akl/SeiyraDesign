@@ -9,7 +9,7 @@
         </div>
 
         <div class="row">
-            <div class="col text-center mt-4 mb-4" id="portfolioBtnContainer">
+            <div class="col text-center mt-2 mb-4" id="portfolioBtnContainer">
                 <button class="btn active" data-selection="all"> Show all</button>
                 <button class="btn" data-selection="ux"> UX/UI Design</button>
                 <button class="btn" data-selection="photo"> Photo Editing</button>
@@ -21,13 +21,12 @@
     
     <!-- Photo Grid -->
     <div class="iframe-container">
-        <iframe class="responsive-iframe" name="gallery-iframe" id="gallery-iframe" src="{{url('gallery')}}" title="SeiyraDesign Portfolio Gallery" style="border:none;"></iframe>
+        <iframe class="responsive-iframe" name="gallery-iframe" id="gallery-iframe" src="{{ url('gallery') }}" title="SeiyraDesign Portfolio Gallery" style="border:none;"></iframe>
     </div>
 
     <!-- The Modal -->
-    <div id="modal-simple" class="modal" role="dialog" data-backdrop="static" data-keyboard="false">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImg">
-        <div id="caption"></div>
-    </div>
+    @include('sections.modalSimple');
+
+    <!-- The Modal -->
+    {{-- @include('sections.modalCarousel'); --}}
 </div>

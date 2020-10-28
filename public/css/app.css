@@ -10926,6 +10926,11 @@ body {
       scroll-snap-type: y mandatory;
 }
 
+.lazy {
+  background-image: none;
+  background-color: #000;
+}
+
 #main-scrollbar {
   position: fixed;
   top: 0;
@@ -10939,7 +10944,7 @@ body {
 }
 
 #main-scrollbar .scrollbar-track {
-  background-color: #000;
+  background-color: transparent;
 }
 
 .container {
@@ -11105,11 +11110,6 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #000;
-}
-
-.backgroundimg .lazy {
-  background-image: none;
   background-color: #000;
 }
 
@@ -12087,7 +12087,7 @@ section:nth-child(5) {
 .responsive-iframe {
   position: relative;
   width: 100vw;
-  min-height: 68vh;
+  min-height: 71vh;
 }
 
 #portfolioBtnContainer {
@@ -12206,7 +12206,6 @@ section:nth-child(5) {
 
 .masonry .grid__body:hover {
   color: white;
-  text-transform: uppercase;
   background: rgba(65, 65, 65, 0.747);
   border-radius: 10px;
   cursor: pointer;
@@ -12250,8 +12249,6 @@ section:nth-child(5) {
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.9);
   /* Black w/ opacity */
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
 }
 
 /* Modal Content (image) */
@@ -12259,11 +12256,8 @@ section:nth-child(5) {
 .modal-content {
   margin: auto;
   padding-top: 5px;
-  max-width: 57vw;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  width: auto;
   pointer-events: auto;
   background-color: transparent;
   background-clip: padding-box;
@@ -12275,6 +12269,7 @@ section:nth-child(5) {
 /* Caption of Modal Image */
 
 #caption {
+  z-index: 15;
   margin: auto;
   display: block;
   width: 80%;
@@ -12290,9 +12285,9 @@ section:nth-child(5) {
 .modal-content,
 #caption {
   -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
+  -webkit-animation-duration: 0.8s;
   animation-name: zoom;
-  animation-duration: 0.6s;
+  animation-duration: 0.8s;
 }
 
 @-webkit-keyframes zoom {
@@ -12322,7 +12317,7 @@ section:nth-child(5) {
   top: 15px;
   right: 35px;
   color: #f1f1f1;
-  font-size: 40px;
+  font-size: 80px;
   font-weight: bold;
   transition: 0.3s;
 }

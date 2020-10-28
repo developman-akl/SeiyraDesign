@@ -27,7 +27,7 @@ return [
     */
 
     'controllers' => [
-        'namespace' => 'TCG\\Voyager\\Http\\Controllers',
+        'namespace' => 'App\\Http\\Controllers\\Voyager',
     ],
 
     /*
@@ -210,16 +210,15 @@ return [
 
     'media' => [
         // The allowed mimetypes to be uploaded through the media-manager.
-        'allowed_mimetypes' => '*', //All types can be uploaded
-        /*
+        // 'allowed_mimetypes' => '*', //All types can be uploaded
         'allowed_mimetypes' => [
           'image/jpeg',
           'image/png',
-          'image/gif',
+        //   'image/gif',
           'image/bmp',
-          'video/mp4',
+        //   'video/mp4',
         ],
-        */
+        'quality'    => '80%',
         //Path for media-manager. Relative to the filesystem.
         'path'                => '/',
         'show_folders'        => true,

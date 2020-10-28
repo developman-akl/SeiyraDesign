@@ -8,7 +8,8 @@ var options = {
     'alwaysShowTracks': false,
 }
 
-const scrollbar = Scrollbar.init(document.querySelector('#main-scrollbar'), options);
+var scrollbar = Scrollbar.init(document.querySelector('#main-scrollbar'), options);
+Scrollbar.init(document.querySelector('#modal-simple'), options);
 
 var page = 1;
 var pageCount = 4;
@@ -235,14 +236,10 @@ $("#btn-contact-send").click(function (e) {
     });
 });
 
-const iframe = document.getElementById("gallery-iframe");
-
 $(document).ready(function () {
     "use strict";
 
-    $("#portfolioBtnContainer .btn").click(function (e) {
-        filterSelection(e.target.dataset.selection);
-    });
+    const iframe = document.getElementById("gallery-iframe");
 
     // Get the modal
     var modal = document.getElementById("modal-simple");
@@ -251,13 +248,6 @@ $(document).ready(function () {
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        $('#btnPrev').fadeIn();
-        $('#btnNext').fadeIn();
-        modal.style.display = "none";
-    }
 
     // Append app.css link to the iframe header after it was initialized
     iframe.onload = function () {
@@ -268,6 +258,62 @@ $(document).ready(function () {
         link.setAttribute("type", "text/css");
         link.setAttribute("href", "css/app.css");
         otherhead.appendChild(link);
+
+        options = {
+            'damping': 0.04,
+            'continuousScrolling': true,
+            'alwaysShowTracks': true,
+        }
+        
+        Scrollbar.init(frm.querySelector('body'), options);
+                
+        var lazyloadImages;
+        
+        if ("IntersectionObserver" in window) {
+            lazyloadImages = frm.querySelectorAll(".lazy");
+            var imageObserver = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var image = entry.target;
+                        image.classList.remove("lazy");
+                        imageObserver.unobserve(image);
+                    }
+                });
+            });
+
+            lazyloadImages.forEach(function (image) {
+                imageObserver.observe(image);
+            });
+        } else {
+            var lazyloadThrottleTimeout;
+            lazyloadImages = frm.querySelectorAll(".lazy");
+
+            function lazyload() {
+                if (lazyloadThrottleTimeout) {
+                    clearTimeout(lazyloadThrottleTimeout);
+                }
+
+                lazyloadThrottleTimeout = setTimeout(function () {
+                    var scrollTop = window.pageYOffset;
+                    lazyloadImages.forEach(function (img) {
+                        if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                        }
+                    });
+                    if (lazyloadImages.length == 0) {
+                        frm.removeEventListener("scroll", lazyload);
+                        window.removeEventListener("resize", lazyload);
+                        window.removeEventListener("orientationChange", lazyload);
+                    }
+                }, 20);
+            }
+
+            frm.addEventListener("scroll", lazyload);
+            window.addEventListener("resize", lazyload);
+            window.addEventListener("orientationChange", lazyload);
+        }
+
 
         filterSelection("all")
 
@@ -287,6 +333,18 @@ $(document).ready(function () {
             }
         };
     };
+
+    $("#portfolioBtnContainer .btn").click(function (e) {
+        filterSelection(e.target.dataset.selection);
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        $('#btnPrev').fadeIn();
+        $('#btnNext').fadeIn();
+        modal.style.display = "none";
+    }
+
 
     function filterSelection(c) {
         let x, i;
@@ -336,52 +394,3 @@ $(document).ready(function () {
     }
     
 });
-
-iframe.addEventListener("DOMContentLoaded", function () {
-    var lazyloadImages;
-
-    if ("IntersectionObserver" in window) {
-        lazyloadImages = iframe.querySelectorAll(".lazy");
-        var imageObserver = new IntersectionObserver(function (entries, observer) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    var image = entry.target;
-                    image.classList.remove("lazy");
-                    imageObserver.unobserve(image);
-                }
-            });
-        });
-
-        lazyloadImages.forEach(function (image) {
-            imageObserver.observe(image);
-        });
-    } else {
-        var lazyloadThrottleTimeout;
-        lazyloadImages = iframe.querySelectorAll(".lazy");
-
-        function lazyload() {
-            if (lazyloadThrottleTimeout) {
-                clearTimeout(lazyloadThrottleTimeout);
-            }
-
-            lazyloadThrottleTimeout = setTimeout(function () {
-                var scrollTop = window.pageYOffset;
-                lazyloadImages.forEach(function (img) {
-                    if (img.offsetTop < (window.innerHeight + scrollTop)) {
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                    }
-                });
-                if (lazyloadImages.length == 0) {
-                    iframe.removeEventListener("scroll", lazyload);
-                    window.removeEventListener("resize", lazyload);
-                    window.removeEventListener("orientationChange", lazyload);
-                }
-            }, 20);
-        }
-
-        iframe.addEventListener("scroll", lazyload);
-        window.addEventListener("resize", lazyload);
-        window.addEventListener("orientationChange", lazyload);
-    }
-})

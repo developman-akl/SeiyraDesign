@@ -19,7 +19,7 @@ class Controller extends BaseController
 
     public function getImages($folder) {
         $path = "storage/portfolio/".$folder;
-        $files = File::allFiles($path);
+        $files = File::files($path);
 
         $fitlered_files = array_filter($files, function($str){
             return 
