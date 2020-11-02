@@ -1,4 +1,4 @@
-<nav id="welcome" class="navbar navbar-expand-md sd-navbar navbar-dark" data-id="1">
+<nav id="welcome" class="navbar navbar-expand-md sd-navbar navbar-dark mb-4" data-id="1">
     <div class="container">
         <a class="js-anchor-link" href="#welcome">
             <img class="nav-logo-img" src="{{ asset('/storage/images/SeyraDesignLogo.svg') }}"
