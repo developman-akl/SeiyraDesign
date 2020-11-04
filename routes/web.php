@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
+use TCG\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::any('/', [ 'as' => 'home', 'uses' => 'Controller@index' ]);
 
+Route::get('/gallery', 'Controller@gallery')->name('gallery');
+
+Route::get('contact-us', 'ContactMeController@contactMe');
+Route::post('contact-us', ['as'=>'contactme.store','uses'=>'ContactMeController@contactMePost']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
