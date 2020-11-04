@@ -23,7 +23,7 @@
                 <p>Website design by</p><a href="#">SeiyraDesign</a>
             </div>
             <div class="d-flex flex-row mt-1">
-                <p>Website developed by</p><a href="#">Miller Web Solutions</a>
+                <p>Website developed by</p><a href="https://developman.tech/" target="_blank">Developman</a>
             </div>
         </div>
     </div>
