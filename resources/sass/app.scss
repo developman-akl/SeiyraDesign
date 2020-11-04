@@ -865,7 +865,7 @@ section {
 #btnPrev {
     display: none;
     position: fixed;
-    bottom: 100px;
+    bottom: 90px;
     right: 15px;
     z-index: 2;
     border: none;
@@ -874,7 +874,14 @@ section {
     margin: 0;
 
     img {
-        width: 80px;
+        width: 70px;
+    }
+
+    @media (max-width: 768px) {
+        bottom: 70px;
+        img {
+            width: 50px;
+        }
     }
 }
 
@@ -891,7 +898,13 @@ section {
     margin: 0;
 
     img {
-        width: 80px;
+        width: 70px;
+    }
+
+    @media (max-width: 768px) {
+        img {
+            width: 50px;
+        }
     }
 }
 
@@ -1180,8 +1193,13 @@ section {
         background-color: white;
         margin: 5px 7px;
         cursor: pointer;
-
         font-family: "sofia-pro";
+    }
+
+    @media (max-width: 414px) {
+        .btn {
+            margin: 2px;
+        }
     }
 
     .btn:hover {
@@ -1404,5 +1422,11 @@ section {
 @media only screen and (max-width: 700px) {
     .modal-content {
         width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .modal-content {
+        padding-top: 120px;
     }
 }

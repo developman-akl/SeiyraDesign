@@ -19,7 +19,8 @@ class Controller extends BaseController
 
     public function getImages($folder) {
         $path = "storage/portfolio/".$folder;
-        $files = File::files($path);
+        // $files = File::files($path); // Shows files only from the root folder, nothing from the subfolders
+        $files = File::allFiles($path); // Shows all the files from all the subfolders
 
         $fitlered_files = array_filter($files, function($str){
             return 

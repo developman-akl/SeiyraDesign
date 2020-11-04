@@ -25,7 +25,7 @@ function jumpRef(elem) {
 }
 
 function showImages(el, s) {
-    var windowHeight = jQuery(window).height();
+    var windowHeight = $(window).height();
     var thisPos;
 
     $(el).each(function () {
@@ -47,9 +47,15 @@ function showImages(el, s) {
 }
 
 
+/* TO TOP */
+var scrollPrevTimer;
+var scrollNextTimer;
+var scrollTimer;
+var scrollTimeout = 1700;
+
 function showJumpRefButtons(s) {
 
-    var windowHeight = jQuery(window).height();
+    var windowHeight = $(window).height();
     var thisPos;
 
     if (s && s.offset !== 'undefine') {
@@ -61,9 +67,17 @@ function showJumpRefButtons(s) {
     var topOfWindow = $(window).scrollTop();
     var pos = windowHeight - topOfWindow - 115;
 
+    clearTimeout(scrollTimer);
+    clearTimeout(scrollPrevTimer);
+    clearTimeout(scrollNextTimer);
+
     if (pos < thisPos) {
-        $('#btnPrev').fadeIn();
-        $('#btnNext').fadeIn();
+        $('#btnPrev').fadeIn(150);
+        $('#btnNext').fadeIn(150);
+        scrollTimer = setTimeout(function () {
+            $('#btnPrev').fadeOut(150);
+            $('#btnNext').fadeOut(150);
+        }, scrollTimeout);
     } else {
         $('#btnPrev').fadeOut();
         $('#btnNext').fadeOut();
@@ -71,7 +85,45 @@ function showJumpRefButtons(s) {
 }
 
 
+
+/* END TO TOP */
+
+
 $(document).ready(function () {
+
+    $('#btnPrev').on('mouseenter', function (e) {
+        e.preventDefault();
+        clearTimeout(scrollTimer);
+        clearTimeout(scrollPrevTimer);
+        clearTimeout(scrollNextTimer);
+    });
+    
+    $('#btnPrev').on('mouseleave focusout', function (e) {
+        e.preventDefault();
+        clearTimeout(scrollTimer);
+        clearTimeout(scrollNextTimer);
+        scrollPrevTimer = setTimeout(function () {
+            $('#btnPrev').fadeOut(150);
+            $('#btnNext').fadeOut(150);
+        }, scrollTimeout);
+    });
+    
+    $('#btnNext').on('mouseenter', function (e) {
+        e.preventDefault();
+        clearTimeout(scrollTimer);
+        clearTimeout(scrollPrevTimer);
+        clearTimeout(scrollNextTimer);
+    });
+    $('#btnNext').on('mouseleave focusout', function (e) {
+        e.preventDefault();
+        clearTimeout(scrollTimer);
+        clearTimeout(scrollPrevTimer);
+        scrollNextTimer = setTimeout(function () {
+            $('#btnPrev').fadeOut(150);
+            $('#btnNext').fadeOut(150);
+        }, scrollTimeout);
+    });
+
     scrollbar.addListener((s) => {
         if (!$('.devices').hasClass("fadeIn")) {
             showImages('.devices', s);
@@ -246,9 +298,6 @@ $(document).ready(function () {
     var modalImg = document.getElementById("modalImg");
     var captionText = document.getElementById("caption");
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
     // Append app.css link to the iframe header after it was initialized
     iframe.onload = function () {
         var frm = iframe.contentWindow.document;
@@ -264,11 +313,11 @@ $(document).ready(function () {
             'continuousScrolling': true,
             'alwaysShowTracks': true,
         }
-        
+
         Scrollbar.init(frm.querySelector('body'), options);
-                
+
         var lazyloadImages;
-        
+
         if ("IntersectionObserver" in window) {
             lazyloadImages = frm.querySelectorAll(".lazy");
             var imageObserver = new IntersectionObserver(function (entries, observer) {
@@ -334,29 +383,30 @@ $(document).ready(function () {
         };
     };
 
-    $("#portfolioBtnContainer .btn").click(function (e) {
+    $("#portfolioBtnContainer .btn").on('click', function (e) {
         filterSelection(e.target.dataset.selection);
     });
 
+    // Get the <span> element that closes the modal
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        $('#btnPrev').fadeIn();
-        $('#btnNext').fadeIn();
+    $(".close").on('click touchend', function (e) {
+        $('#btnPrev').fadeIn(150);
+        $('#btnNext').fadeIn(150);
         modal.style.display = "none";
-    }
-
+    });
+    
 
     function filterSelection(c) {
         let x, i;
         x = iframe.contentWindow.document.getElementsByClassName("grid");
         if (c == "all") c = "";
         for (i = 0; i < x.length; i++) {
-            w3RemoveClass(x[i], "show");
-            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
         }
     }
 
-    function w3AddClass(element, name) {
+    function AddClass(element, name) {
 
         let i, arr1, arr2;
         arr1 = element.className.split(" ");
@@ -368,7 +418,7 @@ $(document).ready(function () {
         }
     }
 
-    function w3RemoveClass(element, name) {
+    function RemoveClass(element, name) {
 
         let i, arr1, arr2;
         arr1 = element.className.split(" ");
@@ -392,5 +442,5 @@ $(document).ready(function () {
             this.className += " active";
         });
     }
-    
+
 });
