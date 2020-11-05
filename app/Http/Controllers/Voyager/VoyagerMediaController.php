@@ -34,7 +34,7 @@ class VoyagerMediaController extends BaseVoyagerMediaController
         $details = json_decode($request->get('details') ?? '{}');
         $absolute_path = Storage::disk($this->filesystem)->path($request->upload_path);
         $isUxDesign = strpos($absolute_path, 'ux-ui-design') !== false && strpos($name, 'web') !== false && strpos($name, 'app') !== false;
-        $quality = is_object($details) && property_exists($details, 'quality') && $details->quality ? $details->quality : 85;
+        $quality = is_object($details) && property_exists($details, 'quality') && $details->quality ? $details->quality : 100;
 
         try {
             $realPath = Storage::disk($this->filesystem)->getDriver()->getAdapter()->getPathPrefix();
