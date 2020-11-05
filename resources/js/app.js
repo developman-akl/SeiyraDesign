@@ -392,8 +392,8 @@ $(document).ready(function () {
                 modal.style.display = "block";
                 let images = $(this).find('.img-modal-simple');
                 for (const image of images) {
-                    modalImg.src = image.src;
-                    captionText.innerHTML = image.alt;
+                    modalImg.src = image.src ? image.src : "";
+                    captionText.innerHTML = image.alt ? image.alt : "";
                 }
             }
         };

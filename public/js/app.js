@@ -43459,8 +43459,8 @@ $(document).ready(function () {
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done;) {
             var image = _step.value;
-            modalImg.src = image.src;
-            captionText.innerHTML = image.alt;
+            modalImg.src = image.src ? image.src : "";
+            captionText.innerHTML = image.alt ? image.alt : "";
           }
         } catch (err) {
           _iterator.e(err);
