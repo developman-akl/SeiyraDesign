@@ -12266,10 +12266,14 @@ section:nth-child(5) {
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.9);
   /* Black w/ opacity */
+  /* Modal Content (image) */
+  /* Caption of Modal Image */
+  /* Add Animation */
+  /* The Close Button */
+  /* 100% Image Width on Smaller Screens */
 }
 
-/* Modal Content (image) */
-.modal-content {
+#modal-simple .modal-content {
   margin: auto;
   padding-top: 5px;
   position: relative;
@@ -12283,8 +12287,7 @@ section:nth-child(5) {
   outline: 0;
 }
 
-/* Caption of Modal Image */
-#caption {
+#modal-simple .caption {
   z-index: 15;
   margin: auto;
   display: block;
@@ -12296,9 +12299,8 @@ section:nth-child(5) {
   height: 150px;
 }
 
-/* Add Animation */
-.modal-content,
-#caption {
+#modal-simple .modal-content,
+#modal-simple .caption {
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.8s;
   animation-name: zoom;
@@ -12325,8 +12327,7 @@ section:nth-child(5) {
   }
 }
 
-/* The Close Button */
-.close {
+#modal-simple .close {
   position: absolute;
   top: 10px;
   /* needs to look OK with or without scrollbar */
@@ -12350,22 +12351,21 @@ section:nth-child(5) {
   display: flex;
 }
 
-.close:hover,
-.close:focus {
+#modal-simple .close:hover,
+#modal-simple .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
 }
 
-/* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px) {
-  .modal-content {
+  #modal-simple .modal-content {
     width: 100%;
   }
 }
 
 @media (max-width: 700px) {
-  .modal-content {
+  #modal-simple .modal-content {
     padding-top: 120px;
   }
 }
