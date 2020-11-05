@@ -1349,6 +1349,7 @@ section {
     padding-top: 5px;
     position: relative;
     width: auto;
+    max-width: 97vw;
     // height: 665px;
     pointer-events: auto;
     background-color: transparent;
@@ -1359,7 +1360,7 @@ section {
 }
 
 /* Caption of Modal Image */
-#caption {
+#caption{
     z-index: 15;
     margin: auto;
     display: block;
@@ -1403,12 +1404,21 @@ section {
 /* The Close Button */
 .close {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 10px;
+    /* needs to look OK with or without scrollbar */
+    right: 20px;
     color: #f1f1f1;
-    font-size: 80px;
-    font-weight: bold;
+    background: black;
+    border: 0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    font-size: 15px;
+    font-weight: 100;
     transition: 0.3s;
+    z-index: 15;
+    margin: 7px;
+    align-items: center;
+    display: flex;
 }
 
 .close:hover,
