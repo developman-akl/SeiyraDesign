@@ -15,7 +15,7 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 
-Route::any('/', [ 'as' => 'home', 'uses' => 'Controller@index' ]);
+Route::get('/', [ 'as' => 'home', 'uses' => 'Controller@index' ]);
 
 Route::get('/gallery', 'Controller@gallery')->name('gallery');
 
