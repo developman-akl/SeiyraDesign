@@ -1360,7 +1360,7 @@ section {
     }
 
     /* Caption of Modal Image */
-    .caption{
+    #caption{
         z-index: 15;
         margin: auto;
         display: block;
@@ -1374,7 +1374,7 @@ section {
 
     /* Add Animation */
     .modal-content,
-    .caption {
+    #caption {
         -webkit-animation-name: zoom;
         -webkit-animation-duration: 0.8s;
         animation-name: zoom;

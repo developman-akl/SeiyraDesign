@@ -12292,7 +12292,7 @@ section:nth-child(5) {
   outline: 0;
 }
 
-#modal-simple .caption {
+#modal-simple #caption {
   z-index: 15;
   margin: auto;
   display: block;
@@ -12305,7 +12305,7 @@ section:nth-child(5) {
 }
 
 #modal-simple .modal-content,
-#modal-simple .caption {
+#modal-simple #caption {
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.8s;
   animation-name: zoom;
