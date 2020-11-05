@@ -29,8 +29,8 @@ class ContactMeController extends Controller
 		}
 
 		ContactMeModel::create($request->all());
-		
-		Mail::to(env('MAIL_FROM_ADDRESS'))
+
+		Mail::to(config('mail.from.address'))
 			->send(new ContactMeMail(
 					$request->get('name'), 
 					$request->get('email'), 
