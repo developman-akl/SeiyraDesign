@@ -34,6 +34,7 @@ class VoyagerMediaController extends BaseVoyagerMediaController
         $details = json_decode($request->get('details') ?? '{}');
         $absolute_path = Storage::disk($this->filesystem)->path($request->upload_path);
         $isUxDesign = strpos($absolute_path, 'ux-ui-design') !== false && strpos($name, 'web') !== false && strpos($name, 'app') !== false;
+        $quality = is_object($details) && property_exists($details, 'quality') && $details->quality ? $details->quality : 75;
 
         try {
             $realPath = Storage::disk($this->filesystem)->getDriver()->getAdapter()->getPathPrefix();
@@ -122,7 +123,7 @@ class VoyagerMediaController extends BaseVoyagerMediaController
                             }
                             $thumbnail_file = $request->upload_path.$name.'-'.($thumbnail_data->name ?? 'thumbnail').'.'.$extension;
 
-                            Storage::disk($this->filesystem)->put($thumbnail_file, $thumbnail->encode($extension, ($details->quality ?? 75))->encoded);
+                            Storage::disk($this->filesystem)->put($thumbnail_file, $thumbnail->encode($extension, ($quality))->encoded);
                         }
                     }
 
@@ -133,11 +134,11 @@ class VoyagerMediaController extends BaseVoyagerMediaController
 
                     if(!$isUxDesign)
                     {
-                        $newImage = $image->heighten(665)->encode($extension, ($details->quality ? $details->quality : 75))->encoded;
+                        $newImage = $image->heighten(665)->encode($extension, ($quality))->encoded;
                     }
                     else
                     {
-                        $newImage = $image->widen(1300)->encode($extension, ($details->quality ? $details->quality : 75))->encoded;
+                        $newImage = $image->widen(1300)->encode($extension, ($quality))->encoded;
                     }
                     
                     Storage::disk($this->filesystem)->put($file, $newImage);
