@@ -218,7 +218,7 @@ return [
           'image/bmp',
         //   'video/mp4',
         ],
-        'quality'    => '80%',
+        // 'quality'    => '80%',
         //Path for media-manager. Relative to the filesystem.
         'path'                => '/',
         'show_folders'        => true,
