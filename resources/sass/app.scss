@@ -54,7 +54,7 @@ body {
 
 #main-scrollbar {
     position: fixed;
-    height: 100vh;
+    height: 100%;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 
@@ -177,7 +177,7 @@ body {
     position: relative;
     display: flex;
     width: 100vw;
-    min-height: 100vh;
+    height: 100%;
     flex-flow: column wrap;
     font-size: 1rem;
     vertical-align: middle;
@@ -193,7 +193,7 @@ body {
     }
 
     .header_button_wrapper {
-        position: absolute;
+        position: fixed;
         width: 100%;
         bottom: 50px;
 
@@ -235,7 +235,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -693,7 +693,7 @@ body {
 section {
     position: relative;
     display: flex;
-    min-height: 100vh;
+    min-height: 100%;
     flex-flow: column wrap;
     font-size: 1rem;
     scroll-snap-align: start;
@@ -1175,9 +1175,9 @@ section {
 
 /* Then style the iframe to fit in the container div with full height and width */
 .responsive-iframe {
-    position: relative;
+    position: absolute;
     width: 100vw;
-    min-height: 71vh;
+    min-height: 71%;
 }
 
 #portfolioBtnContainer {
