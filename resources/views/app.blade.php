@@ -2,7 +2,7 @@
 
 <body>
 
-    <div id="main-scrollbar">
+    <div id="section-container">
         <section id="header" data-id="0">
             @include('sections.header')
         </section>

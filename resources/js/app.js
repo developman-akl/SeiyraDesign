@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-import Scrollbar from 'smooth-scrollbar';
+// import Scrollbar from 'smooth-scrollbar';
 
 var options = {
     'damping': 0.04,
@@ -85,6 +85,20 @@ $(document).ready(function () {
 
     if(isMobile)
     {
+        // debugger;
+        var visibleText = $('.excerpt').text().substring(0, 139);
+        var textToHide = $('.excerpt').text().substring(139);
+
+        $('.excerpt')
+            .html(visibleText + ('<span>' + textToHide + '</span>'))
+            .append('<a id="read-more" title="Read More" style="display: block; cursor: pointer;">...</a>')
+            .click(function() {
+                $(this).find('span').toggle();
+                $(this).find('a:last').toggle();
+            });
+
+        $('.excerpt span').hide();
+
         $('#btnPrev').on('mouseenter', function (e) {
             e.preventDefault();
             clearTimeout(scrollTimer);
@@ -119,12 +133,11 @@ $(document).ready(function () {
         });
     }
 
-    // $('#main-scrollbar').on('scroll', (s) => {
-    $('#main-scrollbar').scroll(function (event) {
+    $('#section-container').scroll(function (event) {
         if (!$('.devices').hasClass("fadeIn")) {
-            showImages('.devices', $('#main-scrollbar').scrollTop());
+            showImages('.devices', $('#section-container').scrollTop());
         }
-        showJumpRefButtons($('#main-scrollbar').scrollTop());
+        showJumpRefButtons($('#section-container').scrollTop());
     })
 
     $('.js-anchor-link').click(function (e) {
@@ -135,9 +148,6 @@ $(document).ready(function () {
         jumpRef(elem);
 
         switch (elem) {
-            // case '#header':
-            //     page = 0;
-            //     break;
             case '#welcome':
                 page = 1;
                 break;
@@ -152,7 +162,7 @@ $(document).ready(function () {
                 break;
         }
 
-        $('.navbar-toggler').click();
+        // $('.navbar-toggler').click();
     });
 
 
@@ -321,7 +331,7 @@ $(document).ready(function () {
             'alwaysShowTracks': true,
         }
 
-        Scrollbar.init(frm.querySelector('body'), options);
+        // Scrollbar.init(frm.querySelector('body'), options);
 
         var lazyloadImages;
 
@@ -379,7 +389,7 @@ $(document).ready(function () {
 
             grid[i].onclick = function () {
                 
-                Scrollbar.init(document.querySelector('#modal-simple'), options);
+                // Scrollbar.init(document.querySelector('#modal-simple'), options);
 
                 $('#btnPrev').fadeOut(150);
                 $('#btnNext').fadeOut(150);
@@ -398,13 +408,13 @@ $(document).ready(function () {
         filterSelection(e.target.dataset.selection);
     });
 
-    $(".close").on('click touchend', function (e) {
+    $(".close").on('click', function (e) {
         $('#btnPrev').fadeIn(150);
         $('#btnNext').fadeIn(150);
         modal.style.display = "none";
     });
     
-    $("#modal-simple").on('click touchend', function (event) {
+    $("#modal-simple").on('click', function (event) {
         $('#btnPrev').fadeIn(150);
         $('#btnNext').fadeIn(150);
         modal.style.display = "none";

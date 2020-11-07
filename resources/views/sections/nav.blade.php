@@ -4,10 +4,10 @@
             <img class="nav-logo-img" src="{{ asset('/storage/images/SeyraDesignLogo.svg') }}"
                 width=163 alt="Seiyra Design Logo" loading="lazy">
         </a>
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse sd-nav" id="collapsibleNavbar">
+        <div class="navbar-collapse sd-nav collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li><a class="js-anchor-link" href="#welcome">Home</a></li>
                 <li><a class="js-anchor-link" href="#services">Services</a></li>

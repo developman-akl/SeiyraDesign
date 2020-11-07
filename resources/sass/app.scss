@@ -52,7 +52,7 @@ body {
     background-color: #000;
 }
 
-#main-scrollbar {
+#section-container {
     position: fixed;
     height: 100%;
     overflow-y: scroll;
@@ -448,8 +448,8 @@ body {
         }
 
         img {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
         }
     }
 
@@ -469,15 +469,15 @@ body {
         }
 
         img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
         }
     }
 }
 
 .contact-container {
     width: 65vw;
-    height: 25vw;
+    height: 25vh;
     display: table;
 
     .alert-success,
@@ -508,18 +508,21 @@ body {
         box-shadow: $boxShadowPrimary;
     }
 
-    #contact-message {
-        height: 250px;
-        box-shadow: $boxShadowPrimary;
+    @media only screen {
+        #contact-message {
+            height: 250px;
+            box-shadow: $boxShadowPrimary;
+        }
     }
-
+    
     @media (max-width: 576) {
         #contact-message {
             height: 150px;
             box-shadow: $boxShadowPrimary;
         }
-
     }
+
+
 
     #btn-contact-send {
         background: #9affcf 0% 0% no-repeat padding-box;
@@ -705,7 +708,6 @@ section {
         h1 {
             text-align: center;
             font: normal normal normal 70px/84px Lust;
-            @include font-size(70px !important);
             letter-spacing: 4px;
             color: $primaryCol;
             text-align: center;
@@ -718,7 +720,6 @@ section {
         p {
             text-align: center;
             font: normal normal 300 20px/28px "sofia-pro";
-            @include font-size(20px !important);
             letter-spacing: 3px;
             color: $secondaryCol;
             margin: auto;
@@ -732,19 +733,19 @@ section {
 
             p {
                 font: normal normal 300 16px/23px "sofia-pro";
-                @include font-size(16px !important);
+                line-height: 0.75px;
                 width: 90%;
             }
         }
 
         @media (max-width: 414px) {
             h1 {
-                font: normal normal normal 36px Lust;
+                font: normal normal normal 30px Lust;
             }
 
             p {
-                font: normal normal 300 14px/21px "sofia-pro";
-                @include font-size(14px !important);
+                font: normal normal 300 13px/21px "sofia-pro";
+                @include font-size(13px !important);
                 width: 90%;
             }
         }
@@ -1196,6 +1197,7 @@ section {
     @media (max-width: 414px) {
         .btn {
             margin: 2px;
+            font-size: 13px;
         }
     }
 

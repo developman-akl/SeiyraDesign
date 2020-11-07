@@ -4,7 +4,7 @@
         <h1>{{ setting('services.title') }}</h1>
         <span class="border"></span>
         
-        <p>{!! nl2br(setting('services.description')) !!}</p>
+        <p class="excerpt">{!! nl2br(setting('services.description')) !!}</p>
     </div>
 
     <div class="service-images row">
