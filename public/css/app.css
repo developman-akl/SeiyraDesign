@@ -11219,7 +11219,7 @@ body {
 
 .service-images {
   background: transparent;
-  padding-top: 40px;
+  padding-top: 30px;
   text-align: center;
   /* Clearfix (clear floats) */
 }
@@ -12134,8 +12134,8 @@ section:nth-child(5) {
 .masonry {
   -moz-columns: 4;
        columns: 4;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
 }
 
 @media (max-width: 1200px) {
@@ -12161,7 +12161,7 @@ section:nth-child(5) {
 
 .masonry .grid {
   display: none;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   position: relative;
   /* The "show" class is added to the filtered elements */
 }

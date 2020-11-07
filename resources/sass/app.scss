@@ -353,7 +353,7 @@ body {
 
 .service-images {
     background: transparent;
-    padding-top: 40px;
+    padding-top: 30px;
     text-align: center;
 
     .column {
@@ -1204,7 +1204,6 @@ section {
     .btn:hover {
         background-color: white;
         box-shadow: $boxShadowSecondary;
-        // border: 1px solid #d8d8d8;
         border-radius: $borderRadius;
 
     }
@@ -1218,7 +1217,7 @@ section {
 
 .masonry {
     columns: 4;
-    column-gap: 25px;
+    column-gap: 30px;
 
     @media (max-width: 1200px) {
         columns: 3;
@@ -1234,7 +1233,7 @@ section {
 
     .grid {
         display: none;
-        margin-bottom: 16px;
+        margin-bottom: 24px;
         position: relative;
 
         /* The "show" class is added to the filtered elements */
