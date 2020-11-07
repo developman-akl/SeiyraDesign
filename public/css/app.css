@@ -11634,7 +11634,7 @@ section {
   min-height: 100vh;
   flex-flow: column wrap;
   font-size: 1rem;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   background-color: black;
 }
 
