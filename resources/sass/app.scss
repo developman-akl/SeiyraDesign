@@ -52,22 +52,6 @@ body {
     background-color: #000;
 }
 
-#section-container {
-    position: fixed;
-    height: 100%;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-
-    .scrollbar-thumb {
-        background-color: rgb(143, 143, 143);
-    }
-
-    .scrollbar-track {
-        background-color: transparent;
-    }
-
-
-}
 
 .container {
     width: 100%;
@@ -693,15 +677,36 @@ body {
 
 /* SECTIONS */
 
+#section-container {
+    position: fixed;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: mandatory;
+    scroll-snap-type: y proximity;
+
+    @media (min-width: 992px) {
+        scroll-snap-type: y mandatory;
+    }
+
+    .scrollbar-thumb {
+        background-color: rgb(143, 143, 143);
+    }
+
+    .scrollbar-track {
+        background-color: transparent;
+    }
+}
+
 section {
     position: relative;
     display: flex;
     min-height: 100%;
     flex-flow: column wrap;
     font-size: 1rem;
-    scroll-snap-align: start;
     background-color: black;
 
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 
     .section-title {
 
@@ -774,7 +779,6 @@ section {
 
     // HOME
     &:nth-child(2) {
-        // background: transparent linear-gradient(180deg, rgba(189, 193, 246, 0.84) 0%, rgba(255, 255, 255, 0.16) 100%) 0% 0% no-repeat padding-box;
         text-align: center;
 
         .devices {
