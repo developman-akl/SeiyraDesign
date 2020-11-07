@@ -50,7 +50,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.site.google_analytics_tracking_id'),
-                'value'        => '',
+                'value'        => 'G-X745F6YT8P',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 4,
@@ -62,7 +62,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('Email'),
-                'value'        => 'seiyra8@gmail.com',
+                'value'        => 'nora@seiyradesign.com',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 6,
@@ -207,7 +207,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.admin.background_image'),
-                'value'        => 'images\bg3.png',
+                'value'        => 'images\bg3.jpg',
                 'details'      => '',
                 'type'         => 'image',
                 'order'        => 5,
@@ -267,7 +267,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.admin.google_analytics_client_id'),
-                'value'        => '',
+                'value'        => '760666719942-fr46m794tvdn5cpt725joomung6q2mss.apps.googleusercontent.com',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
