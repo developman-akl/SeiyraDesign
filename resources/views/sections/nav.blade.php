@@ -4,7 +4,7 @@
             <img class="nav-logo-img" src="{{ asset('/storage/images/SeyraDesignLogo.svg') }}"
                 width=163 alt="Seiyra Design Logo" loading="lazy">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse sd-nav" id="collapsibleNavbar">
