@@ -8,9 +8,6 @@ var options = {
     'alwaysShowTracks': false,
 }
 
-var scrollbar = Scrollbar.init(document.querySelector('#main-scrollbar'), options);
-Scrollbar.init(document.querySelector('#modal-simple'), options);
-
 var page = 1;
 var pageCount = 4;
 
@@ -24,24 +21,19 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 function jumpRef(elem) {
     var ScrollIntoViewOptions = {
         alignToTop: true,
+        behavior: 'smooth',
     };
     if (elem) {
-        scrollbar.scrollIntoView(document.querySelector(elem), ScrollIntoViewOptions);
+        document.querySelector(elem).scrollIntoView(ScrollIntoViewOptions);
+        $(elem).focus(); //Setting focus
     }
 }
 
-function showImages(el, s) {
+function showImages(el, thisPos) {
     var windowHeight = $(window).height();
-    var thisPos;
 
     $(el).each(function () {
         if (!$(this).hasClass("fadeIn")) {
-            if (s && s.offset !== 'undefine') {
-                thisPos = s.offset.y;
-            } else if (s && s > 0) {
-                thisPos = s;
-            }
-
             var topOfWindow = $(window).scrollTop();
             var pos = windowHeight - topOfWindow - 115;
 
@@ -59,19 +51,10 @@ var scrollNextTimer;
 var scrollTimer;
 var scrollTimeout = 1700;
 
-function showJumpRefButtons(s) {
-
+function showJumpRefButtons(thisPos) {
     var windowHeight = $(window).height();
-    var thisPos;
-
-    if (s && s.offset !== 'undefine') {
-        thisPos = s.offset.y;
-    } else if (s && s > 0) {
-        thisPos = s;
-    }
-
     var topOfWindow = $(window).scrollTop();
-    var pos = windowHeight - topOfWindow - 115;
+    var pos = windowHeight - topOfWindow - 515;
 
     if(isMobile)
     {
@@ -96,10 +79,6 @@ function showJumpRefButtons(s) {
         $('#btnNext').fadeOut(150);
     }
 }
-
-
-
-/* END TO TOP */
 
 
 $(document).ready(function () {
@@ -140,11 +119,12 @@ $(document).ready(function () {
         });
     }
 
-    scrollbar.addListener((s) => {
+    // $('#main-scrollbar').on('scroll', (s) => {
+    $('#main-scrollbar').scroll(function (event) {
         if (!$('.devices').hasClass("fadeIn")) {
-            showImages('.devices', s);
+            showImages('.devices', $('#main-scrollbar').scrollTop());
         }
-        showJumpRefButtons(s);
+        showJumpRefButtons($('#main-scrollbar').scrollTop());
     })
 
     $('.js-anchor-link').click(function (e) {
@@ -155,6 +135,9 @@ $(document).ready(function () {
         jumpRef(elem);
 
         switch (elem) {
+            // case '#header':
+            //     page = 0;
+            //     break;
             case '#welcome':
                 page = 1;
                 break;
@@ -172,17 +155,16 @@ $(document).ready(function () {
         $('.navbar-toggler').click();
     });
 
-});
 
+    document.getElementById("btnPrev").onclick = function (e) {
+        if(page == 1)
+        {
+            e.preventDefault();
+            return false;
+        }
 
-/* TO TOP */
-
-$(document).ready(function () {
-    "use strict";
-
-    document.getElementById("btnPrev").onclick = function () {
         page = ((page + pageCount + 2) % pageCount) + 1;
-
+        
         switch (page) {
             case 1:
                 jumpRef('#welcome');
@@ -199,7 +181,13 @@ $(document).ready(function () {
         }
     };
 
-    document.getElementById("btnNext").onclick = function () {
+    document.getElementById("btnNext").onclick = function (e) {
+        if(page == pageCount)
+        {
+            e.preventDefault();
+            return false;
+        }
+
         page = (page % pageCount) + 1;
 
         switch (page) {
@@ -221,6 +209,8 @@ $(document).ready(function () {
 });
 
 /* END TO TOP */
+
+
 $("#contact-message").click(function (e) {
     // e.preventDefault();
     $("#contact-message").blur();
@@ -304,6 +294,7 @@ $("#btn-contact-send").click(function (e) {
     });
 });
 
+
 $(document).ready(function () {
     "use strict";
 
@@ -326,7 +317,7 @@ $(document).ready(function () {
 
         options = {
             'damping': 0.04,
-            'continuousScrolling': true,
+            'continuousScrolling': false,
             'alwaysShowTracks': true,
         }
 
@@ -385,9 +376,13 @@ $(document).ready(function () {
         // Get the image and insert it inside the modal - use its "alt" text as a caption
         var grid = frm.getElementsByClassName("grid");
         for (var i = 0; i < grid.length; i++) {
+
             grid[i].onclick = function () {
-                $('#btnPrev').fadeOut();
-                $('#btnNext').fadeOut();
+                
+                Scrollbar.init(document.querySelector('#modal-simple'), options);
+
+                $('#btnPrev').fadeOut(150);
+                $('#btnNext').fadeOut(150);
 
                 modal.style.display = "block";
                 let images = $(this).find('.img-modal-simple');
@@ -403,9 +398,13 @@ $(document).ready(function () {
         filterSelection(e.target.dataset.selection);
     });
 
-    // Get the <span> element that closes the modal
-    // When the user clicks on <span> (x), close the modal
     $(".close").on('click touchend', function (e) {
+        $('#btnPrev').fadeIn(150);
+        $('#btnNext').fadeIn(150);
+        modal.style.display = "none";
+    });
+    
+    $("#modal-simple").on('click touchend', function (event) {
         $('#btnPrev').fadeIn(150);
         $('#btnNext').fadeIn(150);
         modal.style.display = "none";

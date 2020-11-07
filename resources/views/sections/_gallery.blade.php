@@ -1,5 +1,5 @@
 <div class="portfolio-gallery">
-    <div class="masonry">
+    <div id="masonry" class="masonry">
         @foreach ($uxImages as $file)
             <div class="grid ux">
                 <img class="img-modal-simple lazy" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">

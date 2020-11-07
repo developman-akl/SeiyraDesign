@@ -43107,8 +43107,6 @@ var options = {
   'continuousScrolling': false,
   'alwaysShowTracks': false
 };
-var scrollbar = smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#main-scrollbar'), options);
-smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#modal-simple'), options);
 var page = 1;
 var pageCount = 4;
 var isMobile = false; //initiate as false
@@ -43120,25 +43118,20 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
 
 function jumpRef(elem) {
   var ScrollIntoViewOptions = {
-    alignToTop: true
+    alignToTop: true,
+    behavior: 'smooth'
   };
 
   if (elem) {
-    scrollbar.scrollIntoView(document.querySelector(elem), ScrollIntoViewOptions);
+    document.querySelector(elem).scrollIntoView(ScrollIntoViewOptions);
+    $(elem).focus(); //Setting focus
   }
 }
 
-function showImages(el, s) {
+function showImages(el, thisPos) {
   var windowHeight = $(window).height();
-  var thisPos;
   $(el).each(function () {
     if (!$(this).hasClass("fadeIn")) {
-      if (s && s.offset !== 'undefine') {
-        thisPos = s.offset.y;
-      } else if (s && s > 0) {
-        thisPos = s;
-      }
-
       var topOfWindow = $(window).scrollTop();
       var pos = windowHeight - topOfWindow - 115;
 
@@ -43156,18 +43149,10 @@ var scrollNextTimer;
 var scrollTimer;
 var scrollTimeout = 1700;
 
-function showJumpRefButtons(s) {
+function showJumpRefButtons(thisPos) {
   var windowHeight = $(window).height();
-  var thisPos;
-
-  if (s && s.offset !== 'undefine') {
-    thisPos = s.offset.y;
-  } else if (s && s > 0) {
-    thisPos = s;
-  }
-
   var topOfWindow = $(window).scrollTop();
-  var pos = windowHeight - topOfWindow - 115;
+  var pos = windowHeight - topOfWindow - 515;
 
   if (isMobile) {
     clearTimeout(scrollTimer);
@@ -43190,8 +43175,6 @@ function showJumpRefButtons(s) {
     $('#btnNext').fadeOut(150);
   }
 }
-/* END TO TOP */
-
 
 $(document).ready(function () {
   if (isMobile) {
@@ -43225,14 +43208,15 @@ $(document).ready(function () {
         $('#btnNext').fadeOut(150);
       }, scrollTimeout);
     });
-  }
+  } // $('#main-scrollbar').on('scroll', (s) => {
 
-  scrollbar.addListener(function (s) {
+
+  $('#main-scrollbar').scroll(function (event) {
     if (!$('.devices').hasClass("fadeIn")) {
-      showImages('.devices', s);
+      showImages('.devices', $('#main-scrollbar').scrollTop());
     }
 
-    showJumpRefButtons(s);
+    showJumpRefButtons($('#main-scrollbar').scrollTop());
   });
   $('.js-anchor-link').click(function (e) {
     e.preventDefault();
@@ -43240,6 +43224,9 @@ $(document).ready(function () {
     jumpRef(elem);
 
     switch (elem) {
+      // case '#header':
+      //     page = 0;
+      //     break;
       case '#welcome':
         page = 1;
         break;
@@ -43259,13 +43246,13 @@ $(document).ready(function () {
 
     $('.navbar-toggler').click();
   });
-});
-/* TO TOP */
 
-$(document).ready(function () {
-  "use strict";
+  document.getElementById("btnPrev").onclick = function (e) {
+    if (page == 1) {
+      e.preventDefault();
+      return false;
+    }
 
-  document.getElementById("btnPrev").onclick = function () {
     page = (page + pageCount + 2) % pageCount + 1;
 
     switch (page) {
@@ -43287,7 +43274,12 @@ $(document).ready(function () {
     }
   };
 
-  document.getElementById("btnNext").onclick = function () {
+  document.getElementById("btnNext").onclick = function (e) {
+    if (page == pageCount) {
+      e.preventDefault();
+      return false;
+    }
+
     page = page % pageCount + 1;
 
     switch (page) {
@@ -43392,7 +43384,7 @@ $(document).ready(function () {
     otherhead.appendChild(link);
     options = {
       'damping': 0.04,
-      'continuousScrolling': true,
+      'continuousScrolling': false,
       'alwaysShowTracks': true
     };
     smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(frm.querySelector('body'), options);
@@ -43448,8 +43440,9 @@ $(document).ready(function () {
 
     for (var i = 0; i < grid.length; i++) {
       grid[i].onclick = function () {
-        $('#btnPrev').fadeOut();
-        $('#btnNext').fadeOut();
+        smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#modal-simple'), options);
+        $('#btnPrev').fadeOut(150);
+        $('#btnNext').fadeOut(150);
         modal.style.display = "block";
         var images = $(this).find('.img-modal-simple');
 
@@ -43475,10 +43468,13 @@ $(document).ready(function () {
 
   $("#portfolioBtnContainer .btn").on('click', function (e) {
     filterSelection(e.target.dataset.selection);
-  }); // Get the <span> element that closes the modal
-  // When the user clicks on <span> (x), close the modal
-
+  });
   $(".close").on('click touchend', function (e) {
+    $('#btnPrev').fadeIn(150);
+    $('#btnNext').fadeIn(150);
+    modal.style.display = "none";
+  });
+  $("#modal-simple").on('click touchend', function (event) {
     $('#btnPrev').fadeIn(150);
     $('#btnNext').fadeIn(150);
     modal.style.display = "none";

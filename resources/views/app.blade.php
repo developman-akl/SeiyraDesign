@@ -3,9 +3,10 @@
 <body>
 
     <div id="main-scrollbar">
-        @include('sections.header')
-
-        <section>
+        <section id="header" data-id="0">
+            @include('sections.header')
+        </section>
+        <section id="welcome" data-id="1">
             @include('sections.welcome')
         </section>
         <section id="services" data-id="2">

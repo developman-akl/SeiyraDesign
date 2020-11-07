@@ -41,10 +41,10 @@ body {
 }
 
 body {
+    position: fixed; 
     margin: 0;
     flex-direction: column;
-    background-color: white;
-    scroll-snap-type: y mandatory;
+    background-color: black;
 }
 
 .lazy {
@@ -54,10 +54,9 @@ body {
 
 #main-scrollbar {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 
     .scrollbar-thumb {
         background-color: rgb(143, 143, 143);
@@ -162,7 +161,7 @@ body {
                 }
 
                 a:hover {
-                    color: #d7d9f7;
+                    color: $primaryCol;
                 }
             }
         }
@@ -583,7 +582,6 @@ body {
     input[type="email"]::placeholder {
         text-align: center;
         letter-spacing: 0.32px;
-        // color: #717BF9;
         color: $navbarbg;
         opacity: 1;
         font-family: "sofia-pro";
@@ -622,7 +620,6 @@ body {
     select {
         text-align: center;
         text-align-last: center;
-        // color: #717BF9;
 
         option {
             z-index: 9999;
@@ -631,7 +628,6 @@ body {
 
     option {
         text-align: center;
-        // color: #717BF9;
     }
 
     .select-items div,
@@ -700,8 +696,9 @@ section {
     min-height: 100vh;
     flex-flow: column wrap;
     font-size: 1rem;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     background-color: black;
+
 
     .section-title {
 
@@ -807,7 +804,7 @@ section {
             visibility: visible !important;
             position: relative;
             animation-name: animat_show;
-            animation-duration: 2s;
+            animation-duration: 0.5s;
             animation-iteration-count: 1;
             margin-top: 0;
             margin-bottom: 0;
@@ -1109,7 +1106,7 @@ section {
         opacity: 1;
 
         p {
-            color: #717BF9;
+            color: $primaryCol;
             margin-bottom: 0;
         }
 
@@ -1123,7 +1120,7 @@ section {
             @include center-children;
 
             p {
-                color: #717BF9;
+                color: $primaryCol;
                 margin-bottom: 0;
             }
 
@@ -1261,7 +1258,7 @@ section {
         }
 
         &__title {
-            font: normal normal bold 28px/37px "sofia-pro";
+            font: normal normal bold 20px "sofia-pro";
             margin: 0px 0px 10px 0px;
             width: auto;
             border-radius: $borderRadius;
@@ -1403,7 +1400,7 @@ section {
 
     /* The Close Button */
     .close {
-        position: absolute;
+        position: fixed;
         top: 10px;
         /* needs to look OK with or without scrollbar */
         right: 20px;
