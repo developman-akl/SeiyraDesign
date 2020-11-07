@@ -10922,7 +10922,7 @@ body {
   position: fixed;
   margin: 0;
   flex-direction: column;
-  background-color: black;
+  background-color: #ddd;
 }
 
 .lazy {
@@ -12113,7 +12113,7 @@ section:nth-child(5) {
   border: 1px solid #262626;
   border-radius: 10px;
   outline: none;
-  background-color: white;
+  background-color: #ddd;
   margin: 5px 7px;
   cursor: pointer;
   font-family: "sofia-pro";
