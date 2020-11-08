@@ -21,7 +21,7 @@
     
     <!-- Photo Grid -->
     <div class="iframe-container">
-        <iframe class="responsive-iframe" name="gallery-iframe" id="gallery-iframe" src="{{ url('gallery') }}" title="SeiyraDesign Portfolio Gallery" style="border:none;"></iframe>
+        <iframe class="responsive-iframe" name="gallery-iframe" id="gallery-iframe" src="{{ url('gallery') }}" title="SeiyraDesign Portfolio Gallery"></iframe>
     </div>
 
     <!-- The Modal -->
