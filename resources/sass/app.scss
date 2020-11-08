@@ -370,7 +370,7 @@ body {
         box-shadow: $boxShadowPrimary;
     }
 
-    @media only screen {
+    @media (min-width: 1300px) {
         img {
             height: 225px;
             width: 225px;
@@ -492,7 +492,7 @@ body {
         box-shadow: $boxShadowPrimary;
     }
 
-    @media only screen {
+    @media (min-width: 1300px) {
         #contact-message {
             height: 250px;
             box-shadow: $boxShadowPrimary;
@@ -681,7 +681,10 @@ body {
     position: fixed;
     height: 100%;
     overflow-y: scroll;
-    scroll-snap-type: y proximity;
+
+    @media (min-width: 1300px) {
+        scroll-snap-type: y proximity;
+    }
 
 
     .scrollbar-thumb {
@@ -701,8 +704,10 @@ section {
     font-size: 1rem;
     background-color: black;
 
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    @media (min-width: 1300px) {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
 
     .section-title {
 
@@ -1076,7 +1081,7 @@ section {
         justify-content: space-between;
 
 
-        @media only screen {
+        @media (min-width: 1300px) {
             img {
                 width: 110px;
                 padding: 5px;

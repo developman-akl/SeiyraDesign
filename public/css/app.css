@@ -11238,7 +11238,7 @@ body {
   box-shadow: 0 -2px 10px #615DED;
 }
 
-@media only screen {
+@media (min-width: 1300px) {
   .service-images img {
     height: 225px;
     width: 225px;
@@ -11366,7 +11366,7 @@ body {
   box-shadow: 0 -2px 10px #615DED;
 }
 
-@media only screen {
+@media (min-width: 1300px) {
   .contact-container #contact-message {
     height: 250px;
     box-shadow: 0 -2px 10px #615DED;
@@ -11618,8 +11618,13 @@ body {
   position: fixed;
   height: 100%;
   overflow-y: scroll;
-  -ms-scroll-snap-type: y proximity;
-      scroll-snap-type: y proximity;
+}
+
+@media (min-width: 1300px) {
+  #section-container {
+    -ms-scroll-snap-type: y proximity;
+        scroll-snap-type: y proximity;
+  }
 }
 
 #section-container .scrollbar-thumb {
@@ -11637,8 +11642,13 @@ section {
   flex-flow: column wrap;
   font-size: 1rem;
   background-color: black;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+}
+
+@media (min-width: 1300px) {
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 section .section-title h1 {
@@ -12013,7 +12023,7 @@ section:nth-child(5) {
   justify-content: space-between;
 }
 
-@media only screen {
+@media (min-width: 1300px) {
   .footer-wrapper .footer-icons img {
     width: 110px;
     padding: 5px;

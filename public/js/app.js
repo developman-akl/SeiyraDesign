@@ -43447,6 +43447,7 @@ $(document).ready(function () {
         $('#btnPrev').fadeOut(500);
         $('#btnNext').fadeOut(500);
         modal.style.display = "block";
+        jumpRef('#modal-simple');
         var images = $(this).find('.img-modal-simple');
 
         var _iterator = _createForOfIteratorHelper(images),

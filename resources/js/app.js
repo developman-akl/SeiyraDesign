@@ -393,8 +393,11 @@ $(document).ready(function () {
 
                 $('#btnPrev').fadeOut(500);
                 $('#btnNext').fadeOut(500);
-
+                
                 modal.style.display = "block";
+
+                jumpRef('#modal-simple');
+
                 let images = $(this).find('.img-modal-simple');
                 for (const image of images) {
                     modalImg.src = image.src ? image.src : "";
