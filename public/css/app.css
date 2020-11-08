@@ -11622,8 +11622,8 @@ body {
 
 @media (min-width: 1300px) {
   #section-container {
-    -ms-scroll-snap-type: y proximity;
-        scroll-snap-type: y proximity;
+    -ms-scroll-snap-type: y mandatory;
+        scroll-snap-type: y mandatory;
   }
 }
 
@@ -11647,7 +11647,6 @@ section {
 @media (min-width: 1300px) {
   section {
     scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 }
 
