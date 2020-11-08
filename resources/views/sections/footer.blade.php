@@ -20,10 +20,10 @@
         </div>
         <div class="footer-info mb-0 row d-flex flex-row justify-content-between">
             <div class="d-flex flex-row mt-1">
-                <p>Website designed by</p><a href="mailto:nora@seiyradesign.com">SeiyraDesign</a>
+                <p>Website design by</p><a href="mailto:nora@seiyradesign.com">SeiyraDesign</a>
             </div>
             <div class="d-flex flex-row mt-1">
-                <p>Website developed by</p><a href="mailto:molnarjg@gmail.com" target="_blank">Developman</a>
+                <p>Website development by</p><a href="mailto:molnarjg@gmail.com" target="_blank">Developman</a>
             </div>
         </div>
     </div>
