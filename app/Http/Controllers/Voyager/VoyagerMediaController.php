@@ -132,14 +132,16 @@ class VoyagerMediaController extends BaseVoyagerMediaController
                         $image = $this->addWatermarkToImage($image, $details->watermark);
                     }
 
-                    if(!$isUxDesign)
-                    {
-                        $newImage = $image->heighten(665)->encode($extension, ($quality))->encoded;
-                    }
-                    else
-                    {
-                        $newImage = $image->widen(1300)->encode($extension, ($quality))->encoded;
-                    }
+                    // if(!$isUxDesign)
+                    // {
+                    //     $newImage = $image->heighten(665)->encode($extension, ($quality))->encoded;
+                    // }
+                    // else
+                    // {
+                    //     $newImage = $image->widen(1300)->encode($extension, ($quality))->encoded;
+                    // }
+
+                    $newImage = $image->encode($extension, 100)->encoded;
                     
                     Storage::disk($this->filesystem)->put($file, $newImage);
                 }

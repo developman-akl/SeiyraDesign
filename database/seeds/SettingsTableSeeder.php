@@ -267,7 +267,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.admin.google_analytics_client_id'),
-                'value'        => '760666719942-fr46m794tvdn5cpt725joomung6q2mss.apps.googleusercontent.com',
+                'value'        => '',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
