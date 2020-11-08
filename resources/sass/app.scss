@@ -681,12 +681,8 @@ body {
     position: fixed;
     height: 100%;
     overflow-y: scroll;
-    scroll-snap-type: mandatory;
     scroll-snap-type: y proximity;
 
-    @media (min-width: 992px) {
-        scroll-snap-type: y mandatory;
-    }
 
     .scrollbar-thumb {
         background-color: rgb(143, 143, 143);
@@ -713,6 +709,7 @@ section {
         h1 {
             text-align: center;
             font: normal normal normal 70px/84px Lust;
+            @include font-size(70px !important);
             letter-spacing: 4px;
             color: $primaryCol;
             text-align: center;
@@ -725,6 +722,7 @@ section {
         p {
             text-align: center;
             font: normal normal 300 20px/28px "sofia-pro";
+            @include font-size(20px !important);
             letter-spacing: 3px;
             color: $secondaryCol;
             margin: auto;
@@ -738,19 +736,19 @@ section {
 
             p {
                 font: normal normal 300 16px/23px "sofia-pro";
-                line-height: 0.75px;
+                @include font-size(16px !important);
                 width: 90%;
             }
         }
 
         @media (max-width: 414px) {
             h1 {
-                font: normal normal normal 30px Lust;
+                font: normal normal normal 36px Lust;
             }
 
             p {
-                font: normal normal 300 13px/21px "sofia-pro";
-                @include font-size(13px !important);
+                font: normal normal 300 14px/21px "sofia-pro";
+                @include font-size(14px !important);
                 width: 90%;
             }
         }
@@ -831,17 +829,6 @@ section {
         }
     }
 
-    // SERVICES
-    // &:nth-child(3) {
-    // opacity: 1;
-    // background: #FFFFFF29 0% 0% no-repeat padding-box;
-    // }
-
-    // PORTFOLIO
-    // &:nth-child(4) {
-    // background: transparent linear-gradient(358deg, rgba(189, 193, 246, 0.88) 0%, rgba(255, 255, 255, 0.53) 100%) 0% 0% no-repeat padding-box;
-    // opacity: 0.61;
-    // }
 
     // CONTACT ME
     &:nth-child(5) {
@@ -867,7 +854,7 @@ section {
 #btnPrev {
     display: none;
     position: fixed;
-    bottom: 90px;
+    bottom: 80px;
     right: 5px;
     z-index: 2;
     border: none;

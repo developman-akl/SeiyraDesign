@@ -11618,17 +11618,8 @@ body {
   position: fixed;
   height: 100%;
   overflow-y: scroll;
-  -ms-scroll-snap-type: mandatory;
-      scroll-snap-type: mandatory;
   -ms-scroll-snap-type: y proximity;
       scroll-snap-type: y proximity;
-}
-
-@media (min-width: 992px) {
-  #section-container {
-    -ms-scroll-snap-type: y mandatory;
-        scroll-snap-type: y mandatory;
-  }
 }
 
 #section-container .scrollbar-thumb {
@@ -11653,6 +11644,7 @@ section {
 section .section-title h1 {
   text-align: center;
   font: normal normal normal 70px/84px Lust;
+  font-size: calc(1.5625rem + 3.75vw) !important;
   letter-spacing: 4px;
   color: #717BF9;
   text-align: center;
@@ -11662,9 +11654,16 @@ section .section-title h1 {
   margin-right: auto;
 }
 
+@media (min-width: 1200px) {
+  section .section-title h1 {
+    font-size: 4.375rem !important;
+  }
+}
+
 section .section-title p {
   text-align: center;
   font: normal normal 300 20px/28px "sofia-pro";
+  font-size: 1.25rem !important;
   letter-spacing: 3px;
   color: #E9ECFF;
   margin: auto;
@@ -11678,19 +11677,19 @@ section .section-title p {
 
   section .section-title p {
     font: normal normal 300 16px/23px "sofia-pro";
-    line-height: 0.75px;
+    font-size: 1rem !important;
     width: 90%;
   }
 }
 
 @media (max-width: 414px) {
   section .section-title h1 {
-    font: normal normal normal 30px Lust;
+    font: normal normal normal 36px Lust;
   }
 
   section .section-title p {
-    font: normal normal 300 13px/21px "sofia-pro";
-    font-size: 0.8125rem !important;
+    font: normal normal 300 14px/21px "sofia-pro";
+    font-size: 0.875rem !important;
     width: 90%;
   }
 }
@@ -11803,7 +11802,7 @@ section:nth-child(5) {
 #btnPrev {
   display: none;
   position: fixed;
-  bottom: 90px;
+  bottom: 80px;
   right: 5px;
   z-index: 2;
   border: none;
