@@ -868,7 +868,7 @@ section {
     display: none;
     position: fixed;
     bottom: 90px;
-    right: 15px;
+    right: 5px;
     z-index: 2;
     border: none;
     outline: none;
@@ -880,7 +880,7 @@ section {
     }
 
     @media (max-width: 768px) {
-        bottom: 70px;
+        bottom: 58px;
         img {
             width: 50px;
         }
@@ -890,8 +890,8 @@ section {
 #btnNext {
     display: none;
     position: fixed;
-    bottom: 28px;
-    right: 15px;
+    bottom: 15px;
+    right: 5px;
     z-index: 2;
     border: none;
     outline: none;

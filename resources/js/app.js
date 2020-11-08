@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-// import Scrollbar from 'smooth-scrollbar';
+import Scrollbar from 'smooth-scrollbar';
 
 var options = {
     'damping': 0.04,
@@ -64,19 +64,19 @@ function showJumpRefButtons(thisPos) {
     }
 
     if (pos < thisPos) {
-        $('#btnPrev').fadeIn(150);
-        $('#btnNext').fadeIn(150);
+        $('#btnPrev').fadeIn(500);
+        $('#btnNext').fadeIn(500);
         if(isMobile)
         {
             scrollTimer = setTimeout(function () {
-                $('#btnPrev').fadeOut(150);
-                $('#btnNext').fadeOut(150);
+                $('#btnPrev').fadeOut(500);
+                $('#btnNext').fadeOut(500);
             }, scrollTimeout);
         }
     } 
     else {
-        $('#btnPrev').fadeOut(150);
-        $('#btnNext').fadeOut(150);
+        $('#btnPrev').fadeOut(500);
+        $('#btnNext').fadeOut(500);
     }
 }
 
@@ -111,8 +111,8 @@ $(document).ready(function () {
             clearTimeout(scrollTimer);
             clearTimeout(scrollNextTimer);
             scrollPrevTimer = setTimeout(function () {
-                $('#btnPrev').fadeOut(150);
-                $('#btnNext').fadeOut(150);
+                $('#btnPrev').fadeOut(500);
+                $('#btnNext').fadeOut(500);
             }, scrollTimeout);
         });
         
@@ -127,8 +127,8 @@ $(document).ready(function () {
             clearTimeout(scrollTimer);
             clearTimeout(scrollPrevTimer);
             scrollNextTimer = setTimeout(function () {
-                $('#btnPrev').fadeOut(150);
-                $('#btnNext').fadeOut(150);
+                $('#btnPrev').fadeOut(500);
+                $('#btnNext').fadeOut(500);
             }, scrollTimeout);
         });
     }
@@ -331,7 +331,7 @@ $(document).ready(function () {
             'alwaysShowTracks': true,
         }
 
-        // Scrollbar.init(frm.querySelector('body'), options);
+        Scrollbar.init(frm.querySelector('body'), options);
 
         var lazyloadImages;
 
@@ -389,10 +389,10 @@ $(document).ready(function () {
 
             grid[i].onclick = function () {
                 
-                // Scrollbar.init(document.querySelector('#modal-simple'), options);
+                Scrollbar.init(document.querySelector('#modal-simple'), options);
 
-                $('#btnPrev').fadeOut(150);
-                $('#btnNext').fadeOut(150);
+                $('#btnPrev').fadeOut(500);
+                $('#btnNext').fadeOut(500);
 
                 modal.style.display = "block";
                 let images = $(this).find('.img-modal-simple');
@@ -409,14 +409,14 @@ $(document).ready(function () {
     });
 
     $(".close").on('click', function (e) {
-        $('#btnPrev').fadeIn(150);
-        $('#btnNext').fadeIn(150);
+        $('#btnPrev').fadeIn(500);
+        $('#btnNext').fadeIn(500);
         modal.style.display = "none";
     });
     
     $("#modal-simple").on('click', function (event) {
-        $('#btnPrev').fadeIn(150);
-        $('#btnNext').fadeIn(150);
+        $('#btnPrev').fadeIn(500);
+        $('#btnNext').fadeIn(500);
         modal.style.display = "none";
     });
     

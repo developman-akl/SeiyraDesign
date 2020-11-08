@@ -11804,7 +11804,7 @@ section:nth-child(5) {
   display: none;
   position: fixed;
   bottom: 90px;
-  right: 15px;
+  right: 5px;
   z-index: 2;
   border: none;
   outline: none;
@@ -11818,7 +11818,7 @@ section:nth-child(5) {
 
 @media (max-width: 768px) {
   #btnPrev {
-    bottom: 70px;
+    bottom: 58px;
   }
 
   #btnPrev img {
@@ -11829,8 +11829,8 @@ section:nth-child(5) {
 #btnNext {
   display: none;
   position: fixed;
-  bottom: 28px;
-  right: 15px;
+  bottom: 15px;
+  right: 5px;
   z-index: 2;
   border: none;
   outline: none;
