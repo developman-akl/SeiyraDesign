@@ -15,8 +15,6 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 
-Route::get('robots.txt', 'RobotsController');
-
 Route::get('/', [ 'as' => 'home', 'uses' => 'Controller@index' ]);
 
 Route::get('/gallery', 'Controller@gallery')->name('gallery');
@@ -27,3 +25,5 @@ Route::post('contact-us', ['as'=>'contactme.store','uses'=>'ContactMeController@
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('robots.txt', 'RobotsController');
