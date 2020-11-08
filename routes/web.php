@@ -15,6 +15,8 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 
+Route::get('robots.txt', 'RobotsController');
+
 Route::get('/', [ 'as' => 'home', 'uses' => 'Controller@index' ]);
 
 Route::get('/gallery', 'Controller@gallery')->name('gallery');

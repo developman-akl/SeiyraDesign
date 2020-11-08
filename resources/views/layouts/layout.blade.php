@@ -25,4 +25,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="icon" href="{{ URL::asset('storage/images/favicon.png') }}" type="image/x-icon"/>
 
+    {!! Robots::metaTag() !!}
+    
 </head>
