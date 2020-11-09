@@ -40,7 +40,7 @@ class SettingsTableSeeder extends Seeder
                 'display_name' => 'Meta Keywords',
                 'value'        => '',
                 'details'      => '',
-                'type'         => 'text',
+                'type'         => 'text_area',
                 'order'        => 3,
                 'group'        => 'Site',
             ])->save();
@@ -126,7 +126,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'Welcome to Seiyra Design',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 1,
+                'order'        => 9,
                 'group'        => 'Welcome',
             ])->save();
         }
@@ -138,7 +138,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'My passion is to create beautiful designs. Unique, eye-pleasing, and effective.',
                 'details'      => '',
                 'type'         => 'text_area',
-                'order'        => 2,
+                'order'        => 10,
                 'group'        => 'Welcome',
             ])->save();
         }
@@ -150,7 +150,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'Services',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 1,
+                'order'        => 11,
                 'group'        => 'Services',
             ])->save();
         }
@@ -163,7 +163,7 @@ class SettingsTableSeeder extends Seeder
                 ',
                 'details'      => '',
                 'type'         => 'text_area',
-                'order'        => 2,
+                'order'        => 12,
                 'group'        => 'Services',
             ])->save();
         }
@@ -175,7 +175,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'Portfolio',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 1,
+                'order'        => 13,
                 'group'        => 'Portfolio',
             ])->save();
         }
@@ -187,7 +187,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => '',
                 'details'      => '',
                 'type'         => 'text_area',
-                'order'        => 2,
+                'order'        => 14,
                 'group'        => 'Portfolio',
             ])->save();
         }
@@ -199,7 +199,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'Contact Me',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 1,
+                'order'        => 15,
                 'group'        => 'Contact',
             ])->save();
         }
@@ -211,7 +211,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'I\'d love to help you reach your goals, contact me today.',
                 'details'      => '',
                 'type'         => 'text_area',
-                'order'        => 2,
+                'order'        => 16,
                 'group'        => 'Contact',
             ])->save();
         }
@@ -223,7 +223,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'Seiyra Design',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 1,
+                'order'        => 17,
                 'group'        => 'Admin',
             ])->save();
         }
@@ -235,7 +235,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => __('Welcome to Seiyra Design'),
                 'details'      => '',
                 'type'         => 'text_area',
-                'order'        => 2,
+                'order'        => 18,
                 'group'        => 'Admin',
             ])->save();
         }
@@ -247,7 +247,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'images\favicon.png',
                 'details'      => '',
                 'type'         => 'image',
-                'order'        => 3,
+                'order'        => 19,
                 'group'        => 'Admin',
             ])->save();
         }
@@ -260,7 +260,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => 'images\bg3.jpg',
                 'details'      => '',
                 'type'         => 'image',
-                'order'        => 4,
+                'order'        => 20,
                 'group'        => 'Admin',
             ])->save();
         }
@@ -273,7 +273,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => '',
                 'details'      => '',
                 'type'         => 'image',
-                'order'        => 5,
+                'order'        => 21,
                 'group'        => 'Admin',
             ])->save();
         }
@@ -285,7 +285,7 @@ class SettingsTableSeeder extends Seeder
                 'value'        => '',
                 'details'      => '',
                 'type'         => 'text',
-                'order'        => 6,
+                'order'        => 22,
                 'group'        => 'Admin',
             ])->save();
         }
