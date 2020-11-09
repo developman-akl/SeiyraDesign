@@ -26,4 +26,5 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+Route::get('sitemap.xml', 'SitemapController');
 Route::get('robots.txt', 'RobotsController');

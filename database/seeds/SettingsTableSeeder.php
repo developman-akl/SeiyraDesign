@@ -61,7 +61,7 @@ class SettingsTableSeeder extends Seeder
         $setting = $this->findSetting('site.email');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('Email'),
+                'display_name' => __('Email (where to send the Contact Me forms?)'),
                 'value'        => 'nora@seiyradesign.com',
                 'details'      => '',
                 'type'         => 'text',
