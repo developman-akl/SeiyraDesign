@@ -85,9 +85,8 @@ $(document).ready(function () {
 
     if(isMobile)
     {
-        // debugger;
-        var visibleText = $('.excerpt').text().substring(0, 139);
-        var textToHide = $('.excerpt').text().substring(139);
+        var visibleText = $('.excerpt').text().substring(0, 141);
+        var textToHide = $('.excerpt').text().substring(141);
 
         $('.excerpt')
             .html(visibleText + ('<span>' + textToHide + '</span>'))

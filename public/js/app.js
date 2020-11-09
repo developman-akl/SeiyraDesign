@@ -43178,9 +43178,8 @@ function showJumpRefButtons(thisPos) {
 
 $(document).ready(function () {
   if (isMobile) {
-    // debugger;
-    var visibleText = $('.excerpt').text().substring(0, 139);
-    var textToHide = $('.excerpt').text().substring(139);
+    var visibleText = $('.excerpt').text().substring(0, 141);
+    var textToHide = $('.excerpt').text().substring(141);
     $('.excerpt').html(visibleText + ('<span>' + textToHide + '</span>')).append('<a id="read-more" title="Read More" style="display: block; cursor: pointer;">...</a>').click(function () {
       $(this).find('span').toggle();
       $(this).find('a:last').toggle();
