@@ -1,9 +1,6 @@
 <nav id="welcome" class="navbar navbar-expand-md sd-navbar navbar-dark mb-4" data-id="1">
     <div class="container">
-        <a class="js-anchor-link" href="#welcome">
-            <img class="nav-logo-img" src="{{ asset('/storage/images/SeyraDesignLogo.svg') }}"
-                width=163 alt="Seiyra Design Logo" loading="lazy">
-        </a>
+        <img class="nav-logo-img" src="{{ asset('/storage/images/SeyraDesignLogo.svg') }}" width=163 alt="Seiyra Design Logo" loading="lazy">
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>

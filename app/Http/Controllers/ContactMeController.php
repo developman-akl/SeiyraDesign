@@ -30,7 +30,7 @@ class ContactMeController extends Controller
 
 		ContactMeModel::create($request->all());
 
-		Mail::to(config('mail.from.address'))
+		Mail::to(setting('site.email'))
 			->send(new ContactMeMail(
 					$request->get('name'), 
 					$request->get('email'), 

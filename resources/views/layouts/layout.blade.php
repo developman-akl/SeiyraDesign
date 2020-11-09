@@ -2,12 +2,17 @@
 <html>
 
 <head>
+    {{-- SEO --}}
+    <title>{{ setting('site.title') }}</title>
+    <meta name="description" content="{{ setting('site.description') }}">
+    <meta name="keywords" content="{{ setting('site.keywords') }}">
+    <link rel="canonical" href="{{url()->current()}}"/>
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ setting('site.title') }}</title>
-    
+
     <script src="{{ mix('js/app.js') }}"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -25,6 +30,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="icon" href="{{ URL::asset('storage/images/favicon.png') }}" type="image/x-icon"/>
 
+    <!-- robots.txt -->
     {!! Robots::metaTag() !!}
     
 </head>
