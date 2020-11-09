@@ -1,7 +1,7 @@
 <div class="container full-width">
 
     <div class="section-title">
-        <h1>{{ setting('services.title') }}</h1>
+        <h2>{{ setting('services.title') }}</h1>
         <span class="border"></span>
         
         <p class="excerpt">{!! nl2br(setting('services.description')) !!}</p>

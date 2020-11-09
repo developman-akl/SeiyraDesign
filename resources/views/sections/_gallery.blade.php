@@ -5,7 +5,7 @@
                 <img class="img-modal-simple lazy" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
                 <div class="grid__body">
                     <div class="relative">
-                        <h1 class="grid__title">{{ substr($file->getBasename(), 0, -4) }} </h1>
+                        <h2 class="grid__title">{{ substr($file->getBasename(), 0, -4) }} </h1>
                     </div>
                     {{-- <div class="mt-auto">
                         <span class="grid__tag">UX/UI Design</span>
@@ -18,7 +18,7 @@
                 <img class="img-modal-simple lazy" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
                 <div class="grid__body">
                     <div class="relative">
-                        <h1 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }}</h1>
+                        <h2 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }}</h1>
                     </div>
                     {{-- <div class="mt-auto">
                         <span class="grid__tag">Photo Editing</span>
@@ -31,7 +31,7 @@
                 <img class="img-modal-simple lazy" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
                 <div class="grid__body">
                     <div class="relative">
-                        <h1 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }}</h1>
+                        <h2 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }}</h1>
                     </div>
                     {{-- <div class="mt-auto">
                         <span class="grid__tag">Social Media Creative Design</span>
@@ -44,7 +44,7 @@
                 <img class="img-modal-simple lazy" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
                 <div class="grid__body">
                     <div class="relative">
-                        <h1 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }} </h1>
+                        <h2 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }} </h1>
                     </div>
                     {{-- <div class="mt-auto">
                         <span class="grid__tag">Logo Design</span>

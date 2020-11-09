@@ -7,6 +7,7 @@
     <meta name="description" content="{{ setting('site.description') }}">
     <meta name="keywords" content="{{ setting('site.keywords') }}">
     <link rel="canonical" href="{{url()->current()}}"/>
+    <html lang="en">
    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
