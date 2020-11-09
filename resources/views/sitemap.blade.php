@@ -4,7 +4,7 @@
         <loc>{{ URL::to('/') }}</loc>
         <lastmod>{{ gmdate('Y-m-d\TH:i:s\Z', $current_timestamp) }}</lastmod>
         <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <priority>1</priority>
     </url>
     @foreach ($allImages as $image)
         <url>
