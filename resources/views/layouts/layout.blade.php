@@ -29,6 +29,7 @@
     <link href="https://use.typekit.net/fwy1qqq.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="icon" href="{{ URL::asset('storage/images/favicon.png') }}" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="{{ URL::asset('storage/images/favicon.png') }}">
 
     <!-- robots.txt -->
     {!! Robots::metaTag() !!}
