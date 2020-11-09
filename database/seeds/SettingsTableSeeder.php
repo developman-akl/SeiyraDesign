@@ -13,7 +13,7 @@ class SettingsTableSeeder extends Seeder
         $setting = $this->findSetting('site.title');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => 'Meta Title',
+                'display_name' => 'Meta Title Tag',
                 'value'        => __('SeiyraDesign'),
                 'details'      => '',
                 'type'         => 'text',
