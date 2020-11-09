@@ -2,6 +2,8 @@
 
     <body>
 
+        <h1 style="display:none;">{{ setting('site.title') }}</h1>
+
         <div id="section-container">
             <section id="header" data-id="0">
                 @include('sections.header')
