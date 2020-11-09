@@ -8,7 +8,7 @@
     </url>
     @foreach ($allImages as $image)
         <url>
-            <loc>{{ Storage::url($image->getfilename()) }}</loc>
+            <loc>{{ url($image) }}</loc>
             <lastmod>{{ gmdate('Y-m-d\TH:i:s\Z', $image->getaTime()) }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.6</priority>
