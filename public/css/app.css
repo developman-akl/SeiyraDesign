@@ -11680,7 +11680,7 @@ section .section-title p {
   letter-spacing: 3px;
   color: #E9ECFF;
   margin: auto;
-  width: 70%;
+  width: 80%;
 }
 
 @media (max-width: 800px) {
