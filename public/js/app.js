@@ -43123,8 +43123,7 @@ function jumpRef(elem) {
   };
 
   if (elem) {
-    document.querySelector(elem).scrollIntoView(ScrollIntoViewOptions);
-    $(elem).focus(); //Setting focus
+    document.querySelector(elem).scrollIntoView(ScrollIntoViewOptions); // $(elem).focus(); //Setting focus
   }
 }
 
@@ -43305,66 +43304,69 @@ $(document).ready(function () {
 });
 /* END TO TOP */
 
-$("#contact-message").click(function (e) {
-  // e.preventDefault();
-  $("#contact-message").blur();
-  $("#contact-message").focus();
-  $.event.trigger({
-    type: 'keypress'
-  }); // works cross-browser
-});
-$("#btn-contact-send").click(function (e) {
-  e.preventDefault();
-  var button = $(this);
-  var htmlOrig = button.html();
-  button.prop("disabled", true); // add spinner to button
-
-  button.html('<p class="spinner-border spinner-border-lg mb-1 mr-1" role="status" aria-hidden="true"></p> SENDING...');
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
+$(document).ready(function () {
+  $("#contact-message").click(function (e) {
+    // e.preventDefault();
+    $("#contact-message").blur();
+    $("#contact-message").focus();
+    $.event.trigger({
+      type: 'keypress'
+    }); // works cross-browser
   });
-  $.ajax({
-    type: "POST",
-    url: "/contact-us",
-    dataType: 'json',
-    data: {
-      name: $("#contact-name").val(),
-      email: $("#contact-email").val(),
-      subject: $("#contact-subject").val(),
-      message: $("#contact-message").val()
-    },
-    success: function success(response) {
-      jumpRef('#contact');
-      var messages = response.messages;
-      var resultClass = response.success ? "alert-success" : "alert-danger";
-      var messagesHtml = '<div id="responseTextParent" class="row mb-1 mt-1">' + '<div class="col-lg-12"><div id="responseText" class="alert ' + resultClass + '" role="alert">' + '<ul style="list-style-type:none;margin:0;padding:0;>';
-      $.each(messages, function (key, value) {
-        messagesHtml += '<li class="mb-1">' + value[0] + '</li>';
-      });
-      messagesHtml += '</ul></div></div></div>';
-      $('.response_message').html(messagesHtml).fadeIn();
+  $("#btn-contact-send").click(function (e) {
+    e.preventDefault();
+    debugger;
+    var button = $(this);
+    var htmlOrig = button.html();
+    button.prop("disabled", true); // add spinner to button
 
-      if (response.success) {
-        $("#contact-name").val(null);
-        $("#contact-email").val(null);
-        $("#contact-subject").val(null);
-        $("#contact-message").val(null);
+    button.html('<p class="spinner-border spinner-border-lg mb-1 mr-1" role="status" aria-hidden="true"></p> SENDING...');
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
+    });
+    $.ajax({
+      type: "POST",
+      url: "/contact-us",
+      dataType: 'json',
+      data: {
+        name: $("#contact-name").val(),
+        email: $("#contact-email").val(),
+        subject: $("#contact-subject").val(),
+        message: $("#contact-message").val()
+      },
+      success: function success(response) {
+        jumpRef('#contact');
+        var messages = response.messages;
+        var resultClass = response.success ? "alert-success" : "alert-danger";
+        var messagesHtml = '<div id="responseTextParent" class="row mb-1 mt-1">' + '<div class="col-lg-12"><div id="responseText" class="alert ' + resultClass + '" role="alert">' + '<ul style="list-style-type:none;margin:0;padding:0;>';
+        $.each(messages, function (key, value) {
+          messagesHtml += '<li class="mb-1">' + value[0] + '</li>';
+        });
+        messagesHtml += '</ul></div></div></div>';
+        $('.response_message').html(messagesHtml).fadeIn();
 
-      $('.response_message').delay(4000).hide(1500); // restore button
+        if (response.success) {
+          $("#contact-name").val(null);
+          $("#contact-email").val(null);
+          $("#contact-subject").val(null);
+          $("#contact-message").val(null);
+        }
 
-      button.html(htmlOrig).fadeIn();
-      button.prop("disabled", false);
-    },
-    error: function error(response, x, y) {
-      var messagesHtml = '<div id="responseTextParent" class="row mb-1 mt-1">' + '<div class="col-lg-12"><div id="responseText" class="alert alert-danger rounded" role="alert">' + '<ul style="list-style-type:none;margin:0;padding:0;"><li class="mb-1">' + y + '</li></ul></div></div></div>';
-      $('.response_message').html(messagesHtml); // restore button
+        $('.response_message').delay(4000).hide(1500); // restore button
 
-      button.html(htmlOrig).fadeIn();
-      button.prop("disabled", false);
-    }
+        button.html(htmlOrig).fadeIn();
+        button.prop("disabled", false);
+      },
+      error: function error(response, x, y) {
+        var messagesHtml = '<div id="responseTextParent" class="row mb-1 mt-1">' + '<div class="col-lg-12"><div id="responseText" class="alert alert-danger rounded" role="alert">' + '<ul style="list-style-type:none;margin:0;padding:0;"><li class="mb-1">' + y + '</li></ul></div></div></div>';
+        $('.response_message').html(messagesHtml); // restore button
+
+        button.html(htmlOrig).fadeIn();
+        button.prop("disabled", false);
+      }
+    });
   });
 });
 $(document).ready(function () {
@@ -43385,56 +43387,51 @@ $(document).ready(function () {
     link.setAttribute("href", "css/app.css");
     otherhead.appendChild(link);
     options = {
-      'damping': 0.04,
+      'damping': 0.05,
       'continuousScrolling': false,
       'alwaysShowTracks': true
     };
-    smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(frm.querySelector('body'), options);
-    var lazyloadImages;
-
-    if ("IntersectionObserver" in window) {
-      lazyloadImages = frm.querySelectorAll(".lazy");
-      var imageObserver = new IntersectionObserver(function (entries, observer) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var image = entry.target;
-            image.classList.remove("lazy");
-            imageObserver.unobserve(image);
-          }
-        });
-      });
-      lazyloadImages.forEach(function (image) {
-        imageObserver.observe(image);
-      });
-    } else {
-      var lazyload = function lazyload() {
-        if (lazyloadThrottleTimeout) {
-          clearTimeout(lazyloadThrottleTimeout);
-        }
-
-        lazyloadThrottleTimeout = setTimeout(function () {
-          var scrollTop = window.pageYOffset;
-          lazyloadImages.forEach(function (img) {
-            if (img.offsetTop < window.innerHeight + scrollTop) {
-              img.src = img.dataset.src;
-              img.classList.remove('lazy');
-            }
-          });
-
-          if (lazyloadImages.length == 0) {
-            frm.removeEventListener("scroll", lazyload);
-            window.removeEventListener("resize", lazyload);
-            window.removeEventListener("orientationChange", lazyload);
-          }
-        }, 20);
-      };
-
-      var lazyloadThrottleTimeout;
-      lazyloadImages = frm.querySelectorAll(".lazy");
-      frm.addEventListener("scroll", lazyload);
-      window.addEventListener("resize", lazyload);
-      window.addEventListener("orientationChange", lazyload);
-    }
+    smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(frm.querySelector('body'), options); // var lazyloadImages;
+    // if ("IntersectionObserver" in window) {
+    //     lazyloadImages = frm.querySelectorAll(".lazy");
+    //     var imageObserver = new IntersectionObserver(function (entries, observer) {
+    //         entries.forEach(function (entry) {
+    //             if (entry.isIntersecting) {
+    //                 var image = entry.target;
+    //                 image.classList.remove("lazy");
+    //                 imageObserver.unobserve(image);
+    //             }
+    //         });
+    //     });
+    //     lazyloadImages.forEach(function (image) {
+    //         imageObserver.observe(image);
+    //     });
+    // } else {
+    //     var lazyloadThrottleTimeout;
+    //     lazyloadImages = frm.querySelectorAll(".lazy");
+    //     function lazyload() {
+    //         if (lazyloadThrottleTimeout) {
+    //             clearTimeout(lazyloadThrottleTimeout);
+    //         }
+    //         lazyloadThrottleTimeout = setTimeout(function () {
+    //             var scrollTop = window.pageYOffset;
+    //             lazyloadImages.forEach(function (img) {
+    //                 if (img.offsetTop < (window.innerHeight + scrollTop)) {
+    //                     img.src = img.dataset.src;
+    //                     img.classList.remove('lazy');
+    //                 }
+    //             });
+    //             if (lazyloadImages.length == 0) {
+    //                 frm.removeEventListener("scroll", lazyload);
+    //                 window.removeEventListener("resize", lazyload);
+    //                 window.removeEventListener("orientationChange", lazyload);
+    //             }
+    //         }, 20);
+    //     }
+    //     frm.addEventListener("scroll", lazyload);
+    //     window.addEventListener("resize", lazyload);
+    //     window.addEventListener("orientationChange", lazyload);
+    // }
 
     filterSelection("all"); // Get the image and insert it inside the modal - use its "alt" text as a caption
 
