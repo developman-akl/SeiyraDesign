@@ -11755,8 +11755,8 @@ section:nth-child(2) .fadeIn {
   position: relative;
   -webkit-animation-name: animat_show;
           animation-name: animat_show;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
   margin-top: 0;
