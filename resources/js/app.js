@@ -43,7 +43,7 @@ function showImages(el, thisPos) {
 var scrollPrevTimer;
 var scrollNextTimer;
 var scrollTimer;
-var scrollTimeout = 2000;
+var scrollTimeout = 2500;
 
 function showJumpRefButtons(thisPos) {
     var windowHeight = $(window).height();
@@ -58,12 +58,12 @@ function showJumpRefButtons(thisPos) {
         $('#btnPrev').fadeIn(500);
         $('#btnNext').fadeIn(500);
         scrollTimer = setTimeout(function () {
-            $('#btnPrev').fadeOut(500);
-            $('#btnNext').fadeOut(500);
+            $('#btnPrev').fadeOut(1500);
+            $('#btnNext').fadeOut(1500);
         }, scrollTimeout);
     } else {
-        $('#btnPrev').fadeOut(500);
-        $('#btnNext').fadeOut(500);
+        $('#btnPrev').fadeOut(1500);
+        $('#btnNext').fadeOut(1500);
     }
 }
 
@@ -97,8 +97,8 @@ $(document).ready(function () {
         clearTimeout(scrollTimer);
         clearTimeout(scrollNextTimer);
         scrollPrevTimer = setTimeout(function () {
-            $('#btnPrev').fadeOut(500);
-            $('#btnNext').fadeOut(500);
+            $('#btnPrev').fadeOut(1500);
+            $('#btnNext').fadeOut(1500);
         }, scrollTimeout);
     });
 
@@ -113,8 +113,8 @@ $(document).ready(function () {
         clearTimeout(scrollTimer);
         clearTimeout(scrollPrevTimer);
         scrollNextTimer = setTimeout(function () {
-            $('#btnPrev').fadeOut(500);
-            $('#btnNext').fadeOut(500);
+            $('#btnPrev').fadeOut(1500);
+            $('#btnNext').fadeOut(1500);
         }, scrollTimeout);
     });
 
