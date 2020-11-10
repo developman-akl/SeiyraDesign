@@ -43342,7 +43342,7 @@ $(document).ready(function () {
           $("#contact-message").val(null);
         }
 
-        $('.response_message').delay(2000).hide(1500); // restore button
+        $('.response_message').delay(4000).hide(1500); // restore button
 
         button.html(htmlOrig).fadeIn();
         button.prop("disabled", false);
@@ -43388,7 +43388,6 @@ $(document).ready(function () {
           'alwaysShowTracks': false
         };
         smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#modal-simple'), options);
-        modal.style.display = "block";
         jumpRef('#modal-simple');
         var images = $(this).find('.img-modal-simple');
 
@@ -43411,6 +43410,8 @@ $(document).ready(function () {
         } finally {
           _iterator.f();
         }
+
+        modal.style.display = "block";
       };
     }
 
@@ -43419,16 +43420,17 @@ $(document).ready(function () {
 
   $("#portfolioBtnContainer .btn").on('click', function (e) {
     filterSelection(e.target.dataset.selection);
-  });
-  $(".close").on('click', function (e) {
-    $('#btnPrev').fadeIn(500);
-    $('#btnNext').fadeIn(500);
-    modal.style.display = "none";
-  });
+  }); // $(".close").on('click', function (e) {
+  //     $('#btnPrev').fadeIn(500);
+  //     $('#btnNext').fadeIn(500);
+  //     modal.style.display = "none";
+  // });
+
   $("#modal-simple").on('click', function (event) {
+    modal.style.display = "none";
+    $("#modalImg").removeClass('ux');
     $('#btnPrev').fadeIn(500);
     $('#btnNext').fadeIn(500);
-    modal.style.display = "none";
   });
 
   function filterSelection(c) {
