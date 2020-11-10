@@ -43102,11 +43102,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-var options = {
-  'damping': 0.04,
-  'continuousScrolling': false,
-  'alwaysShowTracks': false
-};
 var page = 1;
 var pageCount = 4;
 var isMobile = false; //initiate as false
@@ -43146,29 +43141,23 @@ function showImages(el, thisPos) {
 var scrollPrevTimer;
 var scrollNextTimer;
 var scrollTimer;
-var scrollTimeout = 1700;
+var scrollTimeout = 2000;
 
 function showJumpRefButtons(thisPos) {
   var windowHeight = $(window).height();
   var topOfWindow = $(window).scrollTop();
   var pos = windowHeight - topOfWindow - 515;
-
-  if (isMobile) {
-    clearTimeout(scrollTimer);
-    clearTimeout(scrollPrevTimer);
-    clearTimeout(scrollNextTimer);
-  }
+  clearTimeout(scrollTimer);
+  clearTimeout(scrollPrevTimer);
+  clearTimeout(scrollNextTimer);
 
   if (pos < thisPos) {
     $('#btnPrev').fadeIn(500);
     $('#btnNext').fadeIn(500);
-
-    if (isMobile) {
-      scrollTimer = setTimeout(function () {
-        $('#btnPrev').fadeOut(500);
-        $('#btnNext').fadeOut(500);
-      }, scrollTimeout);
-    }
+    scrollTimer = setTimeout(function () {
+      $('#btnPrev').fadeOut(500);
+      $('#btnNext').fadeOut(500);
+    }, scrollTimeout);
   } else {
     $('#btnPrev').fadeOut(500);
     $('#btnNext').fadeOut(500);
@@ -43184,38 +43173,38 @@ $(document).ready(function () {
       $(this).find('a:last').toggle();
     });
     $('.excerpt span').hide();
-    $('#btnPrev').on('mouseenter', function (e) {
-      e.preventDefault();
-      clearTimeout(scrollTimer);
-      clearTimeout(scrollPrevTimer);
-      clearTimeout(scrollNextTimer);
-    });
-    $('#btnPrev').on('mouseleave focusout', function (e) {
-      e.preventDefault();
-      clearTimeout(scrollTimer);
-      clearTimeout(scrollNextTimer);
-      scrollPrevTimer = setTimeout(function () {
-        $('#btnPrev').fadeOut(500);
-        $('#btnNext').fadeOut(500);
-      }, scrollTimeout);
-    });
-    $('#btnNext').on('mouseenter', function (e) {
-      e.preventDefault();
-      clearTimeout(scrollTimer);
-      clearTimeout(scrollPrevTimer);
-      clearTimeout(scrollNextTimer);
-    });
-    $('#btnNext').on('mouseleave focusout', function (e) {
-      e.preventDefault();
-      clearTimeout(scrollTimer);
-      clearTimeout(scrollPrevTimer);
-      scrollNextTimer = setTimeout(function () {
-        $('#btnPrev').fadeOut(500);
-        $('#btnNext').fadeOut(500);
-      }, scrollTimeout);
-    });
   }
 
+  $('#btnPrev').on('mouseenter', function (e) {
+    e.preventDefault();
+    clearTimeout(scrollTimer);
+    clearTimeout(scrollPrevTimer);
+    clearTimeout(scrollNextTimer);
+  });
+  $('#btnPrev').on('mouseleave focusout', function (e) {
+    e.preventDefault();
+    clearTimeout(scrollTimer);
+    clearTimeout(scrollNextTimer);
+    scrollPrevTimer = setTimeout(function () {
+      $('#btnPrev').fadeOut(500);
+      $('#btnNext').fadeOut(500);
+    }, scrollTimeout);
+  });
+  $('#btnNext').on('mouseenter', function (e) {
+    e.preventDefault();
+    clearTimeout(scrollTimer);
+    clearTimeout(scrollPrevTimer);
+    clearTimeout(scrollNextTimer);
+  });
+  $('#btnNext').on('mouseleave focusout', function (e) {
+    e.preventDefault();
+    clearTimeout(scrollTimer);
+    clearTimeout(scrollPrevTimer);
+    scrollNextTimer = setTimeout(function () {
+      $('#btnPrev').fadeOut(500);
+      $('#btnNext').fadeOut(500);
+    }, scrollTimeout);
+  });
   $('#section-container').scroll(function (event) {
     if (!$('.devices').hasClass("fadeIn")) {
       showImages('.devices', $('#section-container').scrollTop());
@@ -43315,7 +43304,6 @@ $(document).ready(function () {
   });
   $("#btn-contact-send").click(function (e) {
     e.preventDefault();
-    debugger;
     var button = $(this);
     var htmlOrig = button.html();
     button.prop("disabled", true); // add spinner to button
@@ -43354,7 +43342,7 @@ $(document).ready(function () {
           $("#contact-message").val(null);
         }
 
-        $('.response_message').delay(4000).hide(1500); // restore button
+        $('.response_message').delay(2000).hide(1500); // restore button
 
         button.html(htmlOrig).fadeIn();
         button.prop("disabled", false);
@@ -43379,69 +43367,27 @@ $(document).ready(function () {
   var captionText = document.getElementById("caption"); // Append app.css link to the iframe header after it was initialized
 
   iframe.onload = function () {
-    var frm = iframe.contentWindow.document;
-    var otherhead = frm.getElementsByTagName("head")[0];
-    var link = frm.createElement("link");
-    link.setAttribute("rel", "stylesheet");
-    link.setAttribute("type", "text/css");
-    link.setAttribute("href", "css/app.css");
-    otherhead.appendChild(link);
-    options = {
-      'damping': 0.05,
+    var options = {
+      'damping': 0.1,
       'continuousScrolling': false,
       'alwaysShowTracks': true
     };
-    smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(frm.querySelector('body'), options); // var lazyloadImages;
-    // if ("IntersectionObserver" in window) {
-    //     lazyloadImages = frm.querySelectorAll(".lazy");
-    //     var imageObserver = new IntersectionObserver(function (entries, observer) {
-    //         entries.forEach(function (entry) {
-    //             if (entry.isIntersecting) {
-    //                 var image = entry.target;
-    //                 image.classList.remove("lazy");
-    //                 imageObserver.unobserve(image);
-    //             }
-    //         });
-    //     });
-    //     lazyloadImages.forEach(function (image) {
-    //         imageObserver.observe(image);
-    //     });
-    // } else {
-    //     var lazyloadThrottleTimeout;
-    //     lazyloadImages = frm.querySelectorAll(".lazy");
-    //     function lazyload() {
-    //         if (lazyloadThrottleTimeout) {
-    //             clearTimeout(lazyloadThrottleTimeout);
-    //         }
-    //         lazyloadThrottleTimeout = setTimeout(function () {
-    //             var scrollTop = window.pageYOffset;
-    //             lazyloadImages.forEach(function (img) {
-    //                 if (img.offsetTop < (window.innerHeight + scrollTop)) {
-    //                     img.src = img.dataset.src;
-    //                     img.classList.remove('lazy');
-    //                 }
-    //             });
-    //             if (lazyloadImages.length == 0) {
-    //                 frm.removeEventListener("scroll", lazyload);
-    //                 window.removeEventListener("resize", lazyload);
-    //                 window.removeEventListener("orientationChange", lazyload);
-    //             }
-    //         }, 20);
-    //     }
-    //     frm.addEventListener("scroll", lazyload);
-    //     window.addEventListener("resize", lazyload);
-    //     window.addEventListener("orientationChange", lazyload);
-    // }
-
+    var frm = iframe.contentWindow.document;
+    smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(frm.querySelector('body'), options);
     filterSelection("all"); // Get the image and insert it inside the modal - use its "alt" text as a caption
 
     var grid = frm.getElementsByClassName("grid");
 
     for (var i = 0; i < grid.length; i++) {
       grid[i].onclick = function () {
-        smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#modal-simple'), options);
         $('#btnPrev').fadeOut(500);
         $('#btnNext').fadeOut(500);
+        var options = {
+          'damping': 0.02,
+          'continuousScrolling': false,
+          'alwaysShowTracks': false
+        };
+        smooth_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"].init(document.querySelector('#modal-simple'), options);
         modal.style.display = "block";
         jumpRef('#modal-simple');
         var images = $(this).find('.img-modal-simple');
@@ -43452,6 +43398,11 @@ $(document).ready(function () {
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done;) {
             var image = _step.value;
+
+            if (image.parentElement.classList.contains('ux')) {
+              $("#modalImg").addClass('ux');
+            }
+
             modalImg.src = image.src ? image.src : "";
             captionText.innerHTML = image.alt ? image.alt : "";
           }
@@ -43527,6 +43478,53 @@ $(document).ready(function () {
       current[0].className = current[0].className.replace(" active", "");
       this.className += " active";
     });
+  }
+});
+document.addEventListener("DOMContentLoaded", function () {
+  var lazyloadImages;
+
+  if ("IntersectionObserver" in window) {
+    lazyloadImages = document.querySelectorAll(".lazy");
+    var imageObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var image = entry.target;
+          image.classList.remove("lazy");
+          imageObserver.unobserve(image);
+        }
+      });
+    });
+    lazyloadImages.forEach(function (image) {
+      imageObserver.observe(image);
+    });
+  } else {
+    var lazyload = function lazyload() {
+      if (lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+      }
+
+      lazyloadThrottleTimeout = setTimeout(function () {
+        var scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function (img) {
+          if (img.offsetTop < window.innerHeight + scrollTop) {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+          }
+        });
+
+        if (lazyloadImages.length == 0) {
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+        }
+      }, 20);
+    };
+
+    var lazyloadThrottleTimeout;
+    lazyloadImages = document.querySelectorAll(".lazy");
+    document.addEventListener("scroll", lazyload);
+    window.addEventListener("resize", lazyload);
+    window.addEventListener("orientationChange", lazyload);
   }
 });
 

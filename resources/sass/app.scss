@@ -232,6 +232,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    background-size: 100%;
 }
 
 #back2 {
@@ -239,6 +240,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    background-size: 100%;
 }
 
 #back3 {
@@ -246,6 +248,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    background-size: 100%;
 }
 
 #back4 {
@@ -253,6 +256,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    background-size: 100%;
 }
 
 @keyframes backgroundchangeFadeInOut {
@@ -675,6 +679,15 @@ body {
     }
 }
 
+
+.scrollbar-thumb {
+    background-color: rgb(143, 143, 143);
+}
+
+.scrollbar-track {
+    background-color: transparent;
+}
+
 /* SECTIONS */
 
 #section-container {
@@ -683,16 +696,7 @@ body {
     overflow-y: scroll;
 
     @media (min-width: 1300px) {
-        scroll-snap-type: y mandatory;
-    }
-
-
-    .scrollbar-thumb {
-        background-color: rgb(143, 143, 143);
-    }
-
-    .scrollbar-track {
-        background-color: transparent;
+        scroll-snap-type: y proximity;
     }
 }
 
@@ -859,7 +863,7 @@ section {
     display: none;
     position: fixed;
     bottom: 80px;
-    right: 5px;
+    right: 20px;
     z-index: 2;
     border: none;
     outline: none;
@@ -882,7 +886,7 @@ section {
     display: none;
     position: fixed;
     bottom: 15px;
-    right: 5px;
+    right: 20px;
     z-index: 2;
     border: none;
     outline: none;
@@ -1165,16 +1169,17 @@ section {
 
 }
 
+// Hold the iFrame
 .iframe-container {
     overflow: hidden;
-}
 
-/* Then style the iframe to fit in the container div with full height and width */
-.responsive-iframe {
-    position: absolute;
-    width: 100vw;
-    min-height: 71%;
-    border: none;
+    /* Then style the iframe to fit in the container div with full height and width */
+    .responsive-iframe {
+        position: absolute;
+        width: 100vw;
+        min-height: 71%;
+        border: none;
+    }
 }
 
 #portfolioBtnContainer {
@@ -1285,6 +1290,15 @@ section {
             color: transparent;
             display: flex;
             flex-direction: column;
+            
+
+            &__tag {
+                background-color: rgba(255, 255, 255, .8);
+                color: #333;
+                border-radius: $borderRadius;
+                padding: 5px 15px;
+                margin-bottom: 5px;
+            }
 
             &:hover {
                 color: white;
@@ -1293,14 +1307,6 @@ section {
                 border-radius: $borderRadius;
                 cursor: pointer;
             }
-        }
-
-        &__tag {
-            background-color: rgba(255, 255, 255, .8);
-            color: #333;
-            border-radius: $borderRadius;
-            padding: 5px 15px;
-            margin-bottom: 5px;
         }
     }
 }
@@ -1344,13 +1350,17 @@ section {
         position: relative;
         width: auto;
         max-width: 95vw;
-        // height: 665px;
         pointer-events: auto;
         background-color: transparent;
         background-clip: padding-box;
         border: none;
         border-radius: $borderRadius;
         outline: 0;
+
+        &:not(.ux){
+            max-height: 90vh;
+        }
+
     }
 
     /* Caption of Modal Image */

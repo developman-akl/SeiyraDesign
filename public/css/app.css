@@ -11101,6 +11101,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-size: 100%;
 }
 
 #back2 {
@@ -11108,6 +11109,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-size: 100%;
 }
 
 #back3 {
@@ -11115,6 +11117,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-size: 100%;
 }
 
 #back4 {
@@ -11122,6 +11125,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-size: 100%;
 }
 
 @keyframes backgroundchangeFadeInOut {
@@ -11612,6 +11616,14 @@ body {
   }
 }
 
+.scrollbar-thumb {
+  background-color: #8f8f8f;
+}
+
+.scrollbar-track {
+  background-color: transparent;
+}
+
 /* SECTIONS */
 
 #section-container {
@@ -11622,17 +11634,9 @@ body {
 
 @media (min-width: 1300px) {
   #section-container {
-    -ms-scroll-snap-type: y mandatory;
-        scroll-snap-type: y mandatory;
+    -ms-scroll-snap-type: y proximity;
+        scroll-snap-type: y proximity;
   }
-}
-
-#section-container .scrollbar-thumb {
-  background-color: #8f8f8f;
-}
-
-#section-container .scrollbar-track {
-  background-color: transparent;
 }
 
 section {
@@ -11805,7 +11809,7 @@ section:nth-child(5) {
   display: none;
   position: fixed;
   bottom: 80px;
-  right: 5px;
+  right: 20px;
   z-index: 2;
   border: none;
   outline: none;
@@ -11831,7 +11835,7 @@ section:nth-child(5) {
   display: none;
   position: fixed;
   bottom: 15px;
-  right: 5px;
+  right: 20px;
   z-index: 2;
   border: none;
   outline: none;
@@ -12100,11 +12104,10 @@ section:nth-child(5) {
 
 .iframe-container {
   overflow: hidden;
+  /* Then style the iframe to fit in the container div with full height and width */
 }
 
-/* Then style the iframe to fit in the container div with full height and width */
-
-.responsive-iframe {
+.iframe-container .responsive-iframe {
   position: absolute;
   width: 100vw;
   min-height: 71%;
@@ -12232,19 +12235,19 @@ section:nth-child(5) {
   flex-direction: column;
 }
 
-.masonry .grid__body:hover {
-  color: white;
-  background: rgba(65, 65, 65, 0.747);
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.masonry .grid__tag {
+.masonry .grid__body__tag {
   background-color: rgba(255, 255, 255, 0.8);
   color: #333;
   border-radius: 10px;
   padding: 5px 15px;
   margin-bottom: 5px;
+}
+
+.masonry .grid__body:hover {
+  color: white;
+  background: rgba(65, 65, 65, 0.747);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .mt-auto {
@@ -12296,6 +12299,10 @@ section:nth-child(5) {
   border: none;
   border-radius: 10px;
   outline: 0;
+}
+
+#modal-simple .modal-content:not(.ux) {
+  max-height: 90vh;
 }
 
 #modal-simple #caption {

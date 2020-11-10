@@ -24,12 +24,12 @@
         
         <a href="javascript:void(0)" id="btnPrev">
             <img class="img-fluid" src="{{ asset('storage/images/jumprefup.svg') }}"
-                alt="Previous page" title="Previous page" loading="lazy" ALIGN=RIGHT>
+                alt="Previous page" title="Previous page" ALIGN=RIGHT>
         </a>
 
         <a href="javascript:void(0)" id="btnNext">
             <img class="img-fluid" src="{{ asset('storage/images/jumprefdown.svg') }}"
-                alt="Next page" title="Next page" loading="lazy" ALIGN=RIGHT>
+                alt="Next page" title="Next page" ALIGN=RIGHT>
         </a>
 
     </body>

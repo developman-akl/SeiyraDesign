@@ -1,8 +1,10 @@
+<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"/>
+
 <div class="portfolio-gallery">
     <div id="masonry" class="masonry">
         @foreach ($uxImages as $file)
             <div class="grid ux">
-                <img class="img-modal-simple lazy" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
+                <img class="img-modal-simple" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}" loading="lazy">
                 <div class="grid__body">
                     <div class="relative">
                         <h2 class="grid__title">{{ substr($file->getBasename(), 0, -4) }} </h1>
@@ -15,7 +17,7 @@
         @endforeach
         @foreach ($photoImages as $file)
             <div class="grid photo">
-                <img class="img-modal-simple lazy" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
+                <img class="img-modal-simple" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}" loading="lazy">
                 <div class="grid__body">
                     <div class="relative">
                         <h2 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }}</h1>
@@ -28,7 +30,7 @@
         @endforeach
         @foreach ($socialImages as $file)
             <div class="grid social">
-                <img class="img-modal-simple lazy" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
+                <img class="img-modal-simple" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}" loading="lazy">
                 <div class="grid__body">
                     <div class="relative">
                         <h2 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }}</h1>
@@ -41,7 +43,7 @@
         @endforeach
         @foreach ($logoImages as $file)
             <div class="grid logo">
-                <img class="img-modal-simple lazy" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}">
+                <img class="img-modal-simple" src="{{ $file->getPathname() }}" alt="{{ substr($file->getBasename(), 0, -4) }}" loading="lazy">
                 <div class="grid__body">
                     <div class="relative">
                         <h2 class="grid__title"> {{ substr($file->getBasename(), 0, -4) }} </h1>
