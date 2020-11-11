@@ -289,6 +289,18 @@ class SettingsTableSeeder extends Seeder
                 'group'        => 'Admin',
             ])->save();
         }
+
+        $setting = $this->findSetting('site.developman_email');
+        if (!$setting->exists) {
+            $setting->fill([
+                'display_name' => __('Developman Email'),
+                'value'        => 'molnarjg@gmail.com',
+                'details'      => '',
+                'type'         => 'text',
+                'order'        => 23,
+                'group'        => 'Site',
+            ])->save();
+        }
     }
 
     /**

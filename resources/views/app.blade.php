@@ -32,5 +32,7 @@
                 alt="Next page" title="Next page" ALIGN=RIGHT>
         </a>
 
+        <script src="{{ mix('js/app.js') }}"></script>
+
     </body>
 </html>

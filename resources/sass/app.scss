@@ -9,6 +9,10 @@
 
 @import "../../node_modules/rfs/scss";
 
+@import '../../node_modules/photoswipe/src/css/main';
+@import '../../node_modules/photoswipe/src/css/default-skin/default-skin';
+$pswp__assets-path: "../../node_modules/photoswipe/src/css/default-skin/";
+
 @mixin center-children {
     // put it in the parent
     display: flex;
@@ -41,7 +45,7 @@ body {
 }
 
 body {
-    position: fixed; 
+    position: fixed;
     margin: 0;
     flex-direction: column;
     background-color: #ddd;
@@ -498,7 +502,7 @@ body {
             box-shadow: $boxShadowPrimary;
         }
     }
-    
+
     @media (max-width: 576) {
         #contact-message {
             height: 150px;
@@ -692,7 +696,7 @@ body {
     overflow-y: scroll;
 
     @media (min-width: 1300px) {
-        scroll-snap-type: y proximity;
+        scroll-snap-type: y mandatory;
     }
 }
 
@@ -1136,37 +1140,6 @@ section {
     border: 0px solid #000 !important;
 }
 
-.portfolio-gallery {
-    position: relative;
-    padding: 10px 10px 10px 10px;
-
-    /* Clear floats after rows */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    /* Responsive layout - makes a two column-layout instead of four columns */
-    @media screen and (max-width: 800px) {
-        .column {
-            -ms-flex: 50%;
-            flex: 50%;
-            max-width: 50%;
-        }
-    }
-
-    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 600px) {
-        .column {
-            -ms-flex: 100%;
-            flex: 100%;
-            max-width: 100%;
-        }
-    }
-
-}
-
 // Hold the iFrame
 .iframe-container {
     overflow: hidden;
@@ -1214,9 +1187,42 @@ section {
 }
 
 
+.portfolio-gallery {
+    position: relative;
+    padding: 10px 10px 10px 10px;
+    max-height: 71vh;
+    overflow: auto;
+    background-color: #ccc;
+
+    /* Clear floats after rows */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+        .column {
+            -ms-flex: 50%;
+            flex: 50%;
+            max-width: 50%;
+        }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .column {
+            -ms-flex: 100%;
+            flex: 100%;
+            max-width: 100%;
+        }
+    }
+
 .masonry {
     columns: 6;
     column-gap: 20px;
+    width: 100%;
 
     @media (max-width: 1200px) {
         columns: 5;
@@ -1256,6 +1262,8 @@ section {
         }
 
         img {
+            display: block;
+            float: left;
             width: 100%;
             border-radius: $borderRadius;
             box-shadow: $boxShadowSecondary;
@@ -1292,7 +1300,6 @@ section {
             color: transparent;
             display: flex;
             flex-direction: column;
-            
 
             &__tag {
                 background-color: rgba(255, 255, 255, .8);
@@ -1304,13 +1311,13 @@ section {
 
             &:hover {
                 color: white;
-                // text-transform: uppercase;
                 background: rgba(65, 65, 65, 0.747);
                 border-radius: $borderRadius;
                 cursor: pointer;
             }
         }
     }
+}
 }
 
 .mt-auto {
@@ -1359,14 +1366,14 @@ section {
         border-radius: $borderRadius;
         outline: 0;
 
-        &:not(.ux){
+        &:not(.ux) {
             max-height: 90vh;
         }
 
     }
 
     /* Caption of Modal Image */
-    #caption{
+    #caption {
         z-index: 15;
         margin: auto;
         display: block;

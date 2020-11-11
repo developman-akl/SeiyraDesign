@@ -1,6 +1,10 @@
 require('./bootstrap');
 
-import Scrollbar from 'smooth-scrollbar';
+import { min } from 'lodash';
+import PhotoSwipe from 'photoswipe'
+import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
+
+// import Scrollbar from 'smooth-scrollbar';
 
 var page = 1;
 var pageCount = 4;
@@ -291,81 +295,273 @@ $(document).ready(function () {
 $(document).ready(function () {
     "use strict";
 
-    const iframe = document.getElementById("gallery-iframe");
+    // let options = {
+    //     'damping': 0.3,
+    //     'continuousScrolling': false,
+    //     'alwaysShowTracks': true,
+    // }
 
-    // Get the modal
-    var modal = document.getElementById("modal-simple");
-    var modalImg = document.getElementById("modalImg");
-    var captionText = document.getElementById("caption");
+    // var scrollbarGallery = Scrollbar.init(document.querySelector('.portfolio-gallery'), options);
 
-    // Append app.css link to the iframe header after it was initialized
-    iframe.onload = function () {
+    filterSelection("all");
 
-        let options = {
-            'damping': 0.1,
-            'continuousScrolling': false,
-            'alwaysShowTracks': true,
+    var initPhotoSwipeFromDOM = function (gallerySelector) {
+
+        // parse slide data (url, title, size ...) from DOM elements 
+        // (children of gallerySelector)
+        var parseThumbnailElements = function (el) {
+            var thumbElements = el.childNodes,
+                numNodes = thumbElements.length,
+                items = [],
+                figureEl,
+                linkEl,
+                item;
+
+            for (var i = 0; i < numNodes; i++) {
+
+                figureEl = thumbElements[i]; // <figure> element
+
+                // include only element nodes 
+                if (figureEl.nodeType !== 1) {
+                    continue;
+                }
+
+                linkEl = figureEl.children[0]; // <a> element
+
+                let img = linkEl.querySelector("img");
+                linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+
+                // create slide object
+                item = {
+                    src: linkEl.getAttribute('href'),
+                    w: parseInt(img.naturalWidth, 10),
+                    h: parseInt(img.naturalHeight, 10)
+                };
+
+                if (figureEl.children.length > 1) {
+                    // <figcaption> content
+                    item.title = figureEl.children[1].innerHTML;
+                }
+
+                if (linkEl.children.length > 0) {
+                    // <img> thumbnail element, retrieving thumbnail url
+                    item.msrc = linkEl.children[0].getAttribute('src');
+                }
+
+                item.el = figureEl; // save link to element for getThumbBoundsFn
+                items.push(item);
+            }
+
+            return items;
+        };
+
+        // find nearest parent element
+        var closest = function closest(el, fn) {
+            return el && (fn(el) ? el : closest(el.parentNode, fn));
+        };
+
+        // triggers when user clicks on thumbnail
+        var onThumbnailsClick = function (e) {
+            e = e || window.event;
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+            var eTarget = e.target || e.srcElement;
+
+            // find root element of slide
+            var clickedListItem = closest(eTarget, function (el) {
+                return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+            });
+
+            if (!clickedListItem) {
+                return;
+            }
+
+            // find index of clicked item by looping through all child nodes
+            // alternatively, you may define index via data- attribute
+            var clickedGallery = clickedListItem.parentNode,
+                childNodes = clickedListItem.parentNode.childNodes,
+                numChildNodes = childNodes.length,
+                nodeIndex = 0,
+                index;
+
+            for (var i = 0; i < numChildNodes; i++) {
+                if (childNodes[i].nodeType !== 1) {
+                    continue;
+                }
+
+                if (childNodes[i] === clickedListItem) {
+                    index = nodeIndex;
+                    break;
+                }
+                nodeIndex++;
+            }
+
+            if (index >= 0) {
+                // open PhotoSwipe if valid index found
+                openPhotoSwipe(index, clickedGallery);
+            }
+            return false;
+        };
+
+        // parse picture index and gallery index from URL (#&pid=1&gid=2)
+        var photoswipeParseHash = function () {
+            var hash = window.location.hash.substring(1),
+                params = {};
+
+            if (hash.length < 5) {
+                return params;
+            }
+
+            var vars = hash.split('&');
+            for (var i = 0; i < vars.length; i++) {
+                if (!vars[i]) {
+                    continue;
+                }
+                var pair = vars[i].split('=');
+                if (pair.length < 2) {
+                    continue;
+                }
+                params[pair[0]] = pair[1];
+            }
+
+            if (params.gid) {
+                params.gid = parseInt(params.gid, 10);
+            }
+
+            return params;
+        };
+
+        var openPhotoSwipe = function (index, galleryElement, disableAnimation, fromURL) {
+            var pswpElement = document.querySelectorAll('.pswp')[0],
+                gallery,
+                options,
+                items;
+
+            items = parseThumbnailElements(galleryElement);
+
+            // define options (if needed)
+            options = {
+
+                // define gallery index (for URL)
+                galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                modal: true,
+
+                getThumbBoundsFn: function (index) {
+                    // See Options -> getThumbBoundsFn section of documentation for more info
+                    var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                        pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                        rect = thumbnail.getBoundingClientRect();
+
+                    return {
+                        x: rect.left,
+                        y: rect.top + pageYScroll,
+                        w: rect.width
+                    };
+                },
+
+                getDoubleTapZoom: function (isMouseClick, item) {
+                    let img = item.el.querySelector("img");
+                    let windowWidth = $(window).width();
+                    let windowHeight = $(window).height();
+                    let full_width_ratio = Math.max(windowWidth / img.naturalWidth, windowHeight / img.naturalHeight)
+
+                    if (!item.zoomLevel) {
+                        item.zoomLevel = item.initialZoomLevel
+                    }
+
+                    let res;
+                    if (item.zoomLevel + full_width_ratio * 0.32 <= full_width_ratio * 0.9) 
+                    {
+                        res = item.zoomLevel + full_width_ratio * 0.32;
+                    } 
+                    else
+                    {
+                        res = item.initialZoomLevel;
+                    }
+
+                    item.zoomLevel = res;
+                    return res;
+                },
+
+                maxSpreadZoom: function (item) {
+                    let img = item.el.querySelector("img");
+                    let windowWidth = $(window).width();
+                    let windowHeight = $(window).height();
+                    let full_width_ratio = Math.max(windowWidth / img.naturalWidth, windowHeight / img.naturalHeight)
+                    return full_width_ratio;
+                },
+
+
+            };
+
+            // PhotoSwipe opened from URL
+            if (fromURL) {
+                if (options.galleryPIDs) {
+                    // parse real index when custom PIDs are used 
+                    // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                    for (var j = 0; j < items.length; j++) {
+                        if (items[j].pid == index) {
+                            options.index = j;
+                            break;
+                        }
+                    }
+                } else {
+                    // in URL indexes start from 1
+                    options.index = parseInt(index, 10) - 1;
+                }
+            } else {
+                options.index = parseInt(index, 10);
+            }
+
+            // exit if index not found
+            if (isNaN(options.index)) {
+                return;
+            }
+
+            if (disableAnimation) {
+                options.showAnimationDuration = 0;
+            }
+
+            options.loop = true;
+            options.focus = true;
+            options.bgOpacity = 0.9;
+            options.closeOnScroll = false;
+
+            options.preload = [2, 2]; // [1,3], it'll load 1 image before the current, and 3 images after current.
+
+            // Pass data to PhotoSwipe and initialize it
+            gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+            gallery.init();
+
+        };
+
+        // loop through all gallery elements and bind events
+        var galleryElements = document.querySelectorAll(gallerySelector);
+
+        for (var i = 0, l = galleryElements.length; i < l; i++) {
+            galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+            galleryElements[i].onclick = onThumbnailsClick;
         }
 
-        var frm = iframe.contentWindow.document;
-        Scrollbar.init(frm.querySelector('body'), options);
-
-        filterSelection("all");
-
-        // Get the image and insert it inside the modal - use its "alt" text as a caption
-        var grid = frm.getElementsByClassName("grid");
-        for (var i = 0; i < grid.length; i++) {
-
-            grid[i].onclick = function () {
-
-                $('#btnPrev').fadeOut(500);
-                $('#btnNext').fadeOut(500);
-
-                let options = {
-                    'damping': 0.02,
-                    'continuousScrolling': false,
-                    'alwaysShowTracks': false,
-                }
-
-                Scrollbar.init(document.querySelector('#modal-simple'), options);
-
-                jumpRef('#modal-simple');
-
-                let images = $(this).find('.img-modal-simple');
-                for (const image of images) {
-                    if (image.parentElement.classList.contains('ux')) {
-                        $("#modalImg").addClass('ux');
-                    }
-                    modalImg.src = image.src ? image.src : "";
-                    captionText.innerHTML = image.alt ? image.alt : "";
-                }
-
-                modal.style.display = "block";
-            }
-        };
+        // Parse URL and open gallery if it contains #&pid=3&gid=1
+        // var hashData = photoswipeParseHash();
+        // if (hashData.pid && hashData.gid) {
+        //     openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+        // }
     };
+
+    // execute above function
+    initPhotoSwipeFromDOM('.portfolio-gallery');
 
     $("#portfolioBtnContainer .btn").on('click', function (e) {
         filterSelection(e.target.dataset.selection);
     });
 
-    // $(".close").on('click', function (e) {
-    //     $('#btnPrev').fadeIn(500);
-    //     $('#btnNext').fadeIn(500);
-    //     modal.style.display = "none";
-    // });
-
-    $("#modal-simple").on('click', function (event) {
-        modal.style.display = "none";
-        $("#modalImg").removeClass('ux');
-        $('#btnPrev').fadeIn(500);
-        $('#btnNext').fadeIn(500);
-    });
-
 
     function filterSelection(c) {
         let x, i;
-        x = iframe.contentWindow.document.getElementsByClassName("grid");
+        x = document.getElementsByClassName("grid");
         if (c == "all") c = "";
         for (i = 0; i < x.length; i++) {
             RemoveClass(x[i], "show");
