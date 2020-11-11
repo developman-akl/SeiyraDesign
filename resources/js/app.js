@@ -23,7 +23,7 @@ function jumpRef(elem) {
     };
     if (elem) {
         document.querySelector(elem).scrollIntoView(ScrollIntoViewOptions);
-        // $(elem).focus(); //Setting focus
+        $(elem).focus(); //Setting focus
     }
 }
 
@@ -127,6 +127,14 @@ $(document).ready(function () {
             showImages('.devices', $('#section-container').scrollTop());
         }
         showJumpRefButtons($('#section-container').scrollTop());
+
+        var cutoff = $(window).scrollTop() + 80;
+        $('section').each(function(){
+            if($(this).offset().top + $(this).height() > cutoff){
+                page = $(this).attr('data-id');
+                return false; // stops the iteration after the first one on screen
+            }
+        });
     })
 
     $('.js-anchor-link').click(function (e) {
@@ -150,18 +158,16 @@ $(document).ready(function () {
                 page = 4;
                 break;
         }
-
-        // $('.navbar-toggler').click();
     });
 
 
     document.getElementById("btnPrev").onclick = function (e) {
-        if (page == 1) {
+        if (page <= 1) {
             e.preventDefault();
             return false;
         }
 
-        page = ((page + pageCount + 2) % pageCount) + 1;
+        page -= 1;
 
         switch (page) {
             case 1:
