@@ -877,6 +877,7 @@ section {
     @media (max-width: 768px) {
         right: 10px;
         bottom: 60px;
+
         img {
             width: 50px;
         }
@@ -901,6 +902,7 @@ section {
 
     @media (max-width: 768px) {
         right: 10px;
+
         img {
             width: 50px;
         }
@@ -1219,105 +1221,85 @@ section {
         }
     }
 
-.masonry {
-    columns: 6;
-    column-gap: 20px;
-    width: 100%;
+    .masonry {
+        columns: 6;
+        column-gap: 20px;
+        width: 100%;
 
-    @media (max-width: 1200px) {
-        columns: 5;
-    }
-
-    @media (max-width: 992px) {
-        columns: 4;
-    }
-
-    @media (max-width: 768px) {
-        columns: 3;
-    }
-
-    @media (max-width: 414px) {
-        columns: 2;
-    }
-
-    .grid {
-        display: none;
-        margin-bottom: 20px;
-        position: relative;
-
-        /* The "show" class is added to the filtered elements */
-        &.show {
-            display: inline-block;
+        @media (max-width: 1200px) {
+            columns: 5;
         }
 
-        &:before {
-            border-radius: $borderRadius;
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, .2);
+        @media (max-width: 992px) {
+            columns: 4;
         }
 
-        img {
-            display: block;
-            float: left;
-            width: 100%;
-            border-radius: $borderRadius;
-            box-shadow: $boxShadowSecondary;
+        @media (max-width: 768px) {
+            columns: 3;
         }
 
-        &__title {
-            font: normal normal bold 20px "sofia-pro";
-            margin: 0px 0px 10px 0px;
-            width: auto;
-            border-radius: $borderRadius;
+        @media (max-width: 414px) {
+            columns: 2;
         }
 
-        &__author {
-            font-size: 14px;
-            font-weight: 300;
-        }
+        .grid {
+            display: none;
+            margin-bottom: 20px;
+            position: relative;
 
-        &__link {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-        }
-
-        &__body {
-            text-align: center;
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            padding: 50px 30px;
-            color: transparent;
-            display: flex;
-            flex-direction: column;
-
-            &__tag {
-                background-color: rgba(255, 255, 255, .8);
-                color: #333;
-                border-radius: $borderRadius;
-                padding: 5px 15px;
-                margin-bottom: 5px;
+            /* The "show" class is added to the filtered elements */
+            &.show {
+                display: inline-block;
             }
 
-            &:hover {
-                color: white;
-                background: rgba(65, 65, 65, 0.747);
+            &:before {
                 border-radius: $borderRadius;
-                cursor: pointer;
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, .2);
+            }
+
+            img {
+                display: block;
+                float: left;
+                width: 100%;
+                border-radius: $borderRadius;
+                box-shadow: $boxShadowSecondary;
+            }
+
+            &__title {
+                font: normal normal bold 18px "sofia-pro";
+                margin: 0px 0px 10px 0px;
+                width: auto;
+                border-radius: $borderRadius;
+            }
+
+            &__body {
+                @include center-children;
+                text-align: center;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                padding: 10px 15px;
+                color: transparent;
+                flex-direction: column;
+                word-wrap: break-word;
+
+                &:hover {
+                    color: white;
+                    background: rgba(65, 65, 65, 0.747);
+                    border-radius: $borderRadius;
+                    cursor: pointer;
+                }
             }
         }
     }
-}
 }
 
 .mt-auto {
