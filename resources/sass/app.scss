@@ -11,7 +11,7 @@
 
 @import '../../node_modules/photoswipe/src/css/main';
 @import '../../node_modules/photoswipe/src/css/default-skin/default-skin';
-$pswp__assets-path: '../../node_modules/photoswipe/src/css/default-skin/default-skin';
+$pswp__assets-path: '../../node_modules/photoswipe/src/css/default-skin/';
 
 @mixin center-children {
     // put it in the parent
