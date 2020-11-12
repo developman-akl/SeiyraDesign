@@ -11,7 +11,7 @@
 
 @import '../../node_modules/photoswipe/src/css/main';
 @import '../../node_modules/photoswipe/src/css/default-skin/default-skin';
-$pswp__assets-path: "../../node_modules/photoswipe/src/css/default-skin/";
+$pswp__assets-path: '../../node_modules/photoswipe/src/css/default-skin/default-skin';
 
 @mixin center-children {
     // put it in the parent
@@ -1286,7 +1286,7 @@ section {
                 right: 0;
                 top: 0;
                 bottom: 0;
-                padding: 10px 15px;
+                padding: 50px 30px;
                 color: transparent;
                 flex-direction: column;
                 word-wrap: break-word;

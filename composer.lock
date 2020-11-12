@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d4e7744cf43360de23b070aa945c429",
+    "content-hash": "ecc1520829151b7752b2d47400887e12",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -6281,6 +6281,54 @@
                 }
             ],
             "time": "2020-09-07T19:32:39+00:00"
+        },
+        {
+            "name": "beyondcode/tinkerwell-helper",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/tinkerwell-helper.git",
+                "reference": "97e1b015cbc6adf38cce5f264fbbb0f828896b0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/tinkerwell-helper/zipball/97e1b015cbc6adf38cce5f264fbbb0f828896b0b",
+                "reference": "97e1b015cbc6adf38cce5f264fbbb0f828896b0b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0",
+                "php": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondcode.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Open Tinkerwell from your Laravel project.",
+            "homepage": "https://github.com/beyondcode/tinkerwell-helper",
+            "keywords": [
+                "beyondcode",
+                "tinkerwell-helper"
+            ],
+            "support": {
+                "issues": "https://github.com/beyondcode/tinkerwell-helper/issues",
+                "source": "https://github.com/beyondcode/tinkerwell-helper/tree/1.2.0"
+            },
+            "time": "2020-10-18T21:18:07+00:00"
         },
         {
             "name": "doctrine/instantiator",

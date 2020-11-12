@@ -42175,6 +42175,7 @@ $(document).ready(function () {
           items = [],
           figureEl,
           linkEl,
+          size,
           item;
 
       for (var i = 0; i < numNodes; i++) {
@@ -42187,13 +42188,12 @@ $(document).ready(function () {
 
         linkEl = figureEl.children[0]; // <a> element
 
-        var img = linkEl.querySelector("img");
-        linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight); // create slide object
+        size = linkEl.getAttribute('data-size').split('x'); // create slide object
 
         item = {
           src: linkEl.getAttribute('href'),
-          w: parseInt(img.naturalWidth, 10),
-          h: parseInt(img.naturalHeight, 10)
+          w: parseInt(size[0], 10),
+          h: parseInt(size[1], 10)
         };
 
         if (figureEl.children.length > 1) {
@@ -42318,33 +42318,37 @@ $(document).ready(function () {
           };
         },
         getDoubleTapZoom: function getDoubleTapZoom(isMouseClick, item) {
-          var img = item.el.querySelector("img");
-          var windowWidth = $(window).width();
-          var windowHeight = $(window).height();
-          var full_width_ratio = Math.max(windowWidth / img.naturalWidth, windowHeight / img.naturalHeight);
+          if (isMouseClick) {
+            // is mouse click on image or zoom icon
+            var size = item.el.children[0].getAttribute('data-size').split('x');
+            var naturalWidth = parseInt(size[0], 10);
+            var naturalHeight = parseInt(size[1], 10);
+            var windowWidth = $(window).width();
+            var windowHeight = $(window).height();
+            var full_width_ratio = Math.max(windowWidth / naturalWidth, windowHeight / naturalHeight);
 
-          if (!item.zoomLevel) {
-            item.zoomLevel = item.initialZoomLevel;
-          }
+            if (!item.zoomLevel) {
+              item.zoomLevel = item.initialZoomLevel;
+            }
 
-          var res;
+            var res;
 
-          if (item.zoomLevel + full_width_ratio * 0.32 <= full_width_ratio * 0.9) {
-            res = item.zoomLevel + full_width_ratio * 0.32;
+            if (item.zoomLevel + full_width_ratio * 0.35 <= full_width_ratio * 0.95) {
+              res = item.zoomLevel + full_width_ratio * 0.35;
+            } else {
+              res = item.initialZoomLevel;
+            }
+
+            item.zoomLevel = res;
+            return res;
           } else {
-            res = item.initialZoomLevel;
+            // is double-tap
+            // zoom to original if initial zoom is less than 0.45x,
+            // otherwise to 0.65x, to make sure that double-tap gesture always zooms image
+            return item.initialZoomLevel < 0.2 ? 0.45 : 0.65;
           }
-
-          item.zoomLevel = res;
-          return res;
         },
-        maxSpreadZoom: function maxSpreadZoom(item) {
-          var img = item.el.querySelector("img");
-          var windowWidth = $(window).width();
-          var windowHeight = $(window).height();
-          var full_width_ratio = Math.max(windowWidth / img.naturalWidth, windowHeight / img.naturalHeight);
-          return full_width_ratio;
-        }
+        maxSpreadZoom: 0.65
       }; // PhotoSwipe opened from URL
 
       if (fromURL) {

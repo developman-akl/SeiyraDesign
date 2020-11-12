@@ -321,6 +321,7 @@ $(document).ready(function () {
                 items = [],
                 figureEl,
                 linkEl,
+                size,
                 item;
 
             for (var i = 0; i < numNodes; i++) {
@@ -334,14 +335,13 @@ $(document).ready(function () {
 
                 linkEl = figureEl.children[0]; // <a> element
 
-                let img = linkEl.querySelector("img");
-                linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                size = linkEl.getAttribute('data-size').split('x');
 
                 // create slide object
                 item = {
                     src: linkEl.getAttribute('href'),
-                    w: parseInt(img.naturalWidth, 10),
-                    h: parseInt(img.naturalHeight, 10)
+                    w: parseInt(size[0], 10),
+                    h: parseInt(size[1], 10)
                 };
 
                 if (figureEl.children.length > 1) {
@@ -467,37 +467,44 @@ $(document).ready(function () {
                 },
 
                 getDoubleTapZoom: function (isMouseClick, item) {
-                    let img = item.el.querySelector("img");
-                    let windowWidth = $(window).width();
-                    let windowHeight = $(window).height();
-                    let full_width_ratio = Math.max(windowWidth / img.naturalWidth, windowHeight / img.naturalHeight)
+                    if(isMouseClick) {
 
-                    if (!item.zoomLevel) {
-                        item.zoomLevel = item.initialZoomLevel
+                        // is mouse click on image or zoom icon
+                        let size = item.el.children[0].getAttribute('data-size').split('x');
+                        let naturalWidth = parseInt(size[0], 10);
+                        let naturalHeight = parseInt(size[1], 10);
+                        let windowWidth = $(window).width();
+                        let windowHeight = $(window).height();
+                        let full_width_ratio = Math.max(windowWidth / naturalWidth, windowHeight / naturalHeight)
+
+                        if (!item.zoomLevel) {
+                            item.zoomLevel = item.initialZoomLevel
+                        }
+
+                        let res;
+                        if (item.zoomLevel + full_width_ratio * 0.35 <= full_width_ratio * 0.95) 
+                        {
+                            res = item.zoomLevel + full_width_ratio * 0.35;
+                        } 
+                        else
+                        {
+                            res = item.initialZoomLevel;
+                        }
+
+                        item.zoomLevel = res;
+                        return res;
+
+                    } else {
+
+                        // is double-tap
+
+                        // zoom to original if initial zoom is less than 0.45x,
+                        // otherwise to 0.65x, to make sure that double-tap gesture always zooms image
+                        return item.initialZoomLevel < 0.2 ? 0.45 : 0.65;
                     }
-
-                    let res;
-                    if (item.zoomLevel + full_width_ratio * 0.32 <= full_width_ratio * 0.9) 
-                    {
-                        res = item.zoomLevel + full_width_ratio * 0.32;
-                    } 
-                    else
-                    {
-                        res = item.initialZoomLevel;
-                    }
-
-                    item.zoomLevel = res;
-                    return res;
                 },
 
-                maxSpreadZoom: function (item) {
-                    let img = item.el.querySelector("img");
-                    let windowWidth = $(window).width();
-                    let windowHeight = $(window).height();
-                    let full_width_ratio = Math.max(windowWidth / img.naturalWidth, windowHeight / img.naturalHeight)
-                    return full_width_ratio;
-                },
-
+                maxSpreadZoom: 0.65,
 
             };
 

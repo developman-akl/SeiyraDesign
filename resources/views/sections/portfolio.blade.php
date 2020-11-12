@@ -20,7 +20,7 @@
     </div>
 
     <div class="portfolio-gallery">
-        @include('sections.gallery');
+        @include('sections.gallery')
     </div>
 
 </div>

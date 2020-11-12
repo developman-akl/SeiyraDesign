@@ -13,7 +13,7 @@ class SitemapController extends Controller
      */
     public function __invoke()
     {
-        $allImages = ImagesService::getImages('');
+        $allImages = ImagesService::getImagesForSiteMap('');
         $current_timestamp = Carbon::now()->timestamp;
 
         return response()->view('sitemap', compact('allImages', 'current_timestamp'))->header('Content-Type', 'text/xml');

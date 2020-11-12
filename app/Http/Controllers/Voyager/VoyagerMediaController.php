@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Voyager;
 
+use App\Services\ImagesService;
 use TCG\Voyager\Http\Controllers\VoyagerMediaController as BaseVoyagerMediaController;
 use Exception;
 use Illuminate\Http\Request;
@@ -10,9 +11,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
-use League\Flysystem\Plugin\ListWith;
 use TCG\Voyager\Events\MediaFileAdded;
-use TCG\Voyager\Facades\Voyager;
 
 class VoyagerMediaController extends BaseVoyagerMediaController
 {
@@ -33,7 +32,6 @@ class VoyagerMediaController extends BaseVoyagerMediaController
         $name = Str::replaceLast('.'.$extension, '', $request->file->getClientOriginalName());
         $details = json_decode($request->get('details') ?? '{}');
         $absolute_path = Storage::disk($this->filesystem)->path($request->upload_path);
-        $isUxDesign = strpos($absolute_path, 'ux-ui-design') !== false || strpos($name, 'web') !== false || strpos($name, 'app') !== false;
         $quality = is_object($details) && property_exists($details, 'quality') && $details->quality ? $details->quality : 100;
 
         try {
@@ -123,7 +121,7 @@ class VoyagerMediaController extends BaseVoyagerMediaController
                             }
                             $thumbnail_file = $request->upload_path.$name.'-'.($thumbnail_data->name ?? 'thumbnail').'.'.$extension;
 
-                            Storage::disk($this->filesystem)->put($thumbnail_file, $thumbnail->encode($extension, ($quality))->encoded);
+                            Storage::disk($this->filesystem)->put($thumbnail_file, $thumbnail->encode($extension, (is_object($details) && property_exists($thumbnail_data, 'quality') && $thumbnail_data->quality ? intval ($thumbnail_data->quality, 10) : 100))->encoded);
                         }
                     }
 
@@ -131,15 +129,6 @@ class VoyagerMediaController extends BaseVoyagerMediaController
                     if (property_exists($details, 'watermark') && property_exists($details->watermark, 'source')) {
                         $image = $this->addWatermarkToImage($image, $details->watermark);
                     }
-
-                    // if(!$isUxDesign)
-                    // {
-                    //     $newImage = $image->heighten(665)->encode($extension, ($quality))->encoded;
-                    // }
-                    // else
-                    // {
-                    //     $newImage = $image->widen(1300)->encode($extension, ($quality))->encoded;
-                    // }
 
                     $newImage = $image->encode($extension, 100)->encoded;
                     
@@ -160,4 +149,42 @@ class VoyagerMediaController extends BaseVoyagerMediaController
 
         return response()->json(compact('success', 'message', 'path'));
     }
+
+    public function delete(Request $request)
+    {
+        // Check permission
+        $this->authorize('browse_media');
+
+        $path = str_replace('//', '/', Str::finish($request->path, '/'));
+        $success = true;
+        $error = '';
+
+        foreach ($request->get('files') as $file) {
+            $file_path = $path.$file['name'];
+            $file_path_thumbnail = $path.ImagesService::get_key_val( $file, "basename" );
+
+            if ($file['type'] == 'folder') {
+                if (!Storage::disk($this->filesystem)->deleteDirectory($file_path)) {
+                    $error = __('voyager::media.error_deleting_folder');
+                    $success = false;
+                }
+            } 
+            else
+            {
+                // image
+                if (!Storage::disk($this->filesystem)->delete($file_path)) {
+                    $error = __('voyager::media.error_deleting_file');
+                    $success = false;
+                }
+                // thumbnail
+                if (!Storage::disk($this->filesystem)->delete($file_path_thumbnail)) {
+                    $error = __('voyager::media.error_deleting_file');
+                    $success = false;
+                }
+            }
+        }
+
+        return compact('success', 'error');
+    }
+
 }
