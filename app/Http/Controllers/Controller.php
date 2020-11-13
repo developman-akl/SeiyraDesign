@@ -14,11 +14,16 @@ class Controller extends BaseController
 
     public function index()
     {
+        return view('app');
+    }
+
+    public function gallery()
+    {
         $uxImages = ImagesService::getImages('ux-ui-design');
         $photoImages = ImagesService::getImages('photo-editing');
         $socialImages = ImagesService::getImages('social-media-creative-design');
         $logoImages = ImagesService::getImages('logo-design');
 
-        return view('app', compact('uxImages','photoImages','socialImages','logoImages'));
+        return view('sections/gallery', compact('uxImages','photoImages','socialImages','logoImages'));
     }
 }

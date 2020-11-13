@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
- * Bootstrap v4.5.2 (https://getbootstrap.com/)
+ * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -233,6 +233,7 @@ caption {
 
 th {
   text-align: inherit;
+  text-align: -webkit-match-parent;
 }
 
 label {
@@ -2164,11 +2165,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control::-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::placeholder {
   color: #6c757d;
   opacity: 1;
@@ -3944,6 +3940,8 @@ input[type=button].btn-block {
   display: block;
   min-height: 1.44rem;
   padding-left: 1.5rem;
+  -webkit-print-color-adjust: exact;
+          color-adjust: exact;
 }
 
 .custom-control-inline {
@@ -5523,6 +5521,7 @@ a.badge-dark.focus {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 2;
   padding: 0.75rem 1.25rem;
   color: inherit;
 }
@@ -10791,7 +10790,7 @@ a.text-dark:focus {
 
 .text-break {
   word-break: break-word !important;
-  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
 }
 
 .text-reset {
@@ -12246,16 +12245,6 @@ body {
   width: 100%;
 }
 
-.contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
-  text-align: center;
-  letter-spacing: 0.32px;
-  color: #000;
-  opacity: 1;
-  font-family: "sofia-pro";
-  font-size: 30px;
-  width: 100%;
-}
-
 .contact-container select,
 .contact-container select::content,
 .contact-container select::selection,
@@ -12285,10 +12274,6 @@ body {
 }
 
 .contact-container textarea:-ms-input-placeholder, .contact-container input[type=text]:-ms-input-placeholder, .contact-container input[type=email]:-ms-input-placeholder {
-  opacity: 0.5;
-}
-
-.contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
   opacity: 0.5;
 }
 
@@ -12371,10 +12356,6 @@ body {
     font-size: 20px;
   }
 
-  .contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
-    font-size: 20px;
-  }
-
   .contact-container .alert-success,
   .contact-container .alert-danger,
   .contact-container #btn-contact-send,
@@ -12446,7 +12427,7 @@ section {
 section .section-title h2 {
   text-align: center;
   font: normal normal normal 70px/84px Lust;
-  font-size: calc(1.5625rem + 3.75vw) !important;
+  font-size: 70px !important;
   letter-spacing: 4px;
   color: #717BF9;
   text-align: center;
@@ -12456,16 +12437,10 @@ section .section-title h2 {
   margin-right: auto;
 }
 
-@media (min-width: 1200px) {
-  section .section-title h2 {
-    font-size: 4.375rem !important;
-  }
-}
-
 section .section-title p {
   text-align: center;
   font: normal normal 300 20px/28px "sofia-pro";
-  font-size: 1.25rem !important;
+  font-size: 20px !important;
   letter-spacing: 3px;
   color: #E9ECFF;
   margin: auto;
@@ -12479,7 +12454,7 @@ section .section-title p {
 
   section .section-title p {
     font: normal normal 300 16px/23px "sofia-pro";
-    font-size: 1rem !important;
+    font-size: 16px !important;
     width: 90%;
   }
 }
@@ -12491,7 +12466,7 @@ section .section-title p {
 
   section .section-title p {
     font: normal normal 300 14px/21px "sofia-pro";
-    font-size: 0.875rem !important;
+    font-size: 14px !important;
     width: 90%;
   }
 }
@@ -12845,7 +12820,7 @@ section:nth-child(5) {
 
 @media (max-width: 414px) {
   .footer-wrapper .footer-info {
-    font-size: 0.875rem !important;
+    font-size: 14px !important;
     display: flex;
     justify-content: center;
     align-items: center;

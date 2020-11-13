@@ -44,28 +44,17 @@ function showImages(el, thisPos) {
 
 
 /* TO TOP */
-var scrollPrevTimer;
-var scrollNextTimer;
-var scrollTimer;
-var scrollTimeout = 2500;
 
 function showJumpRefButtons(thisPos) {
     var windowHeight = $(window).height();
     var topOfWindow = $(window).scrollTop();
-    var pos = windowHeight - topOfWindow - 515;
-
-    clearTimeout(scrollTimer);
-    clearTimeout(scrollPrevTimer);
-    clearTimeout(scrollNextTimer);
+    var pos = windowHeight - topOfWindow - 115;
 
     if (pos < thisPos) {
         $('#btnPrev').fadeIn(500);
         $('#btnNext').fadeIn(500);
-        scrollTimer = setTimeout(function () {
-            $('#btnPrev').fadeOut(1500);
-            $('#btnNext').fadeOut(1500);
-        }, scrollTimeout);
-    } else {
+    } 
+    else {
         $('#btnPrev').fadeOut(1500);
         $('#btnNext').fadeOut(1500);
     }
@@ -73,6 +62,11 @@ function showJumpRefButtons(thisPos) {
 
 
 $(document).ready(function () {
+
+    // Load gallery
+    $( "#portfolio-gallery" ).load( window.location+"gallery", function() {
+        $( "#btn-show-all" ).trigger('click');
+    });
 
     if (isMobile) {
         var visibleText = $('.excerpt').text().substring(0, 141);
@@ -88,39 +82,6 @@ $(document).ready(function () {
 
         $('.excerpt span').hide();
     }
-
-    $('#btnPrev').on('mouseenter', function (e) {
-        e.preventDefault();
-        clearTimeout(scrollTimer);
-        clearTimeout(scrollPrevTimer);
-        clearTimeout(scrollNextTimer);
-    });
-
-    $('#btnPrev').on('mouseleave focusout', function (e) {
-        e.preventDefault();
-        clearTimeout(scrollTimer);
-        clearTimeout(scrollNextTimer);
-        scrollPrevTimer = setTimeout(function () {
-            $('#btnPrev').fadeOut(1500);
-            $('#btnNext').fadeOut(1500);
-        }, scrollTimeout);
-    });
-
-    $('#btnNext').on('mouseenter', function (e) {
-        e.preventDefault();
-        clearTimeout(scrollTimer);
-        clearTimeout(scrollPrevTimer);
-        clearTimeout(scrollNextTimer);
-    });
-    $('#btnNext').on('mouseleave focusout', function (e) {
-        e.preventDefault();
-        clearTimeout(scrollTimer);
-        clearTimeout(scrollPrevTimer);
-        scrollNextTimer = setTimeout(function () {
-            $('#btnPrev').fadeOut(1500);
-            $('#btnNext').fadeOut(1500);
-        }, scrollTimeout);
-    });
 
     $('#section-container').scroll(function (event) {
         if (!$('.devices').hasClass("fadeIn")) {
@@ -301,14 +262,6 @@ $(document).ready(function () {
 $(document).ready(function () {
     "use strict";
 
-    // let options = {
-    //     'damping': 0.3,
-    //     'continuousScrolling': false,
-    //     'alwaysShowTracks': true,
-    // }
-
-    // var scrollbarGallery = Scrollbar.init(document.querySelector('.portfolio-gallery'), options);
-
     filterSelection("all");
 
     var initPhotoSwipeFromDOM = function (gallerySelector) {
@@ -405,36 +358,11 @@ $(document).ready(function () {
             if (index >= 0) {
                 // open PhotoSwipe if valid index found
                 openPhotoSwipe(index, clickedGallery);
+                
+                $('#btnPrev').hide(500);
+                $('#btnNext').hide(500);
             }
             return false;
-        };
-
-        // parse picture index and gallery index from URL (#&pid=1&gid=2)
-        var photoswipeParseHash = function () {
-            var hash = window.location.hash.substring(1),
-                params = {};
-
-            if (hash.length < 5) {
-                return params;
-            }
-
-            var vars = hash.split('&');
-            for (var i = 0; i < vars.length; i++) {
-                if (!vars[i]) {
-                    continue;
-                }
-                var pair = vars[i].split('=');
-                if (pair.length < 2) {
-                    continue;
-                }
-                params[pair[0]] = pair[1];
-            }
-
-            if (params.gid) {
-                params.gid = parseInt(params.gid, 10);
-            }
-
-            return params;
         };
 
         var openPhotoSwipe = function (index, galleryElement, disableAnimation, fromURL) {
@@ -482,13 +410,25 @@ $(document).ready(function () {
                         }
 
                         let res;
-                        if (item.zoomLevel + full_width_ratio * 0.35 <= full_width_ratio * 0.95) 
+                        if (naturalWidth > naturalHeight * 2) 
                         {
-                            res = item.zoomLevel + full_width_ratio * 0.35;
-                        } 
+                            res = full_width_ratio * 2;
+                        }
                         else
                         {
-                            res = item.initialZoomLevel;
+                            if (item.zoomLevel < full_width_ratio * 0.55) 
+                            {
+                                res = full_width_ratio * 0.55;
+                            } 
+                            else
+                            if (item.zoomLevel < full_width_ratio) 
+                            {
+                                res = full_width_ratio;
+                            }
+                            else
+                            {
+                                res = item.initialZoomLevel;
+                            }
                         }
 
                         item.zoomLevel = res;
@@ -547,6 +487,11 @@ $(document).ready(function () {
             gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
             gallery.init();
 
+            gallery.listen('close', function (item, index) {
+                $('#btnPrev').show(500);
+                $('#btnNext').show(500);
+            });
+
         };
 
         // loop through all gallery elements and bind events
@@ -557,11 +502,6 @@ $(document).ready(function () {
             galleryElements[i].onclick = onThumbnailsClick;
         }
 
-        // Parse URL and open gallery if it contains #&pid=3&gid=1
-        // var hashData = photoswipeParseHash();
-        // if (hashData.pid && hashData.gid) {
-        //     openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
-        // }
     };
 
     // execute above function
@@ -669,4 +609,4 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("resize", lazyload);
         window.addEventListener("orientationChange", lazyload);
     }
-})
+});

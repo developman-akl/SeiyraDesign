@@ -20,7 +20,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', '{{ setting('site.google_analytics_tracking_id') }}');
     </script>
 
@@ -29,6 +28,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="icon" href="{{ URL::asset('storage/images/favicon.png') }}" type="image/x-icon"/>
     <link rel="apple-touch-icon" href="{{ URL::asset('storage/images/favicon.png') }}">
+
+    <script src="{{ mix('js/app.js') }}"></script>
 
     <!-- robots.txt -->
     {!! Robots::metaTag() !!}

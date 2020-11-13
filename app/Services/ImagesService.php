@@ -3,20 +3,34 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\Facades\Image;
 
 class ImagesService
 {
+    public static function time_elapsed()
+    {
+        static $last = null;
+
+        $now = microtime(true);
+
+        if ($last != null) {
+            return '<!-- ' . ($now - $last) . ' -->';
+        }
+
+        $last = $now;
+    }
+
     public static function getImages($folder) {
         $path = "storage/portfolio/".$folder;
         $files = File::files($path); // Shows files only from the root folder, nothing from the subfolders
-
+        
         // only images - exclude thumbnails
         $filtered_files = array_filter($files, function($str){
             return 
-            strpos($str, "thumbnail") === false
-            && (strpos(pathinfo($str, PATHINFO_EXTENSION), "jpg") === 0
-            ||  strpos(pathinfo($str, PATHINFO_EXTENSION), "png") === 0);
+                strpos($str, "thumbnail") === false
+                && (exif_imagetype($str) === 2      //jpg
+                ||  exif_imagetype($str) === 3);    //png
         });
 
         $images_array = [];
@@ -25,26 +39,26 @@ class ImagesService
             $filename = substr($file->getFilename(), 0, -4);
             $pathname = $file->getPathname();
             $pathname_thumbnail =   str_replace( 
-                                        strpos(pathinfo($pathname, PATHINFO_EXTENSION), "jpg") === 0 ? '.jpg' : '.png', 
-                                        strpos(pathinfo($pathname, PATHINFO_EXTENSION), "jpg") === 0 ? '-thumbnail.jpg' : '-thumbnail.png' , 
+                                        exif_imagetype($pathname) === 2 ? '.jpg' : '.png', 
+                                        exif_imagetype($pathname) === 2 ? '-thumbnail.jpg' : '-thumbnail.png', 
                                         $pathname 
                                     );
 
-            $image = Image::make($file);
-            $height = $image->height();
-            $width = $image->width();
-            $size = $width . "x" . $height;
+            $imagesize = getimagesize($pathname);
+            $size = $imagesize[0]."x".$imagesize[1];
 
             array_push(
                 $images_array, 
-                array( 
-                    'title' => $filename, 
-                    'large_image' => $pathname, 
-                    'thumbnail' => $pathname_thumbnail, 
-                    'size' => $size
-                )
+                    array( 
+                        'title' => $filename, 
+                        'large_image' => $pathname, 
+                        'thumbnail' => $pathname_thumbnail, 
+                        'size' => $size,
+                    )
             );
         }
+
+        // Log::debug($folder . " images_array ".ImagesService::time_elapsed());
         
         return $images_array;
     }
