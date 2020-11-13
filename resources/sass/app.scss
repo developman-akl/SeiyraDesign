@@ -7,6 +7,8 @@
 // Bootstrap
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
+@import "../../node_modules/rfs/scss";
+
 @import '../../node_modules/photoswipe/src/css/main';
 @import '../../node_modules/photoswipe/src/css/default-skin/default-skin';
 $pswp__assets-path: '../../node_modules/photoswipe/src/css/default-skin/';
