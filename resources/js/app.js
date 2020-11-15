@@ -16,14 +16,16 @@ if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elain
     isMobile = true;
 }
 
-function jumpRef(elem) {
-    var ScrollIntoViewOptions = {
-        alignToTop: true,
-        behavior: 'smooth',
-    };
-    if (elem) {
-        document.querySelector(elem).scrollIntoView(ScrollIntoViewOptions);
-        $(elem).focus(); //Setting focus
+function jumpRef(anchor) {
+    if (anchor) {
+        
+        let ScrollIntoViewOptions = {
+            alignToTop: true,
+            behavior: 'smooth',
+        };
+
+        let selector = document.querySelector(anchor);
+        selector.scrollIntoView(ScrollIntoViewOptions);
     }
 }
 
@@ -62,6 +64,10 @@ function showJumpRefButtons(thisPos) {
 
 
 $(document).ready(function () {
+    if (window.location.href != window.location.origin+'/')
+    {
+        window.history.pushState("", "Seiyra Design", window.location.origin);
+    }
 
     // Load gallery
     $( "#portfolio-gallery" ).load( window.location+"gallery", function() {
@@ -92,33 +98,17 @@ $(document).ready(function () {
         var cutoff = $(window).scrollTop() + 80;
         $('section').each(function(){
             if($(this).offset().top + $(this).height() > cutoff){
-                page = $(this).attr('data-id');
+                page = $(this).attr('data-page');
                 return false; // stops the iteration after the first one on screen
             }
         });
     })
 
     $('.js-anchor-link').click(function (e) {
-        e.preventDefault();
+        let anchor = $(this).attr('data-anchor');
+        page = $(this).attr('data-page');
 
-        var elem = $(this).attr('href');
-debugger;
-        jumpRef(elem);
-
-        switch (elem) {
-            case '#welcome':
-                page = 1;
-                break;
-            case '#services':
-                page = 2;
-                break;
-            case '#portfolio':
-                page = 3;
-                break;
-            case '#contact':
-                page = 4;
-                break;
-        }
+        jumpRef(anchor);
     });
 
 
