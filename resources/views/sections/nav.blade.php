@@ -6,10 +6,10 @@
         </button>
         <div class="navbar-collapse sd-nav collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
-                <li><a class="js-anchor-link" href="#welcome">Home</a></li>
-                <li><a class="js-anchor-link" href="#services">Services</a></li>
-                <li><a class="js-anchor-link" href="#portfolio">Portfolio</a></li>
-                <li><a class="js-anchor-link" href="#contact">Contact</a></li>
+                <li><p class="js-anchor-link" href="#welcome">Home</p></li>
+                <li><p class="js-anchor-link" href="#services">Services</p></li>
+                <li><p class="js-anchor-link" href="#portfolio">Portfolio</p></li>
+                <li><p class="js-anchor-link" href="#contact">Contact</p></li>
             </ul>
         </div>
     </div>

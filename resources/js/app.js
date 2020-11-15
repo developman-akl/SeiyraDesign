@@ -102,7 +102,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         var elem = $(this).attr('href');
-
+debugger;
         jumpRef(elem);
 
         switch (elem) {

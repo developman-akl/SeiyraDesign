@@ -41978,6 +41978,7 @@ $(document).ready(function () {
   $('.js-anchor-link').click(function (e) {
     e.preventDefault();
     var elem = $(this).attr('href');
+    debugger;
     jumpRef(elem);
 
     switch (elem) {

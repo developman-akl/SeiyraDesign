@@ -139,7 +139,7 @@ body {
                 list-style-type: none;
                 margin-left: 20px;
 
-                a {
+                p {
                     font-family: "Montserrat";
                     letter-spacing: 2.6px;
                     color: $secondaryCol;
@@ -148,8 +148,9 @@ body {
                     text-transform: uppercase;
                 }
 
-                a:hover {
+                p:hover {
                     color: $primaryCol;
+                    cursor: pointer; 
                 }
             }
         }

@@ -2222,6 +2222,11 @@ pre code {
   opacity: 1;
 }
 
+.form-control::-ms-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
 .form-control::placeholder {
   color: #6c757d;
   opacity: 1;
@@ -11865,7 +11870,7 @@ body {
   margin-left: 20px;
 }
 
-.sd-navbar .sd-nav ul li a {
+.sd-navbar .sd-nav ul li p {
   font-family: "Montserrat";
   letter-spacing: 2.6px;
   color: #E9ECFF;
@@ -11874,8 +11879,9 @@ body {
   text-transform: uppercase;
 }
 
-.sd-navbar .sd-nav ul li a:hover {
+.sd-navbar .sd-nav ul li p:hover {
   color: #717BF9;
+  cursor: pointer;
 }
 
 /* END - Navigation */
@@ -12305,6 +12311,16 @@ body {
   width: 100%;
 }
 
+.contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
+  text-align: center;
+  letter-spacing: 0.32px;
+  color: #000;
+  opacity: 1;
+  font-family: "sofia-pro";
+  font-size: 30px;
+  width: 100%;
+}
+
 .contact-container select,
 .contact-container select::content,
 .contact-container select::selection,
@@ -12334,6 +12350,10 @@ body {
 }
 
 .contact-container textarea:-ms-input-placeholder, .contact-container input[type=text]:-ms-input-placeholder, .contact-container input[type=email]:-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+.contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
   opacity: 0.5;
 }
 
@@ -12413,6 +12433,10 @@ body {
   }
 
   .contact-container textarea:-ms-input-placeholder, .contact-container input[type=text]:-ms-input-placeholder, .contact-container input[type=email]:-ms-input-placeholder {
+    font-size: 20px;
+  }
+
+  .contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
     font-size: 20px;
   }
 
