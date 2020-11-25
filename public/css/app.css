@@ -13269,10 +13269,10 @@ section:nth-child(5) {
   margin: auto;
   width: 80%;
   opacity: 0.7;
-  margin-bottom: 5px;
 }
 
 #testimonials .testimonial_para {
+  margin-top: 8px;
   text-align: center;
   font-size: 0.875rem !important;
   letter-spacing: 2px;

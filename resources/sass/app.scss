@@ -1472,10 +1472,10 @@ section {
         margin: auto;
         width: 80%;
         opacity: 0.7;
-        margin-bottom: 5px;
     }
 
     .testimonial_para {
+        margin-top: 8px;
         text-align: center;
         @include font-size(14px !important);
         letter-spacing: 2px;
