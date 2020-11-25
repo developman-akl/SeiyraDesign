@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+// Drop this in routes/console.php then just run php artisan logs:clear
+Artisan::command('logs:clear', function() {
+    exec('truncate -s 0 ' . storage_path('logs/*.log'));
+    $this->comment('Logs have been cleared!');
+})->describe('Clear log files');
