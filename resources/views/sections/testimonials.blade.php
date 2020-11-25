@@ -1,29 +1,22 @@
 <div id="testimonials" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
 
-        <div class="carousel-item text-center active">
-            <div class="row">
-                <div class="col">
-                    <h4><strong>Peter Jackson</strong></h4>
-                    <p class="testimonial_subtitle">
-                        <span>(Cleaner)</span>
-                    </p>
-                    <p class="testimonial_para">"Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.."</p>
+        @foreach($testimonials as $testimonial)
+            <div class="carousel-item text-center {{ $testimonial->id == $firstTestimonialId ? 'active' : '' }}" data-interval="5000">
+                <div class="row">
+                    <div class="col">
+                        <div class="testimonial-name-container">
+                            <img src="{{ asset('storage/'.$testimonial->image) }}" class="testimonial-image" alt="{{ $testimonial->company . 'testimonial' }}">
+                            <h4><strong>{{ $testimonial->name }}</strong></h4>
+                        </div>
+                        <a href="{{ $testimonial->link }}" class="testimonial_subtitle" title="{{'Go to ' .  $testimonial->company }}">
+                            <span>{{ $testimonial->company }}</span>
+                        </a>
+                        <p class="testimonial_para">{{ $testimonial->testimonial }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="carousel-item text-center">
-            <div class="row">
-                <div class="col">
-                    <h4><strong>Kiara Andreson</strong></h4>
-                    <p class="testimonial_subtitle">
-                        <span>(Chlinical Chemistry Technologist)</span>
-                    </p>
-                    <p class="testimonial_para">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo en."</p>
-                </div>
-            </div>
-        </div>
+        @endforeach
 
     </div>
     <a class="carousel-control-prev" href="#testimonials" role="button" data-slide="prev">

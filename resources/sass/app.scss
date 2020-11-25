@@ -1435,33 +1435,37 @@ section {
     }
 }
 
-
-
-
+// TESTIMONIALS
 #testimonials{
-
     margin-top: 10px;
     margin-bottom: 25px;
+    min-height: 100px;
 
     .carousel-item.active {
         display:block;
     }
 
-    h4 {
-        text-align: center;
-        // font-family: "sofia-pro";
-        @include font-size(19px !important);
-        letter-spacing: 3px;
-        font-weight: 900;
-        color: $primaryCol;
-        margin: auto;
-        width: 60%;
+    .testimonial-name-container{
+        h4 {
+            @include font-size(19px !important);
+            letter-spacing: 3px;
+            font-weight: 900;
+            color: $primaryCol;
+            margin: auto;
+            display:inline-block;
+            vertical-align:middle;
+        }
+
+        .testimonial-image{
+            margin-right: 7px;
+            max-height: 15px;
+            vertical-align: middle;
+        }
     }
 
     .testimonial_subtitle{
         text-align: center;
-        // font-family: "sofia-pro";
-        @include font-size(14px !important);
+        @include font-size(13px !important);
         letter-spacing: 2px;
         font-weight: 500;
         color: $secondaryCol;
@@ -1473,8 +1477,7 @@ section {
 
     .testimonial_para {
         text-align: center;
-        // font-family: "sofia-pro";
-        @include font-size(13px !important);
+        @include font-size(14px !important);
         letter-spacing: 2px;
         color: $secondaryCol;
         margin: auto;

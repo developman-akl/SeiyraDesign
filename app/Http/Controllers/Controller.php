@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\ImagesService;
+use App\Testimonial;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -14,7 +15,10 @@ class Controller extends BaseController
 
     public function index()
     {
-        return view('app');
+        $testimonials = Testimonial::all();
+        $firstTestimonialId = $testimonials->first()->id;
+
+        return view('app', compact('testimonials','firstTestimonialId'));
     }
 
     public function gallery()

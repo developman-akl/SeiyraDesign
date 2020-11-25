@@ -13237,25 +13237,32 @@ section:nth-child(5) {
 #testimonials {
   margin-top: 10px;
   margin-bottom: 25px;
+  min-height: 100px;
 }
 
 #testimonials .carousel-item.active {
   display: block;
 }
 
-#testimonials h4 {
-  text-align: center;
+#testimonials .testimonial-name-container h4 {
   font-size: 1.1875rem !important;
   letter-spacing: 3px;
   font-weight: 900;
   color: #717BF9;
   margin: auto;
-  width: 60%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#testimonials .testimonial-name-container .testimonial-image {
+  margin-right: 7px;
+  max-height: 15px;
+  vertical-align: middle;
 }
 
 #testimonials .testimonial_subtitle {
   text-align: center;
-  font-size: 0.875rem !important;
+  font-size: 0.8125rem !important;
   letter-spacing: 2px;
   font-weight: 500;
   color: #E9ECFF;
@@ -13267,7 +13274,7 @@ section:nth-child(5) {
 
 #testimonials .testimonial_para {
   text-align: center;
-  font-size: 0.8125rem !important;
+  font-size: 0.875rem !important;
   letter-spacing: 2px;
   color: #E9ECFF;
   margin: auto;
