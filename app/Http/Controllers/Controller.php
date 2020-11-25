@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
 
 class Controller extends BaseController
 {
@@ -16,7 +17,7 @@ class Controller extends BaseController
     public function index()
     {
         $testimonials = Testimonial::all();
-        $firstTestimonialId = $testimonials ?? $testimonials->first()->id;
+        $firstTestimonialId = $testimonials ?? DB::table('testimonials')->first()->id;
 
         return view('app', compact('testimonials','firstTestimonialId'));
     }
