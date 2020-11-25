@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="testimonial-name-container">
-                            <img src="{{ asset('storage/'.$testimonial->image) }}" class="testimonial-image img-fluid" alt="{{ $testimonial->company . 'testimonial' }}">
+                            <img src="{{ asset('storage/'.$testimonial->image) }}" class="testimonial-image img-fluid" alt="{{ $testimonial->alt_text ? $testimonial->alt_text : $testimonial->company . ' testimonial' }}">
                             <h4><strong>{{ $testimonial->name }}</strong></h4>
                         </div>
                         <a href="{{ $testimonial->link ?? 'javascript:void(0)' }}" class="testimonial_subtitle" title="{{'Go to ' .  $testimonial->company }}">
