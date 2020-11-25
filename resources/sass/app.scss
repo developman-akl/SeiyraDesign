@@ -710,14 +710,14 @@ section {
     background-color: black;
 
     @media (min-width: 1300px) {
-        scroll-snap-align: none;
+        scroll-snap-align: start;
     }
 
     .section-title {
 
         h2 {
             text-align: center;
-            font: normal normal normal 70px/84px Lust;
+            font-family: Lust;
             @include font-size(70px !important);
             letter-spacing: 4px;
             color: $primaryCol;
@@ -730,8 +730,8 @@ section {
         
         p {
             text-align: center;
-            font: normal normal 300 20px/28px "sofia-pro";
-            @include font-size(20px !important);
+            font-family: "sofia-pro";
+            @include font-size(18px !important);
             letter-spacing: 3px;
             color: $secondaryCol;
             margin: auto;

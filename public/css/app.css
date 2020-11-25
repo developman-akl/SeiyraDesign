@@ -12504,13 +12504,13 @@ section {
 
 @media (min-width: 1300px) {
   section {
-    scroll-snap-align: none;
+    scroll-snap-align: start;
   }
 }
 
 section .section-title h2 {
   text-align: center;
-  font: normal normal normal 70px/84px Lust;
+  font-family: Lust;
   font-size: calc(1.5625rem + 3.75vw) !important;
   letter-spacing: 4px;
   color: #717BF9;
@@ -12529,8 +12529,8 @@ section .section-title h2 {
 
 section .section-title p {
   text-align: center;
-  font: normal normal 300 20px/28px "sofia-pro";
-  font-size: 1.25rem !important;
+  font-family: "sofia-pro";
+  font-size: 1.125rem !important;
   letter-spacing: 3px;
   color: #E9ECFF;
   margin: auto;
