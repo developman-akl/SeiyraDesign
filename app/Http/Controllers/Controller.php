@@ -16,7 +16,7 @@ class Controller extends BaseController
     public function index()
     {
         $testimonials = Testimonial::all();
-        $firstTestimonialId = $testimonials->first()->id;
+        $firstTestimonialId = $testimonials ?? $testimonials->first()->id;
 
         return view('app', compact('testimonials','firstTestimonialId'));
     }
