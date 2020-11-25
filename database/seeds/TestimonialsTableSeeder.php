@@ -110,7 +110,7 @@ class TestimonialsTableSeeder extends Seeder
                         'width'  => '150',
                         'height' => 'null',
                     ],
-                    'quality'    => '70%',
+                    'quality'    => '100%',
                     'upsize'     => false,
                     'thumbnails' => [
                         [
