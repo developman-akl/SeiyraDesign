@@ -18,11 +18,11 @@
                     alt="Behance" loading="lazy" title="Béhance">
             </a>
         </div>
-        <div class="footer-info mb-0 row d-flex flex-row justify-content-between mt-3">
-            <div class="d-flex flex-row">
+        <div class="footer-info row justify-content-between">
+            <div class="designed">
                 <p>Website designed by</p><a href="mailto:{{ setting('site.email') }}">SeiyraDesign</a>
             </div>
-            <div class="d-flex flex-row">
+            <div class="developed">
                 <p>Website developed by</p><a href="mailto:{{ setting('site.developman_email') }}" target="_blank">Developman</a>
             </div>
         </div>

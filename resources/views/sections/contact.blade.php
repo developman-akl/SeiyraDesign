@@ -42,8 +42,10 @@
                 </div>
             </div>
         </div>
-        
     
-    @include('sections.footer')
+        @include('sections.testimonials')
+
+        @include('sections.footer')
+
     </div>
 

@@ -10,7 +10,7 @@
     <link rel="canonical" href="{{url()->current()}}"/>
    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -25,12 +25,13 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     <link href="https://use.typekit.net/fwy1qqq.css" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"/>
+
     <link rel="icon" href="{{ URL::asset('storage/images/favicon.png') }}" type="image/x-icon"/>
     <link rel="apple-touch-icon" href="{{ URL::asset('storage/images/favicon.png') }}">
 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"/>
     <script src="{{ mix('js/app.js') }}"></script>
-
+    
     <!-- robots.txt -->
     {!! Robots::metaTag() !!}
     

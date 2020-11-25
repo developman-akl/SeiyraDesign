@@ -150,7 +150,7 @@ body {
 
                 p:hover {
                     color: $primaryCol;
-                    cursor: pointer; 
+                    cursor: pointer;
                 }
             }
         }
@@ -472,11 +472,11 @@ body {
     .alert-success,
     .alert-danger {
         text-align: center;
-        font-size: 24px;
+        font-size: 18px;
         border-radius: $borderRadius;
         margin-top: 0px;
         margin-bottom: 12px;
-        padding: 8px;
+        padding: 5px;
         font-family: "sofia-pro";
         box-shadow: $boxShadowPrimary;
     }
@@ -493,20 +493,20 @@ body {
     #contact-email,
     #contact-subject,
     #btn-contact-send {
-        height: 65px;
+        height: 45px;
         box-shadow: $boxShadowPrimary;
     }
 
     @media (min-width: 1300px) {
         #contact-message {
-            height: 250px;
+            height: 150px;
             box-shadow: $boxShadowPrimary;
         }
     }
 
     @media (max-width: 576) {
         #contact-message {
-            height: 150px;
+            height: 100px;
             box-shadow: $boxShadowPrimary;
         }
     }
@@ -519,11 +519,11 @@ body {
         border: 1px solid #615DED;
         border-radius: $borderRadius;
         opacity: 1;
-        font: normal normal bold 30px/74px "sofia-pro";
+        font: normal normal bold 26px/58px "sofia-pro";
         letter-spacing: 1.2px;
         color: #615DED;
         text-align: center;
-        line-height: 46px;
+        line-height: 29px;
         cursor: pointer;
     }
 
@@ -577,7 +577,7 @@ body {
         color: $navbarbg;
         opacity: 1;
         font-family: "sofia-pro";
-        font-size: 30px;
+        font-size: 20px;
         width: 100%;
     }
 
@@ -710,7 +710,7 @@ section {
     background-color: black;
 
     @media (min-width: 1300px) {
-        scroll-snap-align: start;
+        scroll-snap-align: none;
     }
 
     .section-title {
@@ -727,7 +727,7 @@ section {
             margin-left: auto;
             margin-right: auto;
         }
-
+        
         p {
             text-align: center;
             font: normal normal 300 20px/28px "sofia-pro";
@@ -1109,20 +1109,12 @@ section {
         font: normal normal 300 20px "sofia-pro";
         letter-spacing: 0.3px;
         opacity: 1;
+        margin-top: 10px;
 
-        p {
-            color: $primaryCol;
-            margin-bottom: 0;
-        }
+        .designed,
+        .developed {
 
-        a {
-            color: $secondaryCol;
-            margin-left: 7px;
-        }
-
-        @media (max-width: 414px) {
-            @include font-size(14px !important);
-            @include center-children;
+            display: flex;
 
             p {
                 color: $primaryCol;
@@ -1132,6 +1124,11 @@ section {
             a {
                 color: $secondaryCol;
                 margin-left: 7px;
+            }
+
+            @media (max-width: 414px) {
+                @include font-size(12px !important);
+                margin: 0 auto;
             }
         }
     }
@@ -1435,5 +1432,53 @@ section {
         .modal-content {
             margin-top: 10px;
         }
+    }
+}
+
+
+
+
+#testimonials{
+
+    margin-top: 10px;
+    margin-bottom: 25px;
+
+    .carousel-item.active {
+        display:block;
+    }
+
+    h4 {
+        text-align: center;
+        // font-family: "sofia-pro";
+        @include font-size(19px !important);
+        letter-spacing: 3px;
+        font-weight: 900;
+        color: $primaryCol;
+        margin: auto;
+        width: 60%;
+    }
+
+    .testimonial_subtitle{
+        text-align: center;
+        // font-family: "sofia-pro";
+        @include font-size(14px !important);
+        letter-spacing: 2px;
+        font-weight: 500;
+        color: $secondaryCol;
+        margin: auto;
+        width: 80%;
+        opacity: 0.7;
+        margin-bottom: 5px;
+    }
+
+    .testimonial_para {
+        text-align: center;
+        // font-family: "sofia-pro";
+        @include font-size(13px !important);
+        letter-spacing: 2px;
+        color: $secondaryCol;
+        margin: auto;
+        width: 60%;
+        font-style: italic;
     }
 }
