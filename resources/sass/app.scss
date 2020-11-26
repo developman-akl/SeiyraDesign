@@ -727,7 +727,7 @@ section {
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         p {
             text-align: center;
             font-family: "sofia-pro";
@@ -1436,52 +1436,55 @@ section {
 }
 
 // TESTIMONIALS
-#testimonials{
+#testimonials {
     margin-top: 10px;
     margin-bottom: 25px;
     min-height: 100px;
 
     .carousel-item.active {
-        display:block;
-    }
+        display: block;
 
-    .testimonial-name-container{
-        h4 {
-            @include font-size(19px !important);
-            letter-spacing: 3px;
-            font-weight: 900;
-            color: $primaryCol;
+    }
+        .testimonial-name-container {
+            display: inline-table;
+            align-items: center;
             margin: auto;
-            display:inline-block;
-            vertical-align:middle;
+            
+            margin-bottom: 5px;
+
+            .testimonial-name {
+                @include font-size(19px !important);
+                letter-spacing: 3px;
+                font-weight: 900;
+                color: $primaryCol;
+            }
+
+            .testimonial-image {
+                margin-right: 4px;
+                max-height: 19px;
+            }
         }
 
-        .testimonial-image{
-            margin-right: 7px;
-            max-height: 15px;
-            vertical-align: middle;
+        .testimonial_subtitle {
+            display: block;
+            text-align: center;
+            @include font-size(13px !important);
+            letter-spacing: 2px;
+            font-weight: 500;
+            color: $secondaryCol;
+            margin: auto;
+            width: 80%;
+            opacity: 0.7;
         }
-    }
 
-    .testimonial_subtitle{
-        text-align: center;
-        @include font-size(13px !important);
-        letter-spacing: 2px;
-        font-weight: 500;
-        color: $secondaryCol;
-        margin: auto;
-        width: 80%;
-        opacity: 0.7;
-    }
-
-    .testimonial_para {
-        margin-top: 8px;
-        text-align: center;
-        @include font-size(14px !important);
-        letter-spacing: 2px;
-        color: $secondaryCol;
-        margin: auto;
-        width: 60%;
-        font-style: italic;
-    }
+        .testimonial_para {
+            margin-top: 8px;
+            text-align: center;
+            @include font-size(14px !important);
+            letter-spacing: 2px;
+            color: $secondaryCol;
+            margin: auto;
+            width: 60%;
+            font-style: italic;
+        }
 }

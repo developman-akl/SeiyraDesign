@@ -7,21 +7,21 @@
                     <div class="col">
                         <div class="testimonial-name-container">
                             <img 
-                                src="{{ asset('storage/'.$testimonial->image) }}" 
+                                src="{{ asset('storage/'.$testimonial->image) }}"
                                 class="testimonial-image img-fluid" 
                                 alt="{{ $testimonial->alt_text ? $testimonial->alt_text : $testimonial->company . ' testimonial' }}" 
                                 title="{{ $testimonial->alt_text ? $testimonial->alt_text : $testimonial->company . ' testimonial' }}">
-                            <h4>
+                            <span class="testimonial-name">
                                 <strong>
                                     {{ $testimonial->name }}
                                 </strong>
-                            </h4>
+                            </span>
                         </div>
                         <a 
                             href="{{ $testimonial->link ?? 'javascript:void(0)' }}" 
                             class="testimonial_subtitle" 
                             title="{{'Go to ' .  $testimonial->company }}">
-                            <span>{{ $testimonial->company }}</span>
+                            {{ $testimonial->company }}
                         </a>
                         <p class="testimonial_para">{{ $testimonial->testimonial }}</p>
                     </div>
