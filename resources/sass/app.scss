@@ -466,8 +466,8 @@ body {
 
 .contact-container {
     width: 65vw;
-    height: 25vh;
-    display: table;
+    // height: 25vh;
+    // display: table;
 
     .alert-success,
     .alert-danger {
@@ -1078,10 +1078,11 @@ section {
     padding-left: 0;
     padding-right: 0;
     margin: 0;
-    width: 100%;
+    width: 85%;
     bottom: 0;
     z-index: 1;
-    // position: fixed;
+    align-self: center;
+    position: absolute;
 
     .footer-icons {
         background: $navbarbg;
@@ -1437,9 +1438,11 @@ section {
 
 // TESTIMONIALS
 #testimonials {
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 25px;
     min-height: 100px;
+    width: 85%;
+    align-self: center;
 
     .carousel-item.active {
         display: block;
