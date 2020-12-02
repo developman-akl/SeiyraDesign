@@ -718,7 +718,7 @@ section {
         h2 {
             text-align: center;
             font-family: Lust;
-            @include font-size(70px !important);
+            @include font-size(70px);
             letter-spacing: 4px;
             color: $primaryCol;
             text-align: center;
@@ -731,7 +731,7 @@ section {
         p {
             text-align: center;
             font-family: "sofia-pro";
-            @include font-size(18px !important);
+            @include font-size(18px);
             letter-spacing: 3px;
             color: $secondaryCol;
             margin: auto;
@@ -744,8 +744,8 @@ section {
             }
 
             p {
-                font: normal normal 300 16px/23px "sofia-pro";
-                @include font-size(16px !important);
+                font-family: "sofia-pro";
+                @include font-size(16px);
                 width: 90%;
             }
         }
@@ -756,8 +756,8 @@ section {
             }
 
             p {
-                font: normal normal 300 14px/21px "sofia-pro";
-                @include font-size(14px !important);
+                font-family: "sofia-pro";
+                @include font-size(14px);
                 width: 90%;
             }
         }
@@ -870,6 +870,11 @@ section {
     outline: none;
     cursor: pointer;
     margin: 0;
+    opacity: 0.8;
+
+    &:hover{
+        opacity: 1;
+    }
 
     img {
         width: 70px;
@@ -896,6 +901,11 @@ section {
     cursor: pointer;
     padding: 0;
     margin: 0;
+    opacity: 0.8;
+
+    &:hover{
+        opacity: 1;
+    }
 
     img {
         width: 70px;
@@ -1080,7 +1090,7 @@ section {
     margin: 0;
     width: 85%;
     bottom: 0;
-    z-index: 1;
+    z-index: 5;
     align-self: center;
     position: absolute;
 
@@ -1089,25 +1099,68 @@ section {
         display: flex;
         justify-content: space-between;
 
-
-        @media (min-width: 1300px) {
+        /* Smartphones (portrait and landscape) ----------- */
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
             img {
-                width: 110px;
+                width: 60px;
+            }
+        }
+
+        /* Smartphones (landscape) ----------- */
+        @media only screen and (min-width : 321px) {
+            img {
+                width: 60px;
+            }
+        }
+
+        /* Smartphones (portrait) ----------- */
+        @media only screen and (max-width : 320px) {
+            img {
+                width: 50px;
+            }
+        }
+
+        /* iPads (portrait and landscape) ----------- */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+            img {
+                width: 70px;
                 padding: 5px;
             }
         }
 
-        @media (max-width: 414px) {
+        /* iPads (landscape) ----------- */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
             img {
-                width: 60px;
-                padding: 5px;
+                width: 80px;
+            }
+        }
+
+        /* iPads (portrait) ----------- */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+            img {
+                width: 90px;
+            }
+        }
+
+        /* Desktops and laptops ----------- */
+        @media only screen and (min-width : 1224px) {
+            img {
+                width: 110px;
+            }
+        }
+
+        /* Large screens ----------- */
+        @media only screen and (min-width : 1824px) {
+            img {
+                width: 130px;
             }
         }
 
     }
 
     .footer-info {
-        font: normal normal 300 20px "sofia-pro";
+        @include font-size(19px);
+        font-family: "sofia-pro";
         letter-spacing: 0.3px;
         opacity: 1;
         margin-top: 10px;
@@ -1128,7 +1181,7 @@ section {
             }
 
             @media (max-width: 414px) {
-                @include font-size(12px !important);
+                @include font-size(12px);
                 margin: 0 auto;
             }
         }
@@ -1437,26 +1490,25 @@ section {
 }
 
 // TESTIMONIALS
-#testimonials {
-    margin-top: 5px;
+.carousel {
+    margin-top: 10px;
     margin-bottom: 25px;
-    min-height: 100px;
+    min-height: 230px;
     width: 85%;
     align-self: center;
 
     .carousel-item.active {
         display: block;
 
-    }
         .testimonial-name-container {
             display: inline-table;
             align-items: center;
             margin: auto;
-            
+
             margin-bottom: 5px;
 
             .testimonial-name {
-                @include font-size(19px !important);
+                @include font-size(19px);
                 letter-spacing: 3px;
                 font-weight: 900;
                 color: $primaryCol;
@@ -1471,7 +1523,7 @@ section {
         .testimonial_subtitle {
             display: block;
             text-align: center;
-            @include font-size(13px !important);
+            @include font-size(13px);
             letter-spacing: 2px;
             font-weight: 500;
             color: $secondaryCol;
@@ -1481,13 +1533,15 @@ section {
         }
 
         .testimonial_para {
+            display: block;
             margin-top: 8px;
             text-align: center;
-            @include font-size(14px !important);
+            @include font-size(14px);
             letter-spacing: 2px;
             color: $secondaryCol;
             margin: auto;
             width: 60%;
             font-style: italic;
         }
+    }
 }
