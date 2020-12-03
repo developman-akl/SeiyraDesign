@@ -13294,7 +13294,7 @@ section:nth-child(5) {
 
 @media (max-width: 414px) {
   .carousel {
-    min-height: 290px;
+    min-height: 310px;
   }
 }
 
