@@ -1,4 +1,4 @@
-<div class="carousel slide" data-ride="carousel">
+<div id="testimonials" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
 
         @foreach($testimonials as $testimonial)
@@ -37,6 +37,6 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-        
-    </div>
+    </div>      
+    
 </div>

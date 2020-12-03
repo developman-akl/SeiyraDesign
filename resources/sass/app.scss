@@ -872,7 +872,7 @@ section {
     margin: 0;
     opacity: 0.8;
 
-    &:hover{
+    &:hover {
         opacity: 1;
     }
 
@@ -903,7 +903,7 @@ section {
     margin: 0;
     opacity: 0.8;
 
-    &:hover{
+    &:hover {
         opacity: 1;
     }
 
@@ -1500,48 +1500,50 @@ section {
     .carousel-item.active {
         display: block;
 
-        .testimonial-name-container {
-            display: inline-table;
-            align-items: center;
-            margin: auto;
+    }
 
-            margin-bottom: 5px;
+    .testimonial-name-container {
+        display: inline-table;
+        align-items: center;
+        margin: auto;
 
-            .testimonial-name {
-                @include font-size(19px);
-                letter-spacing: 3px;
-                font-weight: 900;
-                color: $primaryCol;
-            }
+        margin-bottom: 5px;
 
-            .testimonial-image {
-                margin-right: 4px;
-                max-height: 19px;
-            }
+        .testimonial-name {
+            @include font-size(19px);
+            letter-spacing: 3px;
+            font-weight: 900;
+            color: $primaryCol;
         }
 
-        .testimonial_subtitle {
-            display: block;
-            text-align: center;
-            @include font-size(13px);
-            letter-spacing: 2px;
-            font-weight: 500;
-            color: $secondaryCol;
-            margin: auto;
-            width: 80%;
-            opacity: 0.7;
-        }
-
-        .testimonial_para {
-            display: block;
-            margin-top: 8px;
-            text-align: center;
-            @include font-size(14px);
-            letter-spacing: 2px;
-            color: $secondaryCol;
-            margin: auto;
-            width: 60%;
-            font-style: italic;
+        .testimonial-image {
+            margin-right: 4px;
+            max-height: 19px;
         }
     }
+
+    .testimonial_subtitle {
+        display: block;
+        text-align: center;
+        @include font-size(13px);
+        letter-spacing: 2px;
+        font-weight: 500;
+        color: $secondaryCol;
+        margin: auto;
+        width: 80%;
+        opacity: 0.7;
+    }
+
+    .testimonial_para {
+        display: block;
+        margin-top: 8px;
+        text-align: center;
+        @include font-size(14px);
+        letter-spacing: 2px;
+        color: $secondaryCol;
+        margin: auto;
+        width: 60%;
+        font-style: italic;
+    }
+
 }
