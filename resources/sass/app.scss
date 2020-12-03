@@ -1497,6 +1497,10 @@ section {
     width: 85%;
     align-self: center;
 
+    @media (max-width: 414px) {
+        min-height: 290px;
+    }
+
     .carousel-item.active {
         display: block;
 
