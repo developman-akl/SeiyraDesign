@@ -36,6 +36,7 @@ class ImagesService
         $images_array = [];
         foreach($filtered_files as $file)
         {
+            $cTime = $file->getcTime();
             $filename = substr($file->getFilename(), 0, -4);
             $pathname = $file->getPathname();
             $pathname_thumbnail =   str_replace( 
@@ -54,12 +55,16 @@ class ImagesService
                         'large_image' => $pathname, 
                         'thumbnail' => $pathname_thumbnail, 
                         'size' => $size,
+                        'cTime' => $cTime,
                     )
             );
         }
 
         // Log::debug($folder . " images_array ".ImagesService::time_elapsed());
-        
+        usort($images_array, function($a, $b) {
+            return $b['cTime'] <=> $a['cTime'];
+        });
+
         return $images_array;
     }
 
