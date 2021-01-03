@@ -208,7 +208,7 @@ $(document).ready(function () {
 
                 var messagesHtml = '<div id="responseTextParent" class="row mb-1 mt-1">' +
                     '<div class="col-lg-12"><div id="responseText" class="alert ' + resultClass + '" role="alert">' +
-                    '<ul style="list-style-type:none;margin:0;padding:0;>';
+                    '<ul style="list-style-type:none;margin:0;padding:0;">';
 
                 $.each(messages, function (key, value) {
                     messagesHtml += '<li class="mb-1">' + value[0] + '</li>';
