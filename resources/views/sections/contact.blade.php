@@ -1,5 +1,5 @@
 <div class="section-title">
-    <h2>{{ setting('contact.title') }}</h1>
+    <h2>{{ setting('contact.title') }}</h2>
     <span class="border"></span>
     
     <p>{!! nl2br(setting('contact.description')) !!}</p>

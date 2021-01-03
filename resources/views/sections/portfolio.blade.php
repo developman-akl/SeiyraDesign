@@ -2,7 +2,7 @@
 
     <div class="container">
         <div class="section-title">
-            <h2>{{ setting('portfolio.title') }}</h1>
+            <h2>{{ setting('portfolio.title') }}</h2>
             <span class="border"></span>
             
             <p>{!! nl2br(setting('portfolio.description')) !!}</p>

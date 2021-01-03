@@ -3,7 +3,7 @@
 <div class="container full-width">
 
     <div class="section-title">
-        <h2>{{ setting('welcome.title') }}</h1>
+        <h2>{{ setting('welcome.title') }}</h2>
         <span class="border"></span>
         
         <p>{!! nl2br(setting('welcome.description')) !!}</p>
