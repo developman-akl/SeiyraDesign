@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
- * Bootstrap v4.5.2 (https://getbootstrap.com/)
+ * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -233,6 +233,7 @@ caption {
 
 th {
   text-align: inherit;
+  text-align: -webkit-match-parent;
 }
 
 label {
@@ -2222,11 +2223,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control::-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::placeholder {
   color: #6c757d;
   opacity: 1;
@@ -4002,6 +3998,8 @@ input[type=button].btn-block {
   display: block;
   min-height: 1.44rem;
   padding-left: 1.5rem;
+  -webkit-print-color-adjust: exact;
+          color-adjust: exact;
 }
 
 .custom-control-inline {
@@ -5581,6 +5579,7 @@ a.badge-dark.focus {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 2;
   padding: 0.75rem 1.25rem;
   color: inherit;
 }
@@ -10855,7 +10854,7 @@ a.text-dark:focus {
 
 .text-break {
   word-break: break-word !important;
-  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
 }
 
 .text-reset {
@@ -12096,6 +12095,10 @@ body {
   box-shadow: 0 -2px 10px #615DED;
 }
 
+.service-images img:hover {
+  box-shadow: 0 -2px 40px #615DED;
+}
+
 @media (min-width: 1300px) {
   .service-images img {
     height: 225px;
@@ -12309,16 +12312,6 @@ body {
   width: 100%;
 }
 
-.contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
-  text-align: center;
-  letter-spacing: 0.32px;
-  color: #000;
-  opacity: 1;
-  font-family: "sofia-pro";
-  font-size: 20px;
-  width: 100%;
-}
-
 .contact-container select,
 .contact-container select::content,
 .contact-container select::selection,
@@ -12348,10 +12341,6 @@ body {
 }
 
 .contact-container textarea:-ms-input-placeholder, .contact-container input[type=text]:-ms-input-placeholder, .contact-container input[type=email]:-ms-input-placeholder {
-  opacity: 0.5;
-}
-
-.contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
   opacity: 0.5;
 }
 
@@ -12431,10 +12420,6 @@ body {
   }
 
   .contact-container textarea:-ms-input-placeholder, .contact-container input[type=text]:-ms-input-placeholder, .contact-container input[type=email]:-ms-input-placeholder {
-    font-size: 20px;
-  }
-
-  .contact-container textarea::-ms-input-placeholder, .contact-container input[type=text]::-ms-input-placeholder, .contact-container input[type=email]::-ms-input-placeholder {
     font-size: 20px;
   }
 

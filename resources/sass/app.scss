@@ -1,10 +1,7 @@
-// Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
 @import 'variables';
 
-// Bootstrap
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
 @import "../../node_modules/rfs/scss";
@@ -27,6 +24,7 @@ $colthr: rgb(0, 0, 0);
 $navbarbg: #000;
 $secondaryCol: #E9ECFF;
 $boxShadowPrimary: 0 -2px 10px #615DED;
+$boxShadowPrimaryHover: 0 -2px 40px #615DED;
 $boxShadowSecondary: 5px 5px 5px #666669;
 $borderRadius: 10px;
 
@@ -373,6 +371,10 @@ body {
         border-radius: 50%;
         object-fit: cover;
         box-shadow: $boxShadowPrimary;
+
+        &:hover {
+            box-shadow: $boxShadowPrimaryHover;
+        }
     }
 
     @media (min-width: 1300px) {

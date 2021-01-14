@@ -61,6 +61,41 @@ function showJumpRefButtons(thisPos) {
     }
 }
 
+function AddClass(element, name) {
+
+    let i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+        }
+    }
+}
+
+function RemoveClass(element, name) {
+
+    let i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+    }
+    element.className = arr1.join(" ");
+}
+
+function filterSelection(c) {
+    let x, i;
+    x = document.getElementsByClassName("grid");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+        RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+    }
+}
+
 
 $(document).ready(function () {
     if (window.location.href != window.location.origin+'/')
@@ -158,6 +193,52 @@ $(document).ready(function () {
                 break;
         }
     };
+
+    
+    $("#service-ux").on('click', function (e) {
+        $('#btn-show-all').removeClass('active');
+        $('#btn-ux').addClass('active');
+        $('#btn-photo').removeClass('active');
+        $('#btn-social').removeClass('active');
+        $('#btn-logo').removeClass('active');
+
+        jumpRef('#portfolio');
+        filterSelection("ux");
+    });
+
+    $("#service-photo").on('click', function (e) {
+        $('#btn-show-all').removeClass('active');
+        $('#btn-ux').removeClass('active');
+        $('#btn-photo').addClass('active');
+        $('#btn-social').removeClass('active');
+        $('#btn-logo').removeClass('active');
+
+        jumpRef('#portfolio');
+        filterSelection('photo');
+    });
+
+    $("#service-social").on('click', function (e) {
+        $('#btn-show-all').removeClass('active');
+        $('#btn-ux').removeClass('active');
+        $('#btn-photo').removeClass('active');
+        $('#btn-social').addClass('active');
+        $('#btn-logo').removeClass('active');
+
+        jumpRef('#portfolio');
+        filterSelection('social');
+    });
+
+    $("#service-logo").on('click', function (e) {
+        $('#btn-show-all').removeClass('active');
+        $('#btn-ux').removeClass('active');
+        $('#btn-photo').removeClass('active');
+        $('#btn-social').removeClass('active');
+        $('#btn-logo').addClass('active');
+        
+        jumpRef('#portfolio');
+        filterSelection('logo');
+    });
+
 
 });
 
@@ -499,43 +580,6 @@ $(document).ready(function () {
     $("#portfolioBtnContainer .btn").on('click', function (e) {
         filterSelection(e.target.dataset.selection);
     });
-
-
-    function filterSelection(c) {
-        let x, i;
-        x = document.getElementsByClassName("grid");
-        if (c == "all") c = "";
-        for (i = 0; i < x.length; i++) {
-            RemoveClass(x[i], "show");
-            if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
-        }
-    }
-
-    function AddClass(element, name) {
-
-        let i, arr1, arr2;
-        arr1 = element.className.split(" ");
-        arr2 = name.split(" ");
-        for (i = 0; i < arr2.length; i++) {
-            if (arr1.indexOf(arr2[i]) == -1) {
-                element.className += " " + arr2[i];
-            }
-        }
-    }
-
-    function RemoveClass(element, name) {
-
-        let i, arr1, arr2;
-        arr1 = element.className.split(" ");
-        arr2 = name.split(" ");
-        for (i = 0; i < arr2.length; i++) {
-            while (arr1.indexOf(arr2[i]) > -1) {
-                arr1.splice(arr1.indexOf(arr2[i]), 1);
-            }
-        }
-        element.className = arr1.join(" ");
-    }
-
 
     // Add active class to the current button (highlight it)
     var btnContainer = document.getElementById("portfolioBtnContainer");
