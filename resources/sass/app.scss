@@ -733,8 +733,9 @@ section {
         p {
             text-align: center;
             font-family: "sofia-pro";
+            line-height: 30px;
             @include font-size(18px);
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             color: $secondaryCol;
             margin: auto;
             width: 80%;
