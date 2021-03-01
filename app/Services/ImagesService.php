@@ -3,8 +3,6 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Log;
-use Intervention\Image\Facades\Image;
 
 class ImagesService
 {
@@ -60,7 +58,6 @@ class ImagesService
             );
         }
 
-        // Log::debug($folder . " images_array ".ImagesService::time_elapsed());
         usort($images_array, function($a, $b) {
             return $b['cTime'] <=> $a['cTime'];
         });
