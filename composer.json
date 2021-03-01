@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravelcollective/html": "^6.1",
         "mad-web/laravel-robots": "^2.1",
+        "spatie/laravel-ray": "^1.13",
         "tcg/voyager": "^1.4"
     },
     "require-dev": {

@@ -24,11 +24,26 @@ class Controller extends BaseController
 
     public function gallery()
     {
-        $uxImages = ImagesService::getImages('ux-ui-design');
-        $photoImages = ImagesService::getImages('photo-editing');
-        $socialImages = ImagesService::getImages('social-media-creative-design');
-        $logoImages = ImagesService::getImages('logo-design');
+        $allImages = cache()->rememberForever('allImages', function () {
+            return ImagesService::getImages('');
+        });
+        
+        $uxImages = cache()->rememberForever('uxImages', function () {
+            return ImagesService::getImages('ux-ui-design');
+        });
 
-        return view('sections/gallery', compact('uxImages','photoImages','socialImages','logoImages'));
+        $photoImages = cache()->rememberForever('photoImages', function () {
+            return ImagesService::getImages('photo-editing');
+        });
+
+        $socialImages = cache()->rememberForever('socialImages', function () {
+            return ImagesService::getImages('social-media-creative-design');
+        });
+
+        $logoImages = cache()->rememberForever('logoImages', function () {
+            return ImagesService::getImages('logo-design');
+        });
+
+        return view('sections/gallery', compact('allImages', 'uxImages','photoImages','socialImages','logoImages'));
     }
 }

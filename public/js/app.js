@@ -42025,7 +42025,6 @@ function RemoveClass(element, name) {
 function filterSelection(c) {
   var x, i;
   x = document.getElementsByClassName("grid");
-  if (c == "all") c = "";
 
   for (i = 0; i < x.length; i++) {
     RemoveClass(x[i], "show");

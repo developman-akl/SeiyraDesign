@@ -23,8 +23,8 @@ class ImagesService
 
     public static function getImages($folder) {
         $path = "storage/portfolio/".$folder;
-        $files = File::files($path); // Shows files only from the root folder, nothing from the subfolders
-        
+        $files = $folder ? File::files($path) : File::allFiles($path); // Shows files only from the root folder, nothing from the subfolders OR Shows all files from the folder, subfolders too
+
         // only images - exclude thumbnails
         $filtered_files = array_filter($files, function($str){
             return 

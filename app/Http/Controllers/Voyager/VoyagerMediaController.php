@@ -35,6 +35,8 @@ class VoyagerMediaController extends BaseVoyagerMediaController
         $quality = is_object($details) && property_exists($details, 'quality') && $details->quality ? $details->quality : 100;
 
         try {
+            Cache::flush();
+
             $realPath = Storage::disk($this->filesystem)->getDriver()->getAdapter()->getPathPrefix();
 
             $allowedMimeTypes = config('voyager.media.allowed_mimetypes', '*');
@@ -158,6 +160,8 @@ class VoyagerMediaController extends BaseVoyagerMediaController
         $path = str_replace('//', '/', Str::finish($request->path, '/'));
         $success = true;
         $error = '';
+        
+        Cache::flush();
 
         foreach ($request->get('files') as $file) {
             $file_path = $path.$file['name'];
