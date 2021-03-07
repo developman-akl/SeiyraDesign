@@ -340,7 +340,7 @@ body {
 
 .service-images {
     background: transparent;
-    padding-top: 30px;
+    padding-top: 60px;
     text-align: center;
 
     .column {
@@ -377,7 +377,7 @@ body {
         }
     }
 
-    @media (min-width: 1300px) {
+    @media (min-width: 1401px) {
         img {
             height: 225px;
             width: 225px;
@@ -748,6 +748,7 @@ section {
 
             p {
                 font-family: "sofia-pro";
+                line-height: 26px;
                 @include font-size(16px);
                 width: 90%;
             }
@@ -807,7 +808,7 @@ section {
                 object-fit: contain;
                 width: 100%;
                 visibility: hidden;
-                margin-top: 0;
+                margin-top: 30px;
                 margin-bottom: 0;
                 margin-left: auto;
                 margin-right: auto;
@@ -821,7 +822,7 @@ section {
             animation-name: animat_show;
             animation-duration: 1.2s;
             animation-iteration-count: 1;
-            margin-top: 0;
+            // margin-top: 0;
             margin-bottom: 0;
             margin-left: auto;
             margin-right: auto;
