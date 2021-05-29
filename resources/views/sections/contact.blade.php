@@ -17,11 +17,10 @@
                 <input type="email" class="form-control" name="contact-email" id="contact-email" placeholder="Your Email Address">
                 <span class="text-danger">{{ $errors->first('email') }}</span>
             </div>
-            <div class="form-group required {{ $errors->has('subject') ? 'has-error' : '' }}">
-                <select
-                    class="form-control {{ $errors->has('order_type') ? 'is-invalid' : '' }}"
-                    name="contact-subject" id="contact-subject">
-                    <option value disabled selected>Message Subject</option>
+            <div class="form-group required {{ $errors->has('subject') ? 'has-error' : '' }}" style="text-align: left;">
+                <select name="contact-subject" id="contact-subject" 
+                    class="form-control {{ $errors->has('order_type') ? 'is-invalid' : '' }}" style="text-align: left;">
+                    <option value disabled selected style="text-align: left;">Message Subject</option>
                     @foreach(App\Http\Controllers\ContactMeController::SUBJECT_SELECT as $key => $label)
                         <option value="{{ $key }}">{{ $label }}</option>
                     @endforeach

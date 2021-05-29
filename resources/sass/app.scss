@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-@import 'variables';
+@import '_variables';
 
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
@@ -16,17 +14,6 @@ $pswp__assets-path: '../../node_modules/photoswipe/src/css/default-skin/';
     justify-content: center;
     align-items: center;
 }
-
-$colone: #312d3c;
-$coltwo: #1a1b1f;
-$primaryCol: #717BF9;
-$colthr: rgb(0, 0, 0);
-$navbarbg: $body-bg;
-$secondaryCol: #E9ECFF;
-$boxShadowPrimary: 0 -2px 10px #615DED;
-$boxShadowPrimaryHover: 0 -2px 40px #615DED;
-$boxShadowSecondary: 5px 5px 5px #666669;
-$borderRadius: 10px;
 
 *,
 ::before,
@@ -504,6 +491,20 @@ body {
         box-shadow: $boxShadowPrimary;
     }
 
+    // #contact-subject {
+    //     text-align: left;
+    //     option:checked {
+    //         color: pink;
+    //     }
+    //     option:disabled {
+    //         color: pink;
+    //     }
+
+    //     .select-items div,.select-selected {
+    //         color: pink;
+    //     }
+    // }
+
     @media (min-width: 1300px) {
         #contact-message {
             height: 150px;
@@ -526,7 +527,7 @@ body {
         border: 1px solid #615DED;
         border-radius: $borderRadius;
         opacity: 1;
-        font: normal normal bold 26px/58px "sofia-pro";
+        font: normal normal bold 26px "sofia-pro";
         letter-spacing: 1.2px;
         color: #615DED;
         text-align: center;
@@ -651,34 +652,39 @@ body {
         }
 
 
-        #btn-contact-send {
-            line-height: 36px;
-        }
+        // #btn-contact-send {
+        //     line-height: 36px;
+        // }
 
-        .alert-success,
-        .alert-danger,
-        #btn-contact-send,
-        select,
-        select::content,
-        select::selection,
-        textarea,
-        textarea::content,
-        textarea::selection,
-        textarea::placeholder,
-        input[type="text"],
-        input[type="text"]::content,
-        input[type="text"]::selection,
-        input[type="text"]::placeholder,
-        input[type="email"],
-        input[type="email"]::content,
-        input[type="email"]::selection,
-        input[type="email"]::placeholder {
-            font-size: 20px;
+        // .alert-success,
+        // .alert-danger,
+        // #btn-contact-send,
+        // select,
+        // select::content,
+        // select::selection,
+        // select::placeholder,
+        // textarea,
+        // textarea::content,
+        // textarea::selection,
+        // textarea::placeholder,
+        // input[type="text"],
+        // input[type="text"]::content,
+        // input[type="text"]::selection,
+        // input[type="text"]::placeholder,
+        // input[type="email"],
+        // input[type="email"]::content,
+        // input[type="email"]::selection,
+        // input[type="email"]::placeholder {
+        //     font-size: 20px;
 
-        }
+        // }
 
-        textarea {
-            font-size: 15px;
+        // textarea {
+        //     font-size: 15px;
+        // }
+
+        .contact-container #contact-subject {
+            text-align: left;
         }
 
         .col {
@@ -1558,5 +1564,7 @@ section {
         width: 60%;
         font-style: italic;
     }
+
+    
 
 }
