@@ -8,10 +8,10 @@
     </div>
 
     <div class="service-images row">
-        <div id="service-ux" class="column">
+        <a id="service-ux" class="column" href="https://ux.seiyradesign.com" target="_blank">
             <img src="{{ asset('storage/images/service1.png') }}" alt="UX/UI Design" >
             <h2>UX/UI Design</h2>
-        </div>
+        </a>
         <div id="service-photo" class="column">
             <img src="{{ asset('storage/images/service2.png') }}" alt="Photo Editing" >
             <h2>Photo Editing</h2>

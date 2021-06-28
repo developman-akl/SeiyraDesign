@@ -23,7 +23,7 @@
                 <p>Website designed by</p><a href="mailto:{{ setting('site.email') }}">SeiyraDesign</a>
             </div>
             <div class="developed">
-                <p>Website developed by</p><a href="mailto:{{ setting('site.developman_email') }}" target="_blank">Developman</a>
+                <p>Website developed by</p><a href="https://developman.tech" target="_blank">Developman</a>
             </div>
         </div>
     </div>
